@@ -1,103 +1,110 @@
+"use client";
+
 import Image from "next/image";
+import Coisas from "./components/Common/modules/Coisas";
+import Recursos from "./components/Common/modules/Recursos";
+import Banner from "./components/Common/modules/Banner";
+import { ARTICULOS, VIDEOS } from "./lib/constantes";
+import Moneda from "./components/Common/modules/Moneda";
+import Timeline from "./components/Common/modules/Timeline";
+import Advertencia from "./components/Common/modules/Advertencia";
+import Cope from "./components/Common/modules/Cope";
+import Manufactory from "./components/Common/modules/Manufactory";
+import Designer from "./components/Common/modules/Designer";
+import Silencio from "./components/Common/modules/Silencio";
+import Wrapper from "./components/Common/modules/Wrapper";
+import Native from "./components/Common/modules/Native";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <Wrapper
+      children={
+        <>
+          <div
+            className="bg-gradient-to-br from-purple-900 to-black border border-pink-600 p-4 w-full flex items-start justify-between text-white shadow-lg"
+            dir="rtl"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+            <div className="flex-1 pr-4">
+              <div className="text-pink-400 font-bold text-sm mb-1">
+                Weber Kunst und Bild Buch, Marx Ziegler
+              </div>
+              <div className="relative w-fit h-fit flex flex-col gap-2">
+                <p className="text-sm text-gray-200">
+                  אין 1677, איז דער ערשטער בוך מיט װעב-מוסטער געדרוקט געוואָרן.
+                  מאָדע אין דעם כּלל. און פארװאָס זאָל דאָס חשוב זײַן؟
+                </p>
+                <p className="text-sm text-gray-200">
+                  זײַ ווי זיגלער — מאַך דעם מקור אָפֿן־סאָרס.
+                </p>
+              </div>
+            </div>
+            <div className="w-20 h-20 relative flex flex-shrink-0">
+              <Image
+                src="/images/marx.png"
+                layout="fill"
+                objectFit="cover"
+                draggable={false}
+                alt="Weber Kunst und Bild Buch, Marx Ziegler"
+              />
+            </div>
+          </div>
+          <Banner />
+          <div>
+            <div className="uppercase text-sm font-bold text-cyan-400 border-b border-yellow-500 pb-1 my-2">
+              What is it?
+            </div>
+            <div className="bg-zinc-800 p-4 flex items-start justify-start border border-zinc-700 flex-row gap-5">
+              <div className="text-yellow-400 font-bold text-sm mb-1">
+                As we keep looking through every angle and understanding of an
+                industry in the process of underappreciated tranformation, and
+                near total unbundling, it's clear the mix of web3 and fashion
+                refreshes the meaning of style. By combining irrevocable
+                creativity, personal autonomy, and decentralized tech,
+                monetization, and governance, the fashion industry is being
+                transformed into something startlingly interactive. Can't
+                imagine wanting to create anywhere else.
+              </div>
+              <div className="text-xs text-right relative w-fit h-full flex flex-col justify-between">
+                <div className="relative w-fit h-fit flex flex-col gap-1">
+                  <p className="text-gray-400">Latest:</p>
+                  <p className="text-yellow-400 font-semibold truncate max-w-[120px]">
+                    Emma-Jane MacKinnon-Lee, DIGITALAX
+                  </p>
+                  <p className="text-cyan-300">Aug. 2020</p>
+                </div>
+                <div
+                  className="text-yellow-400 mt-2 cursor-pointer"
+                  onClick={() =>
+                    window.open(
+                      "https://syntheticfutures.xyz/post/unbundling-threads/"
+                    )
+                  }
+                >{`Read more →`}</div>
+              </div>
+            </div>
+          </div>
+          <div className="w-full text-pink-400 font-bold text-sm my-3">
+            Devices Tailor Made from the Fabric Stuff of Web3
+          </div>
+          <Recursos
+            titulo="Articulos"
+            informacion={ARTICULOS}
+            children={<Moneda />}
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+          <Advertencia />
+          <Coisas />
+          <Native />
+          <Cope />
+          <Recursos
+            titulo="Vídeos 24/7"
+            informacion={VIDEOS}
+            children={<Timeline />}
           />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+          <Manufactory />
+          <Silencio />
+          <Designer />
+        </>
+      }
+    />
   );
 }
