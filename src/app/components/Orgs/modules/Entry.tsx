@@ -25,7 +25,7 @@ export default function Entry() {
                     key={org.titulo}
                     className="relative w-full h-fit flex flex-col gap-2"
                   >
-                    <div className="flex flex-row w-full h-fit gap-2 items-center">
+                    <div className="flex flex-col md:flex-row w-full h-fit gap-2 items-center">
                       <div className="relative w-10 h-10 border border-yellow-400">
                         <Image
                           src={`${INFURA_GATEWAY}${org.imagen}`}

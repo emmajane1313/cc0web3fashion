@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export default function Coisas() {
   return (
-    <div className="max-w-7xl mx-auto py-10 px-4 grid grid-cols-1 md:grid-cols-3 gap-6 h-fit">
-      <div className="bg-slate-800 p-4 rounded shadow-inner border border-purple-500 flex w-full h-full flex-col">
+    <div className="max-w-7xl mx-auto py-10 px-4 flex flex-col xl:flex-row gap-6 h-full">
+      <div className="bg-slate-800 p-4 rounded shadow-inner border border-purple-500 flex w-full xl:w-fit h-full flex-col grow">
         <div className="text-lg font-bold text-cyan-300 mb-2">
           Coisas Pra Usar
         </div>

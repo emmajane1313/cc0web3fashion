@@ -7,7 +7,7 @@ import useTrack from "../hooks/useTrack";
 export default function Advertencia() {
   const { setIsPaused, trackRef } = useTrack();
   return (
-    <div className="flex flex-row justify-between items-start bg-slate-900 border-2 border-purple-700 p-4 w-full h-fit text-white relative">
+    <div className="flex flex-col md:flex-row justify-between items-start bg-slate-900 border-2 border-purple-700 p-4 w-full h-fit text-white relative">
       <div
         className="w-full overflow-hidden"
         onMouseEnter={() => setIsPaused(true)}
@@ -39,8 +39,8 @@ export default function Advertencia() {
         <p className="text-gray-200 italic text-sm mt-2">
           "Like this fashion, you will."
         </p>
-        <div className="absolute w-fit h-fit flex w-28">
-          <div className="relative w-80 h-80 flex -bottom-10">
+        <div className="relative md:absolute w-fit h-fit flex w-28">
+          <div className="relative w-60 h-60 xl:w-80 xl:h-80 flex md:-bottom-10">
             <Image
               src="/images/saber.png"
               alt="Jacquard Loom"

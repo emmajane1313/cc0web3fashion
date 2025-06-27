@@ -7,17 +7,17 @@ import useTrack from "../hooks/useTrack";
 export default function Advertencia() {
   const { setIsPaused, trackRef } = useTrack();
   return (
-    <div className="flex flex-row justify-between items-start bg-[#3e3e45] border-2 border-purple-700 p-4 w-full h-fit text-white relative">
-      <div className="relative w-fit h-fit flex flex-row gap-4 items-start justify-between">
-        <div className="flex flex-row gap-4 relative w-fit h-fit">
-          <div className="relative w-fit h-fit flex flex-col gap-4">
+    <div className="flex flex-col xl:flex-row justify-between items-start bg-[#3e3e45] border-2 border-purple-700 p-2 md:p-4 w-full h-fit text-white relative">
+      <div className="relative w-fit h-fit flex flex-col md:flex-row gap-4 items-start justify-between">
+        <div className="flex flex-row gap-4 relative w-full md:w-fit h-fit">
+          <div className="relative w-full md:w-fit h-fit flex flex-col gap-4">
             {CARTELES.slice(0, 2).map((cartel, i) => (
               <div
                 key={i}
-                className="flex w-fit h-fit relative shadow-lg shadow-black/60"
+                className="flex w-full md:w-fit h-fit relative shadow-lg shadow-black/60"
               >
                 <div
-                  className="relative w-28 h-36 flex cursor-pointer"
+                  className="relative w-full md:w-16 xl:w-28 h-28 xl:h-36 flex cursor-pointer"
                   onClick={() => window.open("https://digitalax.xyz/prints")}
                 >
                   <Image
@@ -32,14 +32,14 @@ export default function Advertencia() {
               </div>
             ))}
           </div>
-          <div className="relative w-fit h-fit flex flex-col gap-4">
+          <div className="relative w-full md:w-fit h-fit flex flex-col gap-4">
             {CARTELES.slice(2, 4).map((cartel, i) => (
               <div
                 key={i}
-                className="flex w-fit h-fit relative shadow-lg shadow-black/60"
+                className="flex w-full md:w-fit h-fit relative shadow-lg shadow-black/60"
               >
                 <div
-                  className="relative w-28 h-36 flex cursor-pointer"
+                  className="relative w-full md:w-16 xl:w-28 h-28 xl:h-36 flex cursor-pointer"
                   onClick={() => window.open("https://digitalax.xyz/prints")}
                 >
                   <Image
@@ -67,14 +67,14 @@ export default function Advertencia() {
             {ADVERTENCIAS.map((item, i) => (
               <div
                 key={i}
-                className="flex-shrink-0 w-full px-4"
+                className="flex-shrink-0 w-full px-1 md:px-4"
                 style={{ scrollSnapAlign: "start" }}
               >
                 <p className="text-lime-400 text-xl font-semibold mb-2 uppercase">
                   {item.titulo}
                 </p>
                 <div
-                  className="text-white"
+                  className="text-white w-full whitespace-preline flex break-all"
                   dangerouslySetInnerHTML={{ __html: item.descripcion }}
                 />
               </div>
@@ -82,12 +82,12 @@ export default function Advertencia() {
           </div>
         </div>
       </div>
-      <div className="relative w-fit h-fit flex flex-col items-center mt-6 md:mt-0  text-center">
-        <p className="text-gray-200 italic text-sm mt-2">
+      <div className="relative w-full xl:w-fit h-fit flex flex-col items-center mt-6 md:mt-0 gap-4 text-center justify-center">
+        <p className="text-gray-200 italic text-xs lg:text-sm mt-2">
           "Gas fees? Worth it, this look is."
         </p>
-        <div className="absolute w-fit h-fit flex w-28">
-          <div className="relative w-80 h-80 flex -bottom-10">
+        <div className="relative w-fit h-fit flex w-28">
+          <div className="relative w-52 h-52 2xl:w-80 2xl:h-80 flex">
             <Image
               src="/images/loom.png"
               alt="Jacquard Loom"

@@ -21,10 +21,10 @@ export default function Home() {
       children={
         <>
           <div
-            className="bg-gradient-to-br from-purple-900 to-black border border-pink-600 p-4 w-full flex items-start justify-between text-white shadow-lg"
+            className="bg-gradient-to-br from-purple-900 to-black border border-pink-600 p-4 w-full sm:flex-row flex-col gap-3 flex items-start justify-between text-white shadow-lg"
             dir="rtl"
           >
-            <div className="flex-1 pr-4">
+            <div className="flex-1 sm:pr-4">
               <div className="text-pink-400 font-bold text-sm mb-1">
                 Weber Kunst und Bild Buch, Marx Ziegler
               </div>
@@ -53,7 +53,7 @@ export default function Home() {
             <div className="uppercase text-sm font-bold text-cyan-400 border-b border-yellow-500 pb-1 my-2">
               What is it?
             </div>
-            <div className="bg-zinc-800 p-4 flex items-start justify-start border border-zinc-700 flex-row gap-5">
+            <div className="bg-zinc-800 p-4 flex items-start justify-start border border-zinc-700 flex-col sm:flex-row gap-5">
               <div className="text-yellow-400 font-bold text-sm mb-1">
                 As we keep looking through every angle and understanding of an
                 industry in the process of underappreciated tranformation, and
@@ -64,7 +64,7 @@ export default function Home() {
                 transformed into something startlingly interactive. Can't
                 imagine wanting to create anywhere else.
               </div>
-              <div className="text-xs text-right relative w-fit h-full flex flex-col justify-between">
+              <div className="text-xs text-left sm:text-right relative w-fit h-full flex flex-col justify-between">
                 <div className="relative w-fit h-fit flex flex-col gap-1">
                   <p className="text-gray-400">Latest:</p>
                   <p className="text-yellow-400 font-semibold truncate max-w-[120px]">

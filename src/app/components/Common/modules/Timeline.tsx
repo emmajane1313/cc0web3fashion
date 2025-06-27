@@ -41,7 +41,7 @@ const Timeline: FunctionComponent = (): JSX.Element => {
           className="bg-zinc-800 p-4 flex items-center justify-between border border-zinc-700"
           dir="rtl"
         >
-          <div className="flex items-center space-x-4 h-full">
+          <div className="flex items-start sm:items-center sm:flex-row flex-col gap-4 h-full">
             <div className="relative w-fit h-full flex">
               <div className="relative w-24 h-24 flex">
                 <Image
@@ -76,11 +76,11 @@ const Timeline: FunctionComponent = (): JSX.Element => {
         <div className="uppercase text-sm font-bold text-cyan-400 border-b border-yellow-500 pb-1 mb-2">
           ABOUT THE FOUNDER
         </div>
-        <div className="bg-zinc-800 p-4 flex w-full relative h-fit items-center justify-between border border-zinc-700">
-          <div className="relative w-full h-24 flex">
-            <div className="flex items-center space-x-4">
-              <div className="relative w-fit h-full flex">
-                <div className="relative w-24 h-full flex">
+        <div className="bg-zinc-800 p-4 flex w-full relative h-fit items-start sm:items-center justify-start sm:justify-between border border-zinc-700">
+          <div className="relative w-full h-fit sm:h-24 sm:flex-row flex-col gap-3 flex">
+            <div className="sm:flex-row flex-col flex items-start sm:items-center space-x-4">
+              <div className="relative w-fit h-fit sm:h-full flex">
+                <div className="relative w-24 h-24 sm:h-full flex">
                   <Image
                     src="/images/emmajanemackinnonlee.png"
                     alt="Emma-Jane MacKinnon-Lee"
@@ -102,7 +102,7 @@ const Timeline: FunctionComponent = (): JSX.Element => {
                 </div>
               </div>
             </div>
-            <div className="text-xs text-right w-fit h-fit ml-3">
+            <div className="text-xs text-left sm:text-right w-fit h-fit sm:ml-3">
               <p className="text-gray-400">Latest:</p>
               <p className="text-yellow-400 font-semibold truncate max-w-[120px]">
                 June 19th

@@ -15,7 +15,7 @@ const Moneda: FunctionComponent = (): JSX.Element => {
         <div className="uppercase text-sm font-bold text-cyan-400 border-b border-yellow-500 pb-1 mb-2">
           Você está procurando as moedas do Web3 Fashion?
         </div>
-        <div className="bg-zinc-800 p-4 flex w-full h-fit border border-zinc-700 relative">
+        <div className="bg-zinc-800 p-4 sm:flex-row flex-col flex w-full h-fit border border-zinc-700 relative gap-3 items-center justify-center">
           <div className="relative w-fit h-full flex items-center justify-between gap-2 flex-col">
             <img
               src={contexto?.moneda?.image?.small}
@@ -61,7 +61,7 @@ const Moneda: FunctionComponent = (): JSX.Element => {
             return (
               <div
                 key={indice}
-                className="bg-zinc-800 p-4 gap-2 w-full h-fit flex items-start justify-between border border-zinc-700"
+                className="bg-zinc-800 p-4 gap-2 w-full h-fit md:flex-row flex-col flex items-start justify-between border border-zinc-700"
               >
                 <div className="flex items-center space-x-4 w-fit h-fit">
                   <div>
@@ -76,7 +76,7 @@ const Moneda: FunctionComponent = (): JSX.Element => {
                     ></div>
                   </div>
                 </div>
-                <div className="text-xs text-right w-fit h-fit flex flex-col">
+                <div className="text-xs text-left md:text-right w-fit h-fit flex flex-col">
                   <p className="text-gray-400">Tema:</p>
                   <p className="text-yellow-400 font-semibold">
                     דיפײַ x קליידער

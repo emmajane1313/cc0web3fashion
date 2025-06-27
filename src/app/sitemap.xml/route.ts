@@ -36,11 +36,43 @@ export async function GET() {
     process.env.NEXT_PUBLIC_BASE_URL || "https://cc0web3fashion.com";
 
   const staticPaths = [
-    { images: [], base: "/" },
+    {
+      images: [
+        {
+          title: "CC0 Web3 Fashion",
+          image: "web3cc0fashion.png",
+        },
+        {
+          title: "DIGITALAX Poster",
+          image: "digitalax_poster.png",
+        },
+        {
+          title: "DIGITALAX Poster",
+          image: "digitalax_poster1.png",
+        },
+        {
+          title: "DIGITALAX Poster",
+          image: "digitalax_poster2.png",
+        },
+        {
+          title: "DIGITALAX Poster",
+          image: "digitalax_poster3.png",
+        },
+      ],
+      base: "/",
+    },
     { images: [], base: "/dhawu/" },
     { images: [], base: "/мерч/" },
     { images: [], base: "/forum/" },
-    { images: [], base: "/mu-dheidhinn/" },
+    {
+      images: [
+        {
+          title: "Portrait",
+          image: "emmajanemackinnonlee.png",
+        },
+      ],
+      base: "/mu-dheidhinn/",
+    },
     { images: [], base: "/timeline/" },
     { images: [], base: "/מוסדות/" },
     { images: [], base: "/الكود-هنا/" },

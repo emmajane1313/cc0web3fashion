@@ -35,7 +35,7 @@ export default function Entry() {
             <div className="text-yellow-400 font-bold text-sm">
               Enlaces
             </div>
-            <div className="text-xs text-yellow-300 space-x-2 flex">
+            <div className="text-xs flex-wrap text-yellow-300 space-x-2 flex">
               {[
                 {
                   titulo: "Github",

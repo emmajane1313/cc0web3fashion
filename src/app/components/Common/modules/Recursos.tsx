@@ -8,8 +8,8 @@ export default function Recursos({
   children,
 }: RecursosProps) {
   return (
-    <div className="relative w-full h-fit flex flex-row gap-2 my-4">
-      <div className="bg-zinc-800 border border-purple-600 p-4 w-[40vw] text-sm text-white">
+    <div className="relative w-full h-fit flex flex-col xl:flex-row gap-2 my-4">
+      <div className="bg-zinc-800 border border-purple-600 p-4 w-full xl:w-[40vw] text-sm text-white">
         <div className="text-white font-bold uppercase text-xs tracking-wide mb-3">
           {titulo}
         </div>

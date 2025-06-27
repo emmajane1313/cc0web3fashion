@@ -14,11 +14,11 @@ export default function Entry() {
       children={
         <div className="flex flex-col items-start justify-start gap-4 py-2">
           <div
-            className="text-xl 2xl:text-3xl font-bold tracking-wide text-white drop-shadow-md font-orb flex w-fit h-fit relative"
+            className="text-sm lg:text-xl 2xl:text-3xl font-bold tracking-wide text-white drop-shadow-md font-orb flex w-fit h-fit relative mb-4"
             dir="rtl"
           >
             פּראָבער פֿון{" "}
-            <span className="text-cyan-400 mr-2">DASH און FUD FAQ און FGO</span>
+            DASH און FUD FAQ און FGO
           </div>
           <div className="relative w-full h-fit flex flex-col gap-4">
             <div className="text-lg font-orb mb-4">FGO</div>
