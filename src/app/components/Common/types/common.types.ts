@@ -1,6 +1,5 @@
-import { SessionClient } from "@lens-protocol/client";
+import { Account, SessionClient } from "@lens-protocol/client";
 import React from "react";
-import { Account } from "viem";
 
 export type RecursosProps = {
   titulo: string;

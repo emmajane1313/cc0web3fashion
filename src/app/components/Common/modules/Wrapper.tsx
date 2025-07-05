@@ -22,7 +22,7 @@ const Wrapper: FunctionComponent<{
       <div className="bg-gradient-to-r from-purple-900 to-black border-b-4 border-purple-700 p-4 shadow-lg">
         <div className="max-w-7xl mx-auto flex items-center justify-center xl:justify-between xl:flex-row flex-col gap-2">
           <h2 className="text-xl 2xl:text-3xl font-bold tracking-wide text-white drop-shadow-md text-center items-center justify-center font-orb sm:flex-row flex-col flex w-fit h-fit relative">
-            <span >CC0</span> <span className="text-cyan-400">WEB3 FASHION</span>
+            <span>CC0</span> <span className="text-cyan-400">WEB3 FASHION</span>
           </h2>
           <div className="relative space-x-4 text-xs 2xl:text-sm font-semibold flex flex-row w-fit h-fit flex-wrap text-center items-center justify-center">
             {[
@@ -33,6 +33,7 @@ const Wrapper: FunctionComponent<{
               "الكود هنا",
               "МЕРЧ",
               "MU DHEIDHINN",
+              "GDN",
             ].map((titulo, indice) => {
               return (
                 <div

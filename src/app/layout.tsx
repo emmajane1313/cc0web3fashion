@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Providers from "./providers";
+import Modals from "./components/Modals/modules/Modals";
 
 export const metadata: Metadata = {
   title: "CC0 Web3 Fashion by Emma-Jane MacKinnon-Lee",
@@ -99,7 +100,10 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <Providers>{children}</Providers>
+        <Providers>
+          {children}
+          <Modals />
+        </Providers>
       </body>
     </html>
   );

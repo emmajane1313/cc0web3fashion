@@ -5,9 +5,26 @@ import {
 } from "../components/Common/types/common.types";
 import { Org } from "../components/Orgs/types/orgs.types";
 
+export const ACCEPTED_TOKENS: string[][] = [
+  [
+    "WGHO",
+    "0x6bDc36E20D267Ff0dd6097799f82e78907105e2F",
+    "QmZRqza7VxetyQh2JWvxC6PsnXVUPVV7vU3RS1XUhuqmNA",
+  ],
+  [
+    "MONA",
+    "0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd",
+    "QmS6f8vrNZok9j4pJttUuWpNrjsf4vP9RD5mRL36z6UdaL",
+  ],
+  [
+    "WETH",
+    "0xE5ecd226b3032910CEaa43ba92EE8232f8237553",
+    "QmWuCzbiK3k7igJE6L1XfCJTUqzxs91ihnwHSCmYSpP7eS",
+  ],
+];
 export const INFURA_GATEWAY: string = "https://digitalax.xyz/api/infura/";
 export const GROVE_GATEWAY: string = "https://api.grove.storage/";
-
+export const FORUM_FEED: string = "0x5df7430a146019F1940CF494e8C3821f9303C422";
 export const BANNER: { alt: string; imagen: string; enlace: string }[] = [
   {
     imagen: "QmYT687r7DGXRAq86yAdPpaDCwtSYoWBWchsoM5ru78hRy",

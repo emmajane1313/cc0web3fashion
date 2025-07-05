@@ -13,6 +13,12 @@
 }
 
 @font-face {
+  font-family: "Poster";
+  font-weight: 400;
+  src: url("/fonts/poster.otf");
+}
+
+@font-face {
   font-family: "Star";
   font-weight: 400;
   src: url("/fonts/Starjedi.ttf");
@@ -29,11 +35,27 @@
   --font-star: "Star";
   --font-jhol: "Jhol";
   --font-mont: "Mont";
+  --font-poster: "Poster";
+
+
+  --breakpoint-galaxy: 300px;
+  --breakpoint-preG: 480px;
+  --breakpoint-wickra: 520px;
+  --breakpoint-mid: 950px;
+  --breakpoint-tablet: 1260px;
+  --breakpoint-wrap: 1360px;
+  --breakpoint-alto: 1950px;
+  --breakpoint-stuck1: 1120px;
+  --breakpoint-stuck2: 1440px;
+  --breakpoint-stuck3: 1507px;
 }
 
 @layer utilities {
   .font-orb {
     font-family: var(--font-orb);
+  }
+  .font-poster {
+    font-family: var(--font-poster);
   }
   .font-mont {
     font-family: var(--font-mont);
@@ -90,4 +112,24 @@ div::-webkit-scrollbar-track:active {
 
 div::-webkit-scrollbar-thumb:active {
   background-color: transparent !important;
+}
+
+.infinite-scroll-component__outerdiv {
+  width: 100%;
+}
+
+#fadedQuote {
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    #1f2937 0%,
+    #000000 50%,
+    transparent 95%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    to bottom,
+    #1f2937 0%,
+    #000000 50%,
+    transparent 100%
+  );
 }
