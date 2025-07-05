@@ -17,6 +17,7 @@ import { KeyboardEvent, useContext, useEffect, useRef, useState } from "react";
 import { useAccount } from "wagmi";
 import { Indexar } from "../types/forum.types";
 import convertToFile from "@/app/lib/helpers/convertToFile";
+import { FORUM_FEED } from "@/app/lib/constantes";
 
 const usePost = () => {
   const context = useContext(ModalContext);
@@ -261,6 +262,7 @@ const usePost = () => {
 
       const data = await post(context?.lensConectado?.sessionClient!, {
         contentUri: uri,
+        feed: FORUM_FEED,
         actions,
       });
 

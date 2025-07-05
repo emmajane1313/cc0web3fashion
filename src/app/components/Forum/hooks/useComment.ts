@@ -24,6 +24,7 @@ import pollResult from "@/app/lib/helpers/pollResult";
 import convertToFile from "@/app/lib/helpers/convertToFile";
 import { useAccount } from "wagmi";
 import { Indexar } from "../types/forum.types";
+import { FORUM_FEED } from "@/app/lib/constantes";
 
 const useComment = (
   mainPost: Post,
@@ -278,6 +279,7 @@ const useComment = (
 
       const data = await post(context?.lensConectado?.sessionClient, {
         contentUri: uri,
+        feed: FORUM_FEED,
         actions,
         commentOn: {
           post: mainPost?.id,
