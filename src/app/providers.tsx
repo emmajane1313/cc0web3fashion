@@ -31,6 +31,7 @@ export const config = createConfig(
     appUrl: "https://cc0web3fashion.com/",
     appIcon: "https://cc0web3fashion.com/favicon.ico",
     chains: [chains.mainnet],
+    connectors: [],
     transports: {
       [chains.mainnet.id]: http("https://rpc.lens.xyz"),
     },
