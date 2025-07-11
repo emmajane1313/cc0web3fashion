@@ -23,7 +23,6 @@ const FeedPublication: FunctionComponent<FeedPublicationProps> = ({
   index,
   setOpenComment,
 }): JSX.Element => {
-
   const context = useContext(ModalContext);
 
   return (
@@ -42,13 +41,12 @@ const FeedPublication: FunctionComponent<FeedPublicationProps> = ({
             className={`relative w-fit h-fit row-start-1 justify-self-end self-center grid grid-flow-col auto-cols-auto gap-2 ${
               (publication as Post)?.commentOn && "cursor-pointer"
             }`}
-           
           >
             <div
               className={`relative w-fit h-fit col-start-1 place-self-center text-xs text-offWhite`}
             >
               {publication?.__typename === "Repost"
-                ? `Mirror on ${publication?.author?.username?.localName}`
+                ? `Mirror on ${publication?.repostOf?.author?.username?.localName}`
                 : (publication as Post)?.quoteOf
                 ? `Quote on ${
                     (
