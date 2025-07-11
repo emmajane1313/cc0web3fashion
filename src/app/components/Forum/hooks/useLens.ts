@@ -9,10 +9,7 @@ import { chains } from "@lens-chain/sdk/viem";
 import { ModalContext } from "@/app/providers";
 import { usePathname } from "next/navigation";
 
-const useLens = (
-  isConnected: boolean,
-  address: `0x${string}` | undefined
-) => {
+const useLens = (isConnected: boolean, address: `0x${string}` | undefined) => {
   const contexto = useContext(ModalContext);
   const path = usePathname();
   const [lensCargando, setLensCargando] = useState<boolean>(false);
@@ -139,7 +136,6 @@ const useLens = (
     setLensCargando(false);
   };
 
-
   useEffect(() => {
     if (
       !isConnected &&
@@ -148,9 +144,7 @@ const useLens = (
     ) {
       salir();
     }
-  }, [isConnected]);
-
-
+  }, [isConnected, address]);
 
   return {
     lensCargando,
