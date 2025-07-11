@@ -152,7 +152,7 @@ const FeedPublication: FunctionComponent<FeedPublicationProps> = ({
                       index + 1
                     } ${
                       item?.__typename !== "MediaImage" &&
-                      "cursor-pointer hover:opacity-70 active:scale-95"
+                      "cursor-pointer hover:opacity-70"
                     } `}
                     onClick={() =>
                       context?.setVerImagen({

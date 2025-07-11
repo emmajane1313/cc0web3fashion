@@ -114,6 +114,8 @@ export const ModalContext = createContext<
       ) => void;
       modalOpen: string | undefined;
       setModalOpen: (e: SetStateAction<string | undefined>) => void;
+      selectedFilters: string[];
+      setSelectedFilters: (e: SetStateAction<string[]>) => void;
     }
   | undefined
 >(undefined);
@@ -162,6 +164,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
       }
     | undefined
   >();
+  const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
 
   useEffect(() => {
     if (!clienteLens) {
@@ -212,6 +215,8 @@ export default function Providers({ children }: { children: React.ReactNode }) {
               verImagen,
               who,
               setWho,
+              selectedFilters,
+              setSelectedFilters,
             }}
           >
             {children}

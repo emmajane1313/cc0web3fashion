@@ -1,6 +1,9 @@
 import { INFURA_GATEWAY, GROVE_GATEWAY } from "../constantes";
 
 export const handleImage = (pic: string): string => {
+  if (pic?.includes("/ipfs/")) {
+    return `${INFURA_GATEWAY}${pic?.split("/ipfs/")?.[1]}`;
+  }
   if (pic?.includes("https://")) {
     return pic;
   } else if (pic?.includes("ipfs://")) {

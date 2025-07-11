@@ -22,6 +22,7 @@ import { FORUM_FEED } from "@/app/lib/constantes";
 const usePost = () => {
   const context = useContext(ModalContext);
   const { address } = useAccount();
+  const [etiquetas, setEtiquetas] = useState<string[]>([]);
   const [postLoading, setPostLoading] = useState<boolean>(false);
   const [postDescription, setPostDescription] = useState<string>("");
   const [caretCoord, setCaretCoord] = useState<{ x: number; y: number }>({
@@ -204,7 +205,7 @@ const usePost = () => {
             video: newVideos[0],
             attachments: attachments?.length > 0 ? attachments : undefined,
 
-            tags: ["web3fashion"],
+            tags: ["web3fashion", ...etiquetas],
           });
         } else {
           const attachments = [...newImages?.slice(1)]?.filter(Boolean);
@@ -212,13 +213,13 @@ const usePost = () => {
             content: postDescription,
             image: newImages[0],
             attachments: attachments?.length > 0 ? attachments : undefined,
-            tags: ["web3fashion"],
+            tags: ["web3fashion", ...etiquetas],
           });
         }
       } else {
         schema = textOnly({
           content: postDescription,
-          tags: ["web3fashion"],
+          tags: ["web3fashion", ...etiquetas],
         });
       }
 
@@ -281,6 +282,7 @@ const usePost = () => {
 
             setPostDescription("");
             setPostHTML("");
+            setEtiquetas([]);
 
             const newMedia = { ...context?.postInfo?.media };
             delete newMedia?.[context?.quote?.id ?? "post"];
@@ -337,6 +339,8 @@ const usePost = () => {
     handleKeyDownDelete,
     handlePost,
     preElement,
+    etiquetas,
+    setEtiquetas,
   };
 };
 

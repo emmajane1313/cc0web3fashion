@@ -17,6 +17,8 @@ import FeedPublication from "../../Modals/modules/FeedPublication";
 import MakeComment from "./MakeComment";
 import Quote from "../../Modals/modules/Quote";
 import { ImCross } from "react-icons/im";
+import handlePasteImage from "@/app/lib/helpers/handlePasteImage";
+import { MediaImageMimeType } from "@lens-protocol/metadata";
 
 const Forum: FunctionComponent = () => {
   const { isConnected, address, chainId } = useAccount();
@@ -45,8 +47,28 @@ const Forum: FunctionComponent = () => {
     handleKeyDownDelete,
     handlePost,
     preElement,
+    etiquetas,
+    setEtiquetas,
   } = usePost();
   const context = useContext(ModalContext);
+
+  const handlePaste = async (e: React.ClipboardEvent<HTMLTextAreaElement>) => {
+    if (!context) return;
+
+    const id = context?.quote?.id ?? "post";
+    const media = await handlePasteImage(
+      e.nativeEvent,
+      id,
+      context?.postInfo?.media as any
+    );
+
+    if (media) {
+      context?.setPostInfo((prev) => ({
+        ...prev,
+        media,
+      }));
+    }
+  };
   return (
     <div className="relative w-full flex flex-col gap-4 items-end justify-end">
       <div className="relative w-full h-fit flex items-end justify-end">
@@ -64,15 +86,14 @@ const Forum: FunctionComponent = () => {
               <div className="relative w-full h-fit flex">
                 <Quote publication={context?.quote} />
               </div>
-               <div className="absolute cursor-pointer flex z-5 opacity-100 right-3 top-3 w-fit h-fit">
-              <ImCross
-                color="white"
-                size={10}
-                onClick={() => context?.setQuote(undefined)}
-              />
+              <div className="absolute cursor-pointer flex z-5 opacity-100 right-3 top-3 w-fit h-fit">
+                <ImCross
+                  color="white"
+                  size={10}
+                  onClick={() => context?.setQuote(undefined)}
+                />
+              </div>
             </div>
-            </div>
-           
           </div>
         )}
 
@@ -95,6 +116,7 @@ const Forum: FunctionComponent = () => {
                 syncScroll(textElement, preElement);
               }}
               onKeyDown={(e: KeyboardEvent<Element>) => handleKeyDownDelete(e)}
+              onPaste={handlePaste}
               style={{ resize: "none" }}
               className="relative w-full h-full bg-black text-white p-2 z-1 overflow-y-scroll"
               ref={textElement}
@@ -175,10 +197,14 @@ const Forum: FunctionComponent = () => {
                   ? handleConectarse()
                   : !postLoading &&
                     context?.lensConectado?.profile &&
-                    (Number(
+                    ((Number(
                       context?.postInfo?.media?.[context?.quote?.id ?? "post"]
                         ?.length
-                    ) < 1 && postDescription?.trim() == ""
+                    ) < 1 ||
+                      !context?.postInfo?.media?.[
+                        context?.quote?.id ?? "post"
+                      ]) &&
+                    postDescription?.trim() == ""
                       ? salir()
                       : handlePost())
               }
@@ -194,10 +220,14 @@ const Forum: FunctionComponent = () => {
                   "CONNECT"
                 ) : postLoading ? (
                   <AiOutlineLoading size={10} color="white" />
-                ) : Number(
+                ) : (Number(
                     context?.postInfo?.media?.[context?.quote?.id ?? "post"]
                       ?.length
-                  ) < 1 && postDescription?.trim() == "" ? (
+                  ) < 1 ||
+                    !context?.postInfo?.media?.[
+                      context?.quote?.id ?? "post"
+                    ]) &&
+                  postDescription?.trim() == "" ? (
                   "LOG OUT"
                 ) : (
                   "SEND IT"
@@ -206,6 +236,84 @@ const Forum: FunctionComponent = () => {
             </div>
           </div>
         </div>
+        <div className="relative w-full h-fit flex flex-row gap-3 items-start justify-start flex-wrap">
+          {[
+            { name: "❓ Question", value: "question" },
+            { name: "💡 Discussion", value: "discussion" },
+            { name: "🎨 Showcase", value: "showcase" },
+            { name: "🛠️ Tutorial", value: "tutorial" },
+            { name: "🔥 Trending", value: "trending" },
+          ].map((tag, i) => {
+            return (
+              <div
+                key={i}
+                className={`cursor-pointer px-3 py-1 text-xxs font-orb rounded-full border-2 transition-all duration-200 hover:scale-105 ${
+                  etiquetas?.includes(tag.value)
+                    ? "bg-red-600 text-white border-red-600 shadow-md"
+                    : "bg-transparent text-red-600 border-red-600 hover:bg-red-600 hover:text-white"
+                }`}
+                onClick={() =>
+                  setEtiquetas((prev) =>
+                    prev?.includes(tag.value)
+                      ? prev?.filter((el) => el !== tag.value)
+                      : [...prev, tag.value]
+                  )
+                }
+              >
+                {tag.name}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+      <div className="relative w-full h-fit flex flex-col gap-3 mb-4">
+        <div className="relative w-full h-fit flex items-center justify-between">
+          <div className="relative w-fit h-fit flex text-white font-medium">
+            Bejegyzések szűrése
+          </div>
+          <div className="relative w-fit h-fit flex text-xs text-gray-400">
+            {feed.length} bejegyzés
+          </div>
+        </div>
+        <div className="relative w-full h-fit flex flex-row gap-3 items-start justify-start flex-wrap">
+          {[
+            { name: "🌟 Minden", value: "all" },
+            { name: "❓ Kérdés", value: "question" },
+            { name: "💡 Megbeszélés", value: "discussion" },
+            { name: "🎨 Bemutató", value: "showcase" },
+            { name: "🛠️ Oktatóanyag", value: "tutorial" },
+            { name: "🔥 Népszerű", value: "trending" },
+          ].map((tag, i) => {
+            return (
+              <div
+                key={i}
+                className={`cursor-pointer px-3 py-1 text-xxs font-orb rounded-full border-2 transition-all duration-200 hover:scale-105 ${
+                  (i === 0 && !context?.selectedFilters?.length) ||
+                  context?.selectedFilters?.includes(tag.value)
+                    ? "bg-red-600 text-white border-red-600 shadow-md"
+                    : "bg-transparent text-red-600 border-red-600 hover:bg-red-600 hover:text-white"
+                }`}
+                onClick={() => {
+                  if (tag.value === "all") {
+                    context?.setSelectedFilters([]);
+                  } else {
+                    context?.setSelectedFilters((prev: string[]) =>
+                      prev?.includes(tag.value)
+                        ? prev?.filter((el) => el !== tag.value)
+                        : [...(prev || []), tag.value]
+                    );
+                  }
+                }}
+              >
+                {tag.name}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      <div className="relative w-full h-fit flex uppercase text-2xl underline">
+        no fórum
       </div>
       <InfiniteScroll
         height={"30rem"}

@@ -133,10 +133,10 @@ const MakeComment: FunctionComponent<MakeCommentProps> = ({
                   ? handleConectarse()
                   : !commentLoading &&
                     context?.lensConectado?.profile &&
-                    (Number(
-                      context?.postInfo?.media?.[post?.id]
-                        ?.length
-                    ) < 1 && commentDetails?.description?.trim() == ""
+                    ((Number(context?.postInfo?.media?.[post?.id]?.length) <
+                      1 ||
+                      !context?.postInfo?.media?.[post?.id]) &&
+                    commentDetails?.description?.trim() == ""
                       ? salir()
                       : comment())
               }
@@ -152,10 +152,9 @@ const MakeComment: FunctionComponent<MakeCommentProps> = ({
                   "CONNECT"
                 ) : commentLoading ? (
                   <AiOutlineLoading size={10} color="white" />
-                ) : Number(
-                    context?.postInfo?.media?.[post?.id]
-                      ?.length
-                  ) < 1 && commentDetails?.description?.trim() == "" ? (
+                ) : (Number(context?.postInfo?.media?.[post?.id]?.length) < 1 ||
+                    !context?.postInfo?.media?.[post?.id]) &&
+                  commentDetails?.description?.trim() == "" ? (
                   "LOG OUT"
                 ) : (
                   "SEND IT"

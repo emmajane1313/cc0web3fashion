@@ -27,7 +27,6 @@ const Quote: FunctionComponent<{ publication: Post | Repost }> = ({
       <div
         className={`relative w-full h-auto grow grid grid-flow-row auto-rows-auto p-3 preG:p-6 gap-6`}
       >
-        
         <div
           className={`${
             publication?.__typename === "Repost" ||
@@ -108,11 +107,7 @@ const Quote: FunctionComponent<{ publication: Post | Repost }> = ({
                         : "h-10"
                     } cursor-pointer w-40 preG:w-60 relative flex items-center justify-center col-start-${
                       index + 1
-                    } ${
-                      item?.__typename !== "MediaImage" &&
-                      "cursor-pointer hover:opacity-70 active:scale-95"
-                    } `}
-                  
+                    }`}
                   >
                     <div className="relative w-full h-full flex rounded-md items-center justify-center">
                       {item?.__typename == "MediaImage" ? (
@@ -147,65 +142,66 @@ const Quote: FunctionComponent<{ publication: Post | Repost }> = ({
               }
             )}
         </div>
-        
       </div>
-    <div
-      className={`relative h-auto pr-px py-px w-full sm:w-40 preG:min-w-[7.5rem] bg-slate-500/20`}
-    >
       <div
-        className={`relative w-full h-full flex flex-col items-start sm:items-center py-1.5 px-1 gap-3`}
+        className={`relative h-auto pr-px py-px w-full sm:w-40 preG:min-w-[7.5rem] bg-slate-500/20`}
       >
         <div
-          className={`relative flex w-fit h-fit justify-self-center`}
+          className={`relative w-full h-full flex flex-col items-center py-1.5 px-1 gap-3`}
         >
-          <div className="relative w-8 h-8 bg-black rounded-full flex">
-            <Image
-              src={handleImage(
-                publication?.__typename !== "Repost"
-                  ? publication?.author?.metadata?.picture
-                  : publication?.repostOf?.author?.metadata?.picture
-              )}
-              objectFit="cover"
-              alt="pfp"
-              layout="fill"
-              className="rounded-full"
-              draggable={false}
-            />
+          <div className={`relative flex w-fit h-fit justify-self-center`}>
+            <div className="relative w-8 h-8 bg-black rounded-full flex">
+              <Image
+                src={handleImage(
+                  publication?.__typename !== "Repost"
+                    ? publication?.author?.metadata?.picture
+                    : publication?.repostOf?.author?.metadata?.picture
+                )}
+                objectFit="cover"
+                alt="pfp"
+                layout="fill"
+                className="rounded-full"
+                draggable={false}
+              />
+            </div>
+          </div>
+          <div className="relative w-full h-fit grid grid-flow-col auto-cols-auto">
+            <div
+              className={`relative w-fit h-fit font-dosis text-xs justify-self-center`}
+            >
+              {publication?.__typename !== "Repost"
+                ? Number(publication?.author?.username?.localName?.length) > 15
+                  ? publication?.author?.username?.localName?.substring(0, 15) +
+                    "..."
+                  : publication?.author?.username?.localName
+                : Number(
+                    publication?.repostOf?.author?.username?.localName?.length
+                  ) > 15
+                ? publication?.repostOf?.author?.username?.localName?.substring(
+                    0,
+                    15
+                  ) + "..."
+                : publication?.repostOf?.author?.username?.localName}
+            </div>
+          </div>
+          <div className="relative w-full h-fit grid grid-flow-col auto-cols-auto">
+            <div
+              className={`relative w-fit h-fit font-clash text-xs justify-self-center text-white`}
+            >
+              {publication?.__typename !== "Repost"
+                ? publication?.author?.username?.value?.slice(0, 9)
+                : publication?.repostOf?.author?.username?.value?.slice(0, 9)}
+            </div>
+          </div>
+          <div className="relative w-full h-fit grid grid-flow-col auto-cols-auto">
+            <div
+              className={`relative w-fit h-fit font-dosis justify-self-center fo:pb-0 pb-2 text-xs `}
+            >
+              {moment(`${publication?.timestamp}`).fromNow()}
+            </div>
           </div>
         </div>
-        <div className="relative w-full h-fit grid grid-flow-col auto-cols-auto">
-          <div
-            className={`relative w-fit h-fit font-dosis text-xs justify-self-center`}
-          >
-            {publication?.__typename !== "Repost"
-              ? Number(publication?.author?.username?.localName?.length) > 25
-                ? publication?.author?.username?.localName?.substring(0, 20) + "..."
-                : publication?.author?.username?.localName
-              : Number(publication?.repostOf?.author?.username?.localName?.length) > 20
-              ? publication?.repostOf?.author?.username?.localName?.substring(0, 25) +
-                "..."
-              : publication?.repostOf?.author?.username?.localName}
-          </div>
-        </div>
-        <div className="relative w-full h-fit grid grid-flow-col auto-cols-auto">
-          <div
-            className={`relative w-fit h-fit font-clash text-xs justify-self-center text-white`}
-          >
-            {publication?.__typename !== "Repost"
-              ? publication?.author?.username?.value?.slice(0, 9)
-              : publication?.repostOf?.author?.username?.value?.slice(0, 9)}
-          </div>
-        </div>
-        <div className="relative w-full h-fit grid grid-flow-col auto-cols-auto">
-          <div
-            className={`relative w-fit h-fit font-dosis justify-self-center fo:pb-0 pb-2 text-xs `}
-          >
-            {moment(`${publication?.timestamp}`).fromNow()}
-          </div>
-        </div>
-       
       </div>
-    </div>
     </div>
   );
 };

@@ -16,7 +16,7 @@ const Profile: FunctionComponent<ProfileProps> = ({
       className={`relative h-auto pr-px py-px w-full sm:w-40 preG:min-w-[7.5rem] bg-slate-500/20`}
     >
       <div
-        className={`relative w-full h-full flex flex-col items-start sm:items-center py-1.5 px-1 gap-3`}
+        className={`relative w-full h-full flex flex-col items-center py-1.5 px-1 gap-3`}
       >
         <div
           className={`relative flex w-fit h-fit justify-self-center`}
@@ -41,11 +41,11 @@ const Profile: FunctionComponent<ProfileProps> = ({
             className={`relative w-fit h-fit font-dosis text-xs justify-self-center`}
           >
             {post?.__typename !== "Repost"
-              ? Number(post?.author?.username?.localName?.length) > 25
-                ? post?.author?.username?.localName?.substring(0, 20) + "..."
+              ? Number(post?.author?.username?.localName?.length) > 15
+                ? post?.author?.username?.localName?.substring(0, 15) + "..."
                 : post?.author?.username?.localName
-              : Number(post?.repostOf?.author?.username?.localName?.length) > 20
-              ? post?.repostOf?.author?.username?.localName?.substring(0, 25) +
+              : Number(post?.repostOf?.author?.username?.localName?.length) > 15
+              ? post?.repostOf?.author?.username?.localName?.substring(0, 15) +
                 "..."
               : post?.repostOf?.author?.username?.localName}
           </div>

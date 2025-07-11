@@ -7,7 +7,7 @@ const Indexer: FunctionComponent = (): JSX.Element => {
     <div className="fixed bottom-5 right-5 w-fit h-fit">
       <div className="w-fit h-16 flex items-center justify-center bg-gradient-to-r z-50 bg-black border border-red-600">
         <div className="relative w-fit h-fit flex items-center justify-center px-4 py-2 text-white font-mont text-xs">
-          {context?.indexar}asdfa
+          {context?.indexar}
         </div>
       </div>
     </div>

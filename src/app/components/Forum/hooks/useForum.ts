@@ -3,10 +3,12 @@ import { useContext, useEffect, useState } from "react";
 import { fetchPosts } from "@lens-protocol/client/actions";
 import { FORUM_FEED } from "@/app/lib/constantes";
 import { ModalContext } from "@/app/providers";
+import { Indexar } from "../types/forum.types";
 
 const useForum = () => {
   const contexto = useContext(ModalContext);
   const [feed, setFeed] = useState<(Post | Repost)[]>([]);
+  const [allFeed, setAllFeed] = useState<(Post | Repost)[]>([]);
   const [feedCargando, setFeedCargando] = useState<boolean>(false);
   const [cursor, setCursor] = useState<string | undefined>();
   const [openComment, setOpenComment] = useState<number | undefined>(undefined);
@@ -26,6 +28,7 @@ const useForum = () => {
         }
       );
       if (datos?.isOk()) {
+        setAllFeed(datos?.value?.items as Post[]);
         setFeed(datos?.value?.items as Post[]);
         setCursor(datos?.value?.pageInfo?.next!);
       }
@@ -52,7 +55,9 @@ const useForum = () => {
       );
 
       if (datos?.isOk()) {
-        setFeed([...feed, ...(datos?.value?.items as Post[])]);
+        const newPosts = datos?.value?.items as Post[];
+        setAllFeed([...allFeed, ...newPosts]);
+        setFeed([...feed, ...newPosts]);
         setCursor(datos?.value?.pageInfo?.next!);
       }
     } catch (err: any) {
@@ -61,10 +66,31 @@ const useForum = () => {
   };
 
   useEffect(() => {
-    if (feed?.length < 1 && contexto?.clienteLens) {
+    if (
+      (feed?.length < 1 || contexto?.indexar == Indexar.Exito) &&
+      contexto?.clienteLens
+    ) {
       getFeed();
     }
-  }, [contexto?.clienteLens]);
+  }, [contexto?.clienteLens, contexto?.indexar]);
+
+  useEffect(() => {
+    if (contexto?.selectedFilters && allFeed?.length > 0) {
+      if (contexto.selectedFilters.length === 0) {
+        setFeed(allFeed);
+      } else {
+        const filteredFeed = allFeed.filter((post) => {
+          const postContent =
+            post.__typename === "Repost" ? post.repostOf : post;
+          const postTags = (postContent?.metadata as any)?.tags || [];
+          return contexto.selectedFilters.some((filter) =>
+            postTags.includes(filter)
+          );
+        });
+        setFeed(filteredFeed);
+      }
+    }
+  }, [contexto?.selectedFilters, allFeed]);
 
   return {
     feedCargando,
