@@ -16,7 +16,7 @@ export default function Entry() {
             #ABUNDANTTEXTILES #TOOMUCHMACHINE
           </div>
           <div className="relative w-full h-fit flex font-mont">
-            Keep up with us{" "}
+            Keep up {" "}
             <span
               className="underline cursor-pointer ml-1"
               onClick={() => window.open("https://globaldesignernetwork.com/")}
