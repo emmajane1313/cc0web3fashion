@@ -1,4 +1,4 @@
-import { Post, Repost } from "@lens-protocol/client";
+import { Post, PostType, Repost } from "@lens-protocol/client";
 import { useContext, useEffect, useState } from "react";
 import { fetchPosts } from "@lens-protocol/client/actions";
 import { FORUM_FEED } from "@/app/lib/constantes";
@@ -19,6 +19,7 @@ const useForum = () => {
         contexto?.lensConectado?.sessionClient ?? contexto?.clienteLens!,
         {
           filter: {
+            postTypes: [PostType.Root],
             feeds: [
               {
                 feed: FORUM_FEED,
@@ -45,6 +46,7 @@ const useForum = () => {
         {
           cursor,
           filter: {
+            postTypes: [PostType.Root],
             feeds: [
               {
                 feed: FORUM_FEED,
