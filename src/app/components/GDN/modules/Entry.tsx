@@ -13,7 +13,7 @@ export default function Entry() {
           </div>
           <div className="relative w-full h-fit flex text-xl text-white font-poster">
             The indie Web3 Fashion Fleet. #RADICALCC0 #INTENSELYDIY
-            #ABUNDANTTEXTILES #TOOMUCHMACHINE
+            #ABUNDANTTEXTILES #TOOMUCHTHROUGHPUT
           </div>
           <div className="relative w-full h-fit flex font-mont">
             Keep up {" "}
