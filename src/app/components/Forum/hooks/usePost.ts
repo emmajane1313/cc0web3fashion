@@ -264,6 +264,7 @@ const usePost = () => {
       const data = await post(context?.lensConectado?.sessionClient!, {
         contentUri: uri,
         feed: FORUM_FEED,
+        quoteOf: context?.quote?.id ? { post: context?.quote?.id } : null,
         actions,
       });
 
