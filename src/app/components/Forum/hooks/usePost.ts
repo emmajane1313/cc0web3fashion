@@ -259,6 +259,12 @@ const usePost = () => {
             },
           },
         ];
+      } else {
+        actions = [
+          {
+            simpleCollect: {},
+          },
+        ];
       }
 
       const data = await post(context?.lensConectado?.sessionClient!, {

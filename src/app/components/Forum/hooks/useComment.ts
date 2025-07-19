@@ -275,6 +275,12 @@ const useComment = (
             },
           },
         ];
+      } else {
+        actions = [
+          {
+            simpleCollect: {},
+          },
+        ];
       }
 
       const data = await post(context?.lensConectado?.sessionClient, {
