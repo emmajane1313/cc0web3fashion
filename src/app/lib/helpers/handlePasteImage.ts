@@ -26,7 +26,6 @@ const handlePasteImage = async (
   
   if (imageItems.length === 0) return;
 
-  // Prevent default paste behavior
   e.preventDefault();
 
   const imageReaders = imageItems.map((item) => {

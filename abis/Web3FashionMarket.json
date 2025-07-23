@@ -1,0 +1,239 @@
+[
+  {
+    "type": "constructor",
+    "inputs": [
+      {
+        "name": "_web3FashionCollection",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_web3FashionNFT",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "buy",
+    "inputs": [
+      { "name": "fulfillment", "type": "string", "internalType": "string" },
+      { "name": "currency", "type": "address", "internalType": "address" },
+      { "name": "collectionId", "type": "uint256", "internalType": "uint256" },
+      { "name": "amount", "type": "uint8", "internalType": "uint8" }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "buyMultiple",
+    "inputs": [
+      {
+        "name": "cartItems",
+        "type": "tuple[]",
+        "internalType": "struct Web3FashionLibrary.CartItem[]",
+        "components": [
+          {
+            "name": "collectionId",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          { "name": "amount", "type": "uint8", "internalType": "uint8" }
+        ]
+      },
+      { "name": "fulfillment", "type": "string", "internalType": "string" },
+      { "name": "currency", "type": "address", "internalType": "address" }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "getBuyerOrderIds",
+    "inputs": [
+      { "name": "buyer", "type": "address", "internalType": "address" }
+    ],
+    "outputs": [
+      { "name": "", "type": "uint256[]", "internalType": "uint256[]" }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getOrderAmount",
+    "inputs": [
+      { "name": "orderId", "type": "uint256", "internalType": "uint256" }
+    ],
+    "outputs": [{ "name": "", "type": "uint8", "internalType": "uint8" }],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getOrderBuyer",
+    "inputs": [
+      { "name": "orderId", "type": "uint256", "internalType": "uint256" }
+    ],
+    "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getOrderCollectionId",
+    "inputs": [
+      { "name": "orderId", "type": "uint256", "internalType": "uint256" }
+    ],
+    "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getOrderCounter",
+    "inputs": [],
+    "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getOrderCurrency",
+    "inputs": [
+      { "name": "orderId", "type": "uint256", "internalType": "uint256" }
+    ],
+    "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getOrderFulfillment",
+    "inputs": [
+      { "name": "orderId", "type": "uint256", "internalType": "uint256" }
+    ],
+    "outputs": [{ "name": "", "type": "string", "internalType": "string" }],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getOrderMintedTokenIds",
+    "inputs": [
+      { "name": "orderId", "type": "uint256", "internalType": "uint256" }
+    ],
+    "outputs": [
+      { "name": "", "type": "uint256[]", "internalType": "uint256[]" }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getOrderTotalPrice",
+    "inputs": [
+      { "name": "orderId", "type": "uint256", "internalType": "uint256" }
+    ],
+    "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "setAdmin",
+    "inputs": [
+      { "name": "newAdmin", "type": "address", "internalType": "address" }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "setWeb3FashionCollection",
+    "inputs": [
+      {
+        "name": "_web3FashionCollection",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "setWeb3FashionNFT",
+    "inputs": [
+      {
+        "name": "_web3FashionNFT",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "web3FashionCollection",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "contract Web3FashionCollection"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "web3FashionNFT",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "contract Web3FashionNFT"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "event",
+    "name": "MultipleOrdersCreated",
+    "inputs": [
+      {
+        "name": "orderIds",
+        "type": "uint256[]",
+        "indexed": false,
+        "internalType": "uint256[]"
+      },
+      {
+        "name": "totalPrice",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "OrderCreated",
+    "inputs": [
+      {
+        "name": "orderId",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      },
+      {
+        "name": "total",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      }
+    ],
+    "anonymous": false
+  },
+  { "type": "error", "name": "AddressNotVerified", "inputs": [] },
+  { "type": "error", "name": "CollectionExhausted", "inputs": [] },
+  { "type": "error", "name": "CollectionNotActive", "inputs": [] },
+  { "type": "error", "name": "CurrencyNotWhitelisted", "inputs": [] }
+]

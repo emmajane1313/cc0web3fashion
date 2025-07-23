@@ -5,6 +5,14 @@ import {
 } from "../components/Common/types/common.types";
 import { Org } from "../components/Orgs/types/orgs.types";
 
+export const SIZES: string[] = ["XS", "S", "M", "L", "XL", "2XL"];
+
+export const MERCH_MARKET: `0x${string}` =
+  "0x9863a56a8C3e03500661aE18Aecd91b4fa0f8EB9";
+
+export const GDN_ADDRESS: `0x${string}` =
+  "0xc7e32D9D3f916a59898A3bf7125efDd24eaf69a0";
+
 export const ACCEPTED_TOKENS: string[][] = [
   [
     "WGHO",
@@ -22,6 +30,25 @@ export const ACCEPTED_TOKENS: string[][] = [
     "QmWuCzbiK3k7igJE6L1XfCJTUqzxs91ihnwHSCmYSpP7eS",
   ],
 ];
+
+export const TOKENS: { symbol: string; contract: string; image: string }[] = [
+  {
+    symbol: "WGHO",
+    contract: "0x6bDc36E20D267Ff0dd6097799f82e78907105e2F",
+    image: "QmYCDxCv7mJyjn49n84kP6d3ADgGp422ukKzRyd2ZcGEsW",
+  },
+  {
+    symbol: "WETH",
+    contract: "0xE5ecd226b3032910CEaa43ba92EE8232f8237553",
+    image: "QmYJ6cpGRgQAr2d5hJDJ9CaJukt2szcHc1AqFBy9m6knUw",
+  },
+  {
+    symbol: "MONA",
+    contract: "0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd",
+    image: "QmZSDyGYYy9hn8RAUC1vZeZXC5y2H3YimzajJRngCTu5Fq",
+  },
+];
+
 export const INFURA_GATEWAY: string = "https://digitalax.xyz/api/infura/";
 export const GROVE_GATEWAY: string = "https://api.grove.storage/";
 export const FORUM_FEED: string = "0x5df7430a146019F1940CF494e8C3821f9303C422";

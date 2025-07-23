@@ -22,6 +22,7 @@ import { ConnectKitProvider, getDefaultConfig } from "connectkit";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { WagmiProvider, createConfig, http } from "wagmi";
 import { chains } from "@lens-chain/sdk/viem";
+import { Drop, Order } from "./components/Merch/types/merch.types";
 
 export const config = createConfig(
   getDefaultConfig({
@@ -43,13 +44,18 @@ const queryClient = new QueryClient();
 
 export const ModalContext = createContext<
   | {
+      orders: Order[];
+      setOrders: (e: SetStateAction<Order[]>) => void;
       quote: Post | undefined;
       setQuote: (e: SetStateAction<Post | undefined>) => void;
       clienteLens: PublicClient<Context> | undefined;
       lensConectado: LensConnected | undefined;
       setLensConectado: (e: SetStateAction<LensConnected | undefined>) => void;
       clienteAlmacenamiento: StorageClient | undefined;
-
+      drops: Drop[];
+      purchased: boolean;
+      setPurchased: (e: SetStateAction<boolean>) => void;
+      setDrops: (e: SetStateAction<Drop[]>) => void;
       signless: boolean;
       setSignless: (e: SetStateAction<boolean>) => void;
       indexar: Indexar;
@@ -121,6 +127,8 @@ export const ModalContext = createContext<
 >(undefined);
 
 export default function Providers({ children }: { children: React.ReactNode }) {
+  const [purchased, setPurchased] = useState<boolean>(false);
+  const [drops, setDrops] = useState<Drop[]>([]);
   const [modalOpen, setModalOpen] = useState<string | undefined>();
   const [clienteLens, setClienteLens] = useState<PublicClient | undefined>();
   const [moneda, setMoneda] = useState<CoinData>();
@@ -165,6 +173,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
     | undefined
   >();
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
+  const [orders, setOrders] = useState<Order[]>([]);
 
   useEffect(() => {
     if (!clienteLens) {
@@ -187,6 +196,12 @@ export default function Providers({ children }: { children: React.ReactNode }) {
         >
           <ModalContext.Provider
             value={{
+              purchased,
+              setPurchased,
+              orders,
+              setOrders,
+              drops,
+              setDrops,
               quote,
               setQuote,
               modalOpen,

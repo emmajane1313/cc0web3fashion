@@ -341,12 +341,12 @@ const useComment = (
       commentDetails?.html?.substring(
         0,
         commentDetails?.html.lastIndexOf("@")
-      ) + `@${user?.username?.localName}</span>`;
+      ) + `@lens/${user?.username?.localName}</span>`;
     const newElementPost =
       commentDetails?.description?.substring(
         0,
         commentDetails?.description.lastIndexOf("@")
-      ) + `@${user?.username?.localName}`;
+      ) + `@lens/${user?.username?.localName}`;
     setCommentDetails({
       description: newElementPost,
       html: newHTMLPost,
