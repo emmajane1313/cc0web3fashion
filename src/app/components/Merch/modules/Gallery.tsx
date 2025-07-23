@@ -1,4 +1,4 @@
-import { FunctionComponent, JSX, useContext, useState } from "react";
+import { FunctionComponent, JSX, useContext } from "react";
 import useMerch from "../hooks/useMerch";
 import usePurchase from "../hooks/usePurchase";
 import { ModalContext } from "@/app/providers";
