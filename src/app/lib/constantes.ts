@@ -1541,7 +1541,24 @@ Capa operativa: codifica instrucciones para que fábricas, renderizadores o fron
 
 Todos los URIs de metadatos se fijan (hash) en IPFS. Los campos están diseñados para ser flexibles pero lo bastante rigurosos como para soportar flujos generativos, automatización de fabricación y trazabilidad de procedencia.<br/><br/>
 
-<div class="font-bold mb-2">Metadatos de Child</div> Los Children definen unidades atómicas individuales. Sus metadatos describen qué es la unidad y cómo debe entenderse en términos digitales y físicos. <br/><br/> <pre><code> export interface ChildMetadata { title: string; // Requerido: nombre de la unidad description: string; // Requerido: descripción de texto image: string; // Requerido: enlace IPFS a previsualización/render attachments: Attachment[]; // Opcional: PDFs, DXF, paquetes de texturas tags: string[]; // Opcional: palabras clave de clasificación prompt: string; // Opcional: prompt de IA si fue generado aiModel: string; // Opcional: referencia del modelo (StableDiffusion, etc.) loras: string[]; // Opcional: IDs de LoRA usados en la generación workflow: string; // Opcional: referencia a grafo de nodos / ComfyUI version: string; // Requerido: número de versión } export interface Attachment { uri: string; // Enlace IPFS type: string; // Tipo MIME o clasificador } </code></pre>
+<div class="font-bold mb-2">Metadatos de Child</div> Los Children definen unidades atómicas individuales. Sus metadatos describen qué es la unidad y cómo debe entenderse en términos digitales y físicos. <br/><br/> <pre><code>
+export interface ChildMetadata {
+  title: string;          // Required: name of the unit
+  description: string;    // Required: text description
+  image: string;          // Required: IPFS link to preview/render
+  attachments: Attachment[]; // Optional: PDFs, DXF, texture packs
+  tags: string[];         // Optional: classification keywords
+  prompt: string;         // Optional: AI prompt if generated
+  aiModel: string;        // Optional: model reference (StableDiffusion, etc.)
+  loras: string[];        // Optional: LoRA IDs used in generation
+  workflow: string;       // Optional: ComfyUI / node graph reference
+  version: string;        // Required: version number
+}
+export interface Attachment {
+  uri: string;  // IPFS link
+  type: string; // MIME type or classifier
+}
+</code></pre>
 
 <br/><br/>
 
@@ -1568,7 +1585,24 @@ Todos los URIs de metadatos se fijan (hash) en IPFS. Los campos están diseñado
 
 <br/><br/>
 
-<div class="font-bold mb-2">Metadatos de Template</div> Los Templates describen ensamblajes de Children. Sus metadatos documentan el propósito del ensamblaje y cómo debe entenderse en un contexto DIY o de fábrica. <br/><br/> <pre><code> export interface TemplateMetadata { title: string; // Requerido: nombre de la unidad description: string; // Requerido: descripción de texto image: string; // Requerido: enlace IPFS a previsualización/render attachments: Attachment[]; // Opcional: PDFs, DXF, paquetes de texturas tags: string[]; // Opcional: palabras clave de clasificación prompt: string; // Opcional: prompt de IA si fue generado aiModel: string; // Opcional: referencia del modelo (StableDiffusion, etc.) loras: string[]; // Opcional: IDs de LoRA usados en la generación workflow: string; // Opcional: referencia a grafo de nodos / ComfyUI version: string; // Requerido: número de versión } export interface Attachment { uri: string; // Enlace IPFS type: string; // Tipo MIME o clasificador } </code></pre>
+<div class="font-bold mb-2">Metadatos de Template</div> Los Templates describen ensamblajes de Children. Sus metadatos documentan el propósito del ensamblaje y cómo debe entenderse en un contexto DIY o de fábrica. <br/><br/> <pre><code>
+export interface TemplateMetadata {
+  title: string;          // Required: name of the unit
+  description: string;    // Required: text description
+  image: string;          // Required: IPFS link to preview/render
+  attachments: Attachment[]; // Optional: PDFs, DXF, texture packs
+  tags: string[];         // Optional: classification keywords
+  prompt: string;         // Optional: AI prompt if generated
+  aiModel: string;        // Optional: model reference (StableDiffusion, etc.)
+  loras: string[];        // Optional: LoRA IDs used in generation
+  workflow: string;       // Optional: ComfyUI / node graph reference
+  version: string;        // Required: version number
+}
+export interface Attachment {
+  uri: string;  // IPFS link
+  type: string; // MIME type or classifier
+}
+</code></pre>
 
 <br/><br/>
 
@@ -1616,11 +1650,26 @@ Una vez minteado, el URI de metadatos de un Parent no puede cambiarse — se con
 
 <br/><br/>
 
-<pre><code> export interface ChildPlacement { instructions: string; // Requerido customFields: Record&lt;string, string&gt;; // Opcional } </code></pre>
+<pre><code>
+export interface ChildPlacement {
+  instructions: string;   // Required
+  customFields: Record<string, string>;  // Optional
+}
+</code></pre>
 
 <br/><br/>
 
-<pre><code>{ "instructions":"Aplicar el gráfico del panel frontal a 300 DPI, centrado", "customFields":{ "scale":"1", "rotation":"0", "x":"150", "y":"420", "seamAllowance":"0.5cm" } } </code></pre>
+<pre><code>{
+ "instructions":"Apply front panel graphic at 300 DPI, centered",
+ "customFields":{
+   "scale":"1",
+   "rotation":"0",
+   "x":"150",
+   "y":"420",
+   "seamAllowance":"0.5cm"
+ }
+}
+</code></pre>
 
 <br/><br/>
 
