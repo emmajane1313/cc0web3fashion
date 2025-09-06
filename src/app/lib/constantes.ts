@@ -1460,7 +1460,9 @@ Infinite digital child supply encourages open remix culture whilst scarce physic
   </ul>
 </div><br/><br/><h3 class='font-bold'>Postscript</h3> FGO V3 is not the final word. It is a working lattice, open to forking, mutating, and bug-baiting. Every contract here is both singular and composable: you can deploy one in isolation, or stack hundreds into a living factory. The logic is simple enough for one indie designer to operate, but flexible enough for entire federations to emerge.<br/><br/>
 
-What matters now is not version numbers, but whether the protocol keeps its promise: to make digital and physical fashion interoperable, verifiable, and sovereign at the smallest possible scale. Everything else — valuation, markets, collaborations — follows from that ground truth.<br/><br/>Straight lines will bend. Code will fork. Supply will flow. And somewhere, one person will mint a garment that did not exist before, and it will be theirs.`,
+What matters now is not version numbers, but whether the protocol keeps its promise: to make digital and physical fashion interoperable, verifiable, and sovereign at the smallest possible scale. Everything else — valuation, markets, collaborations — follows from that ground truth.<br/><br/>Straight lines will bend. Code will fork. Supply will flow. And somewhere, one person will mint a garment that did not exist before, and it will be theirs. <br/><br/>
+
+Contracts + Subgraph:<br/><a href="https://github.com/DIGITALAX/fractional-garment-ownership">here</a>`,
   },
   {
     title:
@@ -1829,7 +1831,9 @@ En el paso final: se mintean al comprador los Children/Templates físicos pendie
 
 <ul style="list-style-type: none; padding-left: 20px; margin: 0;"> <li> <span style="color:#93c5fd;">Paso 1: Compra</span> <ul style="list-style-type: none; padding-left: 20px; margin: 4px 0;"> <li>✔ Parent ERC721 minteado inmediatamente</li> <li>✘ Children/Templates (físicos) aún no minteados</li> <li>➝ Derechos reservados para el suministro físico</li> </ul> </li> <li> <span style="color:#93c5fd;">Paso 2: Fulfillment Workflow</span> <ul style="list-style-type: none; padding-left: 20px; margin: 4px 0;"> <li>↳ FulfillmentStep A (p. ej., corte)</li> <li>↳ FulfillmentStep B (p. ej., impresión)</li> <li>↳ FulfillmentStep C (p. ej., control de calidad + envío)</li> <li>✔ Cada paso atestado por el/los Fulfiller(s) asignado(s)</li> </ul> </li> <li> <span style="color:#93c5fd;">Paso 3: Finalización</span> <ul style="list-style-type: none; padding-left: 20px; margin: 4px 0;"> <li>✔ El paso final dispara el mint de Children/Templates físicos</li> <li>➝ El comprador ahora posee ERC1155 = prueba de derechos físicos</li> <li>➝ Parent ERC721 + Children/Templates totalmente liquidados</li> </ul> </li> </ul> </div><br/><br/><h3 class='font-bold'>Posfacio</h3> FGO V3 no es la última palabra. Es una malla viva, abierta a forks, mutaciones y caza de bugs. Cada contrato aquí es a la vez singular y componible: puedes desplegar uno en aislamiento o apilar cientos hasta formar una fábrica viva. La lógica es lo bastante simple para que opere un/a diseñador/a indie, y lo bastante flexible para que emerjan federaciones enteras.<br/><br/>
 
-Lo que importa ahora no son los números de versión, sino si el protocolo cumple su promesa: hacer que la moda digital y física sea interoperable, verificable y soberana a la escala más pequeña posible. Todo lo demás —valoración, markets, colaboraciones— deriva de esa verdad base.<br/><br/>Las líneas rectas se curvarán. El código hará fork. El suministro fluirá. Y en algún lugar, una persona minteará una prenda que antes no existía, y será suya. 
+Lo que importa ahora no son los números de versión, sino si el protocolo cumple su promesa: hacer que la moda digital y física sea interoperable, verificable y soberana a la escala más pequeña posible. Todo lo demás —valoración, markets, colaboraciones— deriva de esa verdad base.<br/><br/>Las líneas rectas se curvarán. El código hará fork. El suministro fluirá. Y en algún lugar, una persona minteará una prenda que antes no existía, y será suya. <br/><br/>
+
+Contratos + Subgraph::<br/><a href="https://github.com/DIGITALAX/fractional-garment-ownership">here</a>
 
 `,
   },
