@@ -14,6 +14,7 @@ import Designer from "./components/Common/modules/Designer";
 import Silencio from "./components/Common/modules/Silencio";
 import Wrapper from "./components/Common/modules/Wrapper";
 import Native from "./components/Common/modules/Native";
+import FGO from "./components/Common/modules/FGO";
 
 export default function Home() {
   return (
@@ -93,6 +94,7 @@ export default function Home() {
           />
           <Advertencia />
           <Coisas />
+          <FGO />
           <Native />
           <Cope />
           <Recursos

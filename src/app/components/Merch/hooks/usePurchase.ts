@@ -3,7 +3,7 @@ import { chains } from "@lens-chain/sdk/viem";
 import { useContext, useState } from "react";
 import { createPublicClient, createWalletClient, custom, http } from "viem";
 import Web3FashionMarketAbi from "./../../../../../abis/Web3FashionMarket.json";
-import { GDN_ADDRESS, MERCH_MARKET, SIZES, TOKENS } from "@/app/lib/constantes";
+import { GDN_ADDRESS, MERCH_MARKET,  TOKENS } from "@/app/lib/constantes";
 import { LIT_NETWORK } from "@lit-protocol/constants";
 import {
   LitNodeClient,
@@ -24,18 +24,6 @@ const usePurchase = (address: `0x${string}` | undefined) => {
   });
 
   const [addedToCartAnimation, setAddedToCartAnimation] = useState<string>("");
-  const [cart, setCart] = useState<
-    {
-      collectionId: string;
-      amount: number;
-      size: string;
-      title: string;
-      image: string;
-      price: string;
-      currency: string;
-    }[]
-  >([]);
-
   const context = useContext(ModalContext);
   const [purchaseLoading, setPurchaseLoading] = useState<boolean>(false);
   const [buyDetails, setBuyDetails] = useState<{

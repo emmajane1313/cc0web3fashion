@@ -875,15 +875,914 @@ export const EVENTS: TimelineEvent[] = [
 export const FGO: { title: string; description: string }[] = [
   {
     title:
-      "Fractional Garment Ownership License and Distribution Standard 1.0 (FGO-0001)",
+      "Fractional Garment Ownership License and Distribution Standard 1.0 (FGO-0001) 2020",
     description:
       "The aim with DIGITALAX is not to build just a business. We are developing and operating to build and scale an industry.<br><br>DIGITALAX was first ideated through a passion and motivation for wanting to bring immense value into an industry that has not yet been properly created or established. Digital Fashion is currently one of the biggest overlooked global industries as a stand alone market segment.<br><br>In our endeavor and action to bridge the gap between digital fashion content creation and application and utility, the effects of standards have become very apparent, not just for our own undertakings, but also for the greater industry, helping to ensure the case for rapid development and iterations, whilst still enabling the means for further reach.<br><br>Thus, in order to achieve meaningful impact, we are focusing directly on building up the infrastructure for the growth and maturation of the digital fashion industry. We are placing emphasis on the fundamental elements and setting forth the standard and dress code for the manufacture of digital fashion along the digital content supply chain, directly tying into Layer 1 of our Operating System.<br><br>This will help to shape, deliver and ensure dynamic and value-driven content for our virtual worlds that can be shipped to users as quickly as possible — content that didn’t exist a second ago and that is being created in the moment.<br><br>Here, we are bringing forth the first official iteration of the <i>“Fractional Garment Ownership License and Distribution Standard 1.0 (FGO-0001)”</i>, as per our 2021 roadmap.<br><br>Fractional Garment Ownership (FGO) leverages the Ethereum blockchain and ERC Protocol standards for breaking down a master ERC-721 digital garment into its programmable and composable ERC-1155 elements of materials, patterns and textures. FGO directly enables individual artists, designers to create and issue the modular building blocks and components to a master digital fashion garment, with complete on-chain verification. This directly allows for;<br><br><div>• Completely new models of monetisation<br>• An Open Source spirit injection<br>• Authenticated and transparent tracking at each stage of the supply chain<br>• A more complete framework for valuing and assessing native digital goods<br></div><br><br><h3 class='font-bold'>How FGO Works</h3>This reconception of Fractional Garment Ownership is all verified & uniquely secured on-chain, where the ERC-1155 NFT standard is used to issue each modular garment component bound to the individual creator's identity.<br><br>These raw digital materials, patterns, textures are designed and contributed into on-chain Open Source digital material libraries that can then be leveraged by other Digital Fashion designers in their master garments and collections.<br><br>Here, we are using a variant on the ERC-998 standard, where each ERC-721 token can hold a balance of ERC-1155 NFTs. We coin this respectively the Parent and Child NFTs. This allows for other designers to leverage off of the open source digital libraries, incorporating the patterns, materials and textures into their master garments, whilst still ensuring that all original contributors to the digital fashion item can have their IP authenticated and effectively traced across the entire journey through the digital fashion supply chain.<br><br>In concise steps:<div>1. A creator designs the individual materials, textures and patterns.<br>2. These are issued as ERC-1155 tokens, through the DIGITALAX ERC-1155 minting contracts, and under the Creator’s designated ERC-20 wallet.<br>3. These ERC-1155 NFTs are then open sourced into the DIGITALAX on-chain digital libraries. <br>4. DIGITALAX Digital Fashion Designer’s are able to incorporate these individual ERC-1155 patterns/textures into the main Digital Fashion Garment NFTs.<br>5. The Digital Fashion Garment NFTs are  thenissued as ERC-721 tokens under the digital fashion designer’s ERC-20 wallet addresses on the DIGITALAX platform.<br>6. These ERC-721 NFTs are then linked with the relevant ERC-1155 tokens on-chain through the DIGITALAX variant ERC-998 contract.<br></div><br><br><h3 class='font-bold'>Metadata Guidelines</h3>Under FGO, the on-chain metadata includes;<br><br><i>ERC-1155</i><br><br><table><thead><tr><th>FGO Creator’s Title</th><th>Degree of Exclusivity</th><th>Issue No.</th><th>Type</th></tr></thead><tbody><tr><td>Pseudonym/Real Name</td><td>Common, Semi-Rare, Exclusive.</td><td>Global Categorisation across the On-Chain Libraries (i.e. 4113).</td><td>Pattern, Material or Texture (i.e. P, M, T).</td></tr></tbody></table><br><br><i>ERC-721</i><br><br><table><thead><tr><th>Digital Fashion Designer’s Title</th><th>FGO Creator’s Title</th><th>Degree of Exclusivity</th><th>Sale Type and Order </th></tr></thead><tbody><tr><td>Pseudonym/Real Name</td><td>Creator of Child NFTs in the balance.</td><td>Common, Semi-Rare, Exclusive.</td><td>Global Categorisation across the DIGITALAX Marketplace (i.e. Auction04, Instant Buy02).</td></tr></tbody></table><br><br>Degrees of Exclusivity (DOE) classifies all of the designs in our marketplace under different rarity tiers. DOE acts as both an on-chain sorting feature for efficiently grouping and cataloguing our Open Source on-chain libraries, and, also as a mechanism and instrument for valuing native digital goods/assets.<br><br>DOE is not a limitation on the issuance balance of the ERC-1155 token, but rather, it is a constraint and specification as to which master ERC-721 garments it can be manufactured in. For example; a Common labelled Child NFT must only be used within a Common Parent/master garment NFT, or, in other words, Parent NFTs must share the same DOE trait as their “Children”.<br><br>The process for determining the DOE of an ERC-1155 Child NFT is defined under the Native Digital Asset Valuation Mechanism.<br><br><h3 class='font-bold'>Monetisation Model</h3>Sales of garments incorporating FGO are beneficial for both the Digital Fashion Designer and the pattern, material, texture supplier. Contribution royalties from the modular assets flow to the issuers of the Child NFTs for each sale of the master garment that incorporates their assets. The exact royalty provided back to the Child NFT issuer can be likened to the Lightning Network Fee Market, where each Child NFT issuer can define the percent from the total master garment sale that should be paid back to them and adjust these fees based on the competitive landscape.<br><br>As the on-chain material, pattern and texture libraries scale, and further liquidity is injected into the market, the interrelationship and balance between the defined royalty fees by the Child NFT issuer and usage of their modular component within a master garment will be strongly driven by the library's competitive landscape— helping to enable an equilibrium against the marginal output costs by the Child NFT creator i.e. minting fees, marginal resource costs etc.<br><br>Strict enforcement mechanisms of these modular royalties are not outlined in FGO-0001, considering that as of yet, cross-contract/platform secondary sale percentage distributions are not universally binding.<br><br><h3 class='font-bold'>IP and Licensing</h3>The spirit of Open Source is embedded within FGO. All of the digital materials, textures and patterns in the on-chain libraries are perpetually linked to the DIGITALAX Open Source License Standard. Under this distribution, Digital Fashion Designer’s are able to leverage on the Child NFT content for use within their own digital supply chain and creation of their master digital fashion garment— at the condition of making sure to adhere strictly to the metadata guidelines and outlined monetisation model. The Open Source nature of the digital materials, patterns and textures will be initially constrained to only being Open Sourced for use by Digital Fashion Designers that are fabricating garments for sale on the DIGITALAX marketplace or use within the DIGITALAX content ecosystem.<br><br>With the scaling of FGO, DIGITALAX further plans to incentivise an Open Source mantra into the source creation process of the Child NFT materials, patterns and textures— promoting a contribution based model, and establishing the right structures for open remixes of the assets.<br><br>Introducing proper and more transparent IP management and clarity across the supply chain ensures the development of streamlined, efficient on-chain digital ownership and democratised access channels for independent artists, digital fashion designers, brands, creators to be able to contribute creative supply into the broader digital fashion ecosystem— supporting the inevitable shift in the fashion industry from the current centralised, siloed ‘winner takes all’ model that forces creativity into a black box.<br><br><h3 class='font-bold'>Native Digital Asset Valuation Mechanism</h3>FGO is addressing underlying problems faced when it comes to the fair, transparent pricing of natively digital assets. The market is currently opaque and there are no real standards. Prices are often not backed by any proper justification or tangible value and so rely on traditional pricing mechanisms that in fact aren’t relevant to a digital-only product.<br><br>We are setting forth a more complete framework for valuing and assessing native digital goods— like that of digital fashion. The fractional material, texture and pattern composable components promote higher value and creativity across the master garment fashion pieces and also play an important role in weighing in on their rarity definitions and parameters. Here, our asset valuation mechanism addresses directly the influence that levels of exclusivity and rarity play in defining the intrinsic worth of a natively digital asset, and, further to this, identifies the natively digital factors that should be counted and included for evaluating and deciding on the Degree of Exclusivity of a digital asset.<br><br>In our current internet digital ecosystem, the most valuable native digital information, assuming that all content starts out equally, is driven by its ability to carry a message or story that can catalyse a strong emotional connection and capture an audience. Common assets are able to gain uncommon appeal through their ability to tell a story. The story acts as the baseline for the value. And, when enough engagement materialises, the content often then takes on a life of its own, rapidly spreading into what we term “virality”, and so even further amplifying the perceived digital value of the information as it is exponentially shared.<br><br>Our mechanism for determining the Degrees of Exclusivity of a fractional garment component is linked directly to the relational fabric of that component to its surrounding virality and content graph— where ultimately, a common asset can dynamically move to a state of semi-rare or even 1-1 exclusive through its ability to establish greater engagement, emotional appeal and shareability through explicit means of content generation— virality.<br><br>The Degree of Exclusivity for each Child NFT is thus able to have direct influence on the valuation of the master garment, where the individual patterns, materials and textures can be combined and added to establish the value of the entire garment—providing a maintenance margin and more direct intrinsic backing.  This native digital asset valuation mechanism keeps the Child and Parent NFTs dynamic, evolving and efficiently relevant to a respective market price judgement.<br><br><h3 class='font-bold'>Final Considerations</h3>The Fractional Garment Ownership License and Distribution Standard 1.0 (FGO-0001) is DIGITALAX’s first iteration in an evolving landscape that we are continuously building towards greater foundational integrity. It is core to Layer 1 of our Operating System and sets forth the standard and dress code for manufacturing composable, programmable, transparent and value backed digital fashion along the digital content supply chain.",
   },
   {
     title:
-      "Fractional Garment Ownership License and Distribution Standard 1.2 (FGO-0001_2)",
+      "Fractional Garment Ownership License and Distribution Standard 1.2 (FGO-0001_2) 2021",
     description:
       "As DIGITALAX continues to grow as an ecosystem and build out the core infrastructure layers for digital fashion, our operating system, and the broader metaversal sphere, we are steadily introducing novel web3 enabled engineering and commercial concepts that directly reinforce the catalysation of a truly decentralised commercial (deco) framework— establishing an open fabric that will allow for creators to pursue their craft in a way where they can count on the work they are doing actually moving them, and others, forward in the industry and their lives.<br><br>In this pursuit, the authenticity of the mission and our endeavours surrounding it is indispensable. Change without progress makes us all the more vulnerable to gatekeepers and other predators that are all too happy to exploit the illusion of gain. If we are perpetuating the existing model when better is so clearly available now, then that is an intentionally harmful choice. To pretend that it is the better thing whilst it is just making money for its own sake with the old methods is even worse. This is the epitome of the Red Queen and her servants in the race. Maintaining a rigged system where to simply keep your position you have to run twice as fast.<br/><br/>A commons cannot exist if we ignore the actions, models, systems and arrangements that are destructive to the commons. All too often, and very much native to the extractive web2 structure currently in place, power goes to those that steal a free option from society. Optimising purely for self interest in the short term results in a situation where an individual benefits themselves whilst simultaneously spreading out negative effects across the larger population. It is not just pitting short term self interest against the common good, but, moreso, it is actively destroying the rest of the population, ecosystem, and co-existing environment.<br/><br/>Despite the linguistic similarities, the commons is by all means not to be confused with a communist society. The commons is a societal resource where access is guaranteed to all, beyond the control of any centralized authority. It’s about ensuring that preservation of the collective is injected into the complexity of the web3 systems we are continuing to build out; ensuring that our ecosystem is incentivized to operate as an open bazaar— where a higher level of direct exchange optimises the effectiveness of the emergent evolutionary process for eradicating false positives and unlocking progressive decentralisation and utility of the ecosystem in general.<br/><br/>Fractional Garment Ownership is an immediate first step towards reinforcing the ground roots growth and authenticity of our ecosystem to be comprehensively responsive to the commons from the most modular, composable and programmable level—the pattern, material and texture level— as the building blocks for streamlining an entirely on-chain and open source supply chain that can be scaled across both the digital and physical realms; underpinned by ERC protocol standards (1155, 721, 998). Open is important, because we must do it right.<br/><br/>Building with consideration of these lower levels not only minaturises the barriers of entry and increases accessibility for more of us to be able to engage and directly see value from our active contribution to the ecosystem, but, even moreover, it systematically emphasizes the entire protocol for encompassing antifragility. It is not enough to build out anything of this nature, or any nature, and expect it to have concrete foundations and operate in an open bazaar, when it does not possess antifragility— resilience is inadequate; resilience endures shock only to remain the same. Antifragility is not just about enduring the unexpected shock, situation or extremity, but rather it’s about actually benefiting from this convexity; being able to capture the delta of the asymmetry for guaranteeing an upside and great potentiality, whether that be through succeeding or rapidly improving. Our ecosystem is structured for overcompensation as a default response, and, with FGO, it allows for others to also leverage off of this Hydra-like reflexiveness as a hedge against precarity.<br/><br/>Additionally to this, FGO also promotes the broader mission for interweaving modding and mod culture as a core underpinning and inherently fluid and liberating mode of action for crafting metaverse ready digital fashion. It’s not just enough to plaster buzzwords or labels onto something. For a web3 enabled digital fashion industry to be real, you also need to weave authenticity and a persistent thread of substantive adaptable variability for adherence to the promotion of dynamism, overturning of gatekeepers, and facilitation of gatemakers. Modding is the fundamental practice that drives growth and change in fashion— in everything. The methodology behind modding and the byproducts that come from it are what actually build the metaverse. And, when we think about making the metaverse a reality, in whatever form that can take, being able to mod and remix different parts of it from a fractional and composable level ensures that we are not just building the metaverse and everything related to it, but rather underwriting openness, vitality and continuous uniqueness for each personal experience.<br/><br/>With this said, it’s not to say that standards are not needed for establishing dependable reference points, but, it is to say that the insertion of dynamism is essential for the core functioning of a standard within a metaversal context— the standard must be able to evolve and be modded to seamlessly plug in and work with a broad variety of cases. And, for that, we are introducing the second official iteration of the <i>Fractional Garment Ownership License and Distribution Standard 1.2 (FGO-0001_2)</i>.<br/><br/><h3 class='font-bold'>Updated Metadata Guidelines</h3>Under FGO, the on-chain metadata has remained relatively the same as FGO-0001, with two more points of inclusion (Description and unique traits);<br/><br/><i>ERC-1155</i><br/><br/><table><thead><tr><th>Designer’s Title</th><th>Pattern, Material, Texture Name</th><th>Description</th><th>Degree of Exclusivity</th><th>Issue No.</th></tr></thead><tbody><tr><td>Pseudonym/Real Name.</td><td>Name of the item.</td><td>Description of the item.</td><td>Common, Semi-Rare, Exclusive.</td><td>Global Categorisation across the On-Chain Libraries (i.e. 4113).</td></tr></tbody></table><br><br><i>ERC-721</i><br><br><table><thead><tr><th>Digital Fashion Designer’s Title</th><th>Master Garment Title</th><th>Description</th><th>FGO Creator’s Title</th><th>Degree of Exclusivity</th><th>Collection</th><th>Classifier Name</th></tr></thead><tbody><tr><td>Pseudonym/Real Name.</td><td>Name of the item.</td><td>Description of the item.</td><td>Creator of Child NFTs in the balance.</td><td>Common, Semi-Rare, Exclusive.</td><td>Global Categorisation across the DIGITALAX Marketplace.</td><td>Ad hoc for recognition across other applications.</td></tr></tbody></table><br><br>The Degrees of Exclusivity (DOE) remains as a unique feature and NFT native mechanism and instrument for valuing digital goods/assets, where a rarity tier limits both the mint count of the NFT, as well as the compatibility of a child 1155 NFT within a master 721 NFT i.e. rarity metadata must match across the child and parent NFTs.<br><br><h3 class='font-bold'>Fractional Cross Realm Royalty Compatibility</h3>Open source doesn’t mean without monetisation. Fractional garment ownership introduces web3 native decentralised commercial models whereby a designer, creator or artist is able to gain value off of their modular contribution to the entire master garment, and also have their authorship tracked transparently on-chain throughout the full cycle of the supply chain.<br><br>Our infrastructure is being built to eventually support automated fractional royalties for any designer as they contribute to our open source libraries, and then have this leveraged in both the digital and physical dimensions. The importance of the modular pattern component in this sense is reinforced, whereby the licensing, monetisation and rarity wrapper is not limited to be defined by the physical appearance of the model/garment across the digital and physical realms— but rather by using the patterns, materials, textures as this threadline ensures that digital garments are not confined by their physical counterparts.<br><br>Digital Fashion is not confined by physics, and therefore, translating a physical fashion item directly into its exact digital counterpart isn’t scalable. It is incorrect to think of this translation purely from the perspective of the whole garment model or a sole visual sense— it is the licensing, rarity and monetisation that must maintain the interoperability; through the patterns, textures, materials. This is what ensures a global and openly scalable supply chain that seamlessly instills coverage from creation to fulfillment to ongoing re-usage; and also ensures flexibility is accounted for as the garment’s modular components can be re-mixed and modded into other master designs and creations throughout the supply chain journey, and still have this triad of functionalities (licensing, rarity, monetisation model) maintained.<br><br>Although we can’t automatically enforce in smart contract code this fractional cross-chain, cross-realm royalty distribution as of yet, we still are continuing to prove out the model and hope that those that use these open source prints contribute a fractional portion of the sales back to the DIGITALAX, as we have done and plan to do for anyone contributing to our on-chain libraries going forward.<br><br><h3 class='font-bold'>Dynamic Value Assessment</h3>The spirit of Open Source is embedded within FGO. All of the digital materials, textures and patterns in the on-chain libraries are perpetually linked to the DIGITALAX Open Source License Standard. Under this distribution, Digital Fashion Designer’s are able to leverage on the Child NFT content for use within their own digital supply chain and creation of their master digital fashion garment— at the condition of making sure to adhere strictly to the metadata guidelines and outlined monetisation model. The Open Source nature of the digital materials, patterns and textures will be initially constrained to only being Open Sourced for use by Digital Fashion Designers that are fabricating garments for sale on the DIGITALAX marketplace or use within the DIGITALAX content ecosystem.<br/><br/>With the scaling of FGO, DIGITALAX further plans to incentivise an Open Source mantra into the source creation process of the Child NFT materials, patterns and textures— promoting a contribution based model, and establishing the right structures for open remixes of the assets.<br/><br/>Introducing proper and more transparent IP management and clarity across the supply chain ensures the development of streamlined, efficient on-chain digital ownership and democratised access channels for independent artists, digital fashion designers, brands, creators to be able to contribute creative supply into the broader digital fashion ecosystem— supporting the inevitable shift in the fashion industry from the current centralised, siloed ‘winner takes all’ model that forces creativity into a black box.<br><br><h3 class='font-bold'>Native Digital Asset Valuation Mechanism</h3>As the same goes for the dynamic and evolving nature of the FGO standard, it too isn’t logical to restrict the metadata and triad of functionalities of the fractional NFT components to static values. If anything is evident about the metaverse, it is the fact that it is dynamic, lively, active, and highly moddable for hyper-personalisation. Thus, when further detailing out the specifics of FGO, from both a royalty % amount and a rarity definition level; fixed amounts aren’t scalable. In fact, although acceptable for first proving out the system, in the long term, static values work to actively destroy the commons.<br><br>FGO, reinforced by the other components of DIGITALAX’s operating system, addresses underlying problems faced currently when it comes to the fair, transparent pricing of a natively digital asset. Earlier we introduced the DOF Sheet, or, DIGITALAX’S Periodic Table of Digital Fashion Elements as a new dynamic and native digital fashion pricing framework. The DOF Sheet was inspired by the 40 year old Rapaport Report — ‘Rapaport’ being synonymous with the global ‘industry’ standard for pricing diamonds. In 1978, Michael Rapaport completely changed the diamond industry when he released this report, bringing in an industry standard price guide that was able to stabilize the diamond market, prevent price manipulation and create liquidity levels and market consensus at clearing prices for which most dealers were willing to sell.<br><br>Not that this report doesn’t come without its own downfalls and problems, and like any other resource, the prices of diamonds can fluctuate. However, there is great value and fairness in being able to have diamonds with similar attributes cost the same in Japan and the United States.<br><br>The DOF Sheet translates the Child NFT digital material, pattern libraries to convert and determine the fair price of a garment, respective of its attached/linked Child NFTs. Child NFTs can be combined and added to establish the price of an entire garment and then wrapped into the Parent NFT. The DOF sheet acts as an important step in the development of fair, efficient and competitive digital fashion markets— and the key here is that the DOF Sheet is dynamic and evolving; highly responsive and reactive to broader market, economic and industry conditions. The Degree of Exclusivity for each Child NFT has the potential to evolve and become more or less unique and valuable overtime, based on data from the item itself and derivative data.<br><br>The actual pricing mechanisms for each of the patterns and materials is currently outlined to be set across three broader categories;<div >1. Asset Backed: Synthetic Child NFTs are minted on the value of locked up crypto and real assets in the DIGITALAX Factory Vault i.e. BTC, DGX (Gold), ETH. Child NFTs can now be backed by real collateral and these Child NFTs can then be attached to an ERC-721 Parent NFT for introducing tangible real world value i.e. being able to back your Bitcoin Gold by locked Bitcoin, Gold.<br>2. Oracle Price Feeds: Synthetic Child NFTs are minted to track the live price feeds from on-chain Oracles. NFT holders can lock up stable assets as collateral in the DIGITALAX Factory Vault to meet the maintenance range around the on-chain Oracle live spot price, and then mint a Synthetic Child NFT that tracks this price and is attached to a master ERC-721 NFT. This brings in new concepts of being able to attach the real world prices of elements, materials like Cotton, diamonds into the garments.<br>3. Pattern and Material Decoration Bonding Curves: Synthetic Child NFTs are printed on the material patterns/decorations according to price bonding curves that take into account supply, demand, rarity, historical usage of the Child NFT amongst different Parent NFTs. Designer’s will even be able to choose, set and leverage specific bonding curves issued around their unique patterns, materials, textures.<br></div><br/><br/>Thus, through this and also DIGITALAX’s employment of a variant of the ERC-998 standard for wrapping the 1155 NFTs with their master 721 tokens, and also the burn mechanics for unlocking the individual patterns, materials and textures from the master garment— the underlying liquid value of the Child NFTs can be unlocked through burning the master token and so bringing even further composability, stability and liquidity for a buyer. The DOF Sheet will eventually serve as a hard indicator for the prices set across both digital and physical web3 enabled fashion items, and also more importantly, start to serve as a robust industry standard. The table will expand as more and more are discovered and thus new categories and sub-tiers will emerge.<br/><br/><h3 class='font-bold'>Final Considerations</h3>Thus, in closing, through FGO, we are building out an entire Global Designer Network of creators that align with our mission of decentralisation and open source for the fashion industry. We are here to revolutionise the entire industry and do it right; overturning gatekeepers that have become comfortable with closed, exploitative, predatory, unsustainable and studio dominant models. This second iteration of the standard focuses more on the importance of the dynamism and modability of the triad of functionalities that maintain the interoperability throughout a seamlessly web3 powered supply chain— unlocking ease of access for creators operating within a decentralised commercial environment across the digital and physical.",
+  },
+  {
+    title:
+      "Fractional Garment Ownership Standard 3.0 (FGO-0003_0) 2025",
+    description:
+      `FGO has effectively lived off the record at 2.0 for almost two years. When Coin Op shipped in 2023, the base contracts were rebuilt from the ground up. ERC1155 remained the foundation for children and ERC721 for parents, but the logic was folded into a more deliberate template architecture that allowed for modular, print-on-demand composite NFTs. It was not that I forgot to document it. I simply chose not to.<br/><br/>In the past weeks, after completing a multi-month refactor of the entire stack to Lens Mainnet on ZKSync, I turned back to engineering a local Coin Op application with advanced pattern logic and zero-waste configuration. This finally made space to integrate the Rust Sparrow packing crate, something I had wanted since 2022 after first exploring SVGNest for algorithmic nesting. Sparrow delivered what I had been waiting for: visual, optimized, manufacturable geometry in Rust. Thank you, Jeroen Gardeyn. Yet halfway through that build it became clear that FGO V2 could not stretch to the new constraints and expanded scope of Coin Op. The architecture I had been sketching in fragments for two years had to harden into place.<br/><br/>I told myself I could deliver the contract suite in a day or two and then return to the app. Four weeks later, after 17-hour days stacked one on top of another, the suite is tested, hardened, and sitting in production shape, with many revisions still ahead. Smart contracts reward patience and precision while punishing bravado. I tried some co-authoring with Claude, but it could not resist the temptation to fabricate. And by fabricate I mean entire imagined systems, entire imagined worlds...<br/><br/>So here we are. Straight to V3. Finally. And also, no “license and distribution”. That framing no longer holds. What matters now is composability and ownership aligned directly with manufacturing rights. And even more importantly, circling back to the only principle that makes this worth doing: does it work for an indie designer. Just one. The entire system has to stand on its own at the smallest possible scale, where a single creator can spin up a fully self-sufficient digifizzy manufacturing lattice, hold and rotate the keys to their deployed contracts, reconfigure the gateways as their process evolves, and then selectively federate with other designers, fulfillers, and suppliers on their own terms. If it cannot empower that level of autonomy, then it is just scaffolding with no building.<br/><br/><h3 class='font-bold'>Context</h3>The contract suite is published as open source under CC0. No license, no restriction. Fork it, repurpose it, dismantle it as you choose.<br/><br/>Every user is assumed to operate from a shared baseline: recognition of the territorial integrity of Ukraine and Crimea against Moscow 'Mafia' occupation, recognition of Taiwan as independent from China, recognition of indigenous peoples such as the Aboriginal and Torres Strait Islander nations as the first custodians of the land now called Australia, and recognition of a two state solution between Israel, free from Kahanist extremism, and Palestine, free from Hamas. Equal rights and the capacity to build economic independence irrespective of gender, race, or love.<br/><br/>The contracts function as an open manufacturing stack. Ownership, rights, and fulfillment are programmatically instrumented and authenticated on chain with the same resolution that factories and designers require off chain. The difference is provenance rather than opacity, gates where necessary, privacy where demanded, and immutability where trust must be absolute.<br/><br/><h3 class='font-bold'>Architecture Overview</h3>FGO V3 is defined by three core NFT entities: Children, Templates, Parents.<br/><br/>1. Children (ERC1155)<br/>Children are the atomic units. They are the raw components and bill of composable parts from which every assembly and garment is constructed.<br/><br/>Some examples of Children include:<br/>Examples of children include:<br/>-Print bases (t-shirts, hoodies, jackets, dresses)<br/>-Print zones (front panel, sleeve, hood, hem)<br/>-Pattern regions (cut shapes for zero-waste nesting)<br/>-Materials (cotton, silk, synthetics, composites)<br/>-Digital effects (graphics, shaders, particle systems)<br/>-Embellishments (embroidery, trims, labels, zippers, buttons)<br/>-Design elements (logos, text blocks, modular artwork)<br/>-In-game skin activations or digital-only assets<br/>-Accessory attachments (caps, bags, jewelry)<br/>-Structural inserts (padding, lining, reinforcement)<br/><br/>Each child unit carries its own:<br/>-Cost: digital and physical pricing<br/>-Supply cap: maximum editions for physical production.<br/>-Availability: DIGITAL_ONLY, PHYSICAL_ONLY, or BOTH<br/>
+-Permissions: market allowlists and open-reference flags for both digital and physical<br/>
+-Sale mode: standaloneAllowed to permit direct purchase, or force usage only inside Parents<br/>
+-Mutability: URI and price versioning with an optional immutability lock<br/><br/>Minting and Lifecycle:<br/>-Children are minted by Suppliers.<br/>-A supplier is registered within an infrastructure suite and given permission to mint children to child contracts deployed within that infrastructure suite.<br/>-Each child’s programmatic logic — edition caps, availability, references — is fixed at mint time, with limited ability to update non-price fields later.<br/>-A child can only be deleted if: It has not been sold, and it has not been,referenced by a minted template or parent. This ensures data integrity across the supply chain. However, it can be disabled at any time to prevent further purchases or references.<br/><br/><pre><code>
+struct CreateChildParams {
+    uint256 digitalPrice;             // Price for digital ownership
+    uint256 physicalPrice;            // Price for physical manufacturing rights
+    uint256 version;                  // Version number for updates
+    uint256 maxPhysicalEditions;      // Max physical items that can be produced
+    Availability availability;        // DIGITAL_ONLY, PHYSICAL_ONLY, BOTH
+    bool isImmutable;                 // Whether child can be updated
+    bool digitalMarketsOpenToAll;     // Open digital trading
+    bool physicalMarketsOpenToAll;    // Open physical trading
+    bool digitalReferencesOpenToAll;  // Allow digital references by any parent or template
+    bool physicalReferencesOpenToAll; // Allow physical references by any parent or template
+    bool standaloneAllowed;           // Can be used sold independently from a parent or template
+    string childUri;                  // IPFS metadata URI
+    address[] authorizedMarkets;      // Approved marketplace contracts
+}
+</code></pre><br/><br/>Core Contracts:<br/><div class="font-bold w-fit h-fit mb-1 bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">createChild(CreateChildParams params) external onlySupplier returns (uint256)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">updateChild(UpdateChildParams params) external onlyChildOwner(params.childId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">createChildrenBatch(CreateChildParams[] params) external onlySupplier returns (uint256[] memory)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">updateChildrenBatch(UpdateChildParams[] params) external</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">deleteChild(uint256 childId) external onlyChildOwner(childId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">disableChild(uint256 childId) external onlyChildOwner(childId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">enableChild(uint256 childId) external onlyChildOwner(childId)</div><br/><br/>2. Templates (ERC1155)<br/>Templates are DIY assembly recipes. They reference Children and may also reference other Templates, then add placement, usage, and quantity instructions for each referenced unit. A Template is not a finished product. It is a configured bill of children that can be sold on its own or used by a Parent or other Template.<br/><br/>Examples of Template use cases include:<br/>-A hoodie print setup that combines a base hoodie child and multiple print zone children<br/>-A cut plan that nests pattern region children for zero waste production<br/>-A shader stack that layers digital effect children for an on-chain skin<br/>-A materials pack that binds fabric, trims, and labels for a specific capsule<br/><br/>Each template carries its own:<br/>-Cost: digital and physical pricing<br/>-Supply cap: maximum editions for physical production.<br/>-Availability: DIGITAL_ONLY, PHYSICAL_ONLY, or BOTH<br/>-Permissions: market allowlists and open-reference flags for both digital and physical<br/>-Sale mode: standaloneAllowed to permit direct purchase, or force usage only inside Parents<br/>-Mutability: URI and price versioning with an optional immutability lock<br/><br/>Creation and lifecycle:<br/>-Templates are created by Suppliers approved inside an Infrastructure.<br/>-A Template inherits the full Child interface surface, with isTemplate = true and extra placement mappings.<br/>-Creation is a two step flow to protect referenced Children:<br/> 1) Reserve stores metadata and placements with status RESERVED. Auto approval occurs only if all referenced units already explicitly permit the Template or have their reference flags open to all. Otherwise the contract issues approval requests to each referenced Child.<br/> 2) Create finalizes activation and can only be called if approval has been given by all referenced children and nested children. Status flips to ACTIVE, and usage is incremented across all placements, including any nested Templates.<br/>-Deletion is only possible if the Template has no supply and no active usage references. Disabling can be used at any time to halt further sales or references.<br/>-Edition math is enforced across the composition graph. Cumulative demand checks prevent a Template or Parent from exceeding the physical capacity of any referenced child unit.<br/><br/><pre><code>
+struct ChildReference {
+uint256 childId; // ID of referenced child or template
+uint256 amount; // units consumed per 1 template or 1 parent
+address childContract; // contract where childId is defined
+string placementURI; // machine-readable placement schema with instructions and custom key-value fields
+}
+</code></pre><br/><br/>Core Contracts:<br/><div class="font-bold w-fit h-fit mb-1 bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">reserveTemplate(CreateChildParams params, ChildReference[] placements) external onlySupplier returns (uint256)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">createTemplate(uint256 reservedTemplateId) external onlySupplier</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">reserveTemplateBatch(CreateChildParams[] paramsArray, ChildReference[][] placementsArray) external onlySupplier returns (uint256[] memory)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">createTemplateBatch(uint256[] reservedTemplateIds) external onlySupplier returns (uint256[] memory)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">deleteTemplate(uint256 templateId) external onlyChildOwner(templateId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">disableChild(uint256 templateId) external onlyChildOwner(templateId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">enableChild(uint256 templateId) external onlyChildOwner(templateId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">getTemplatePlacements(uint256 templateId) external view returns (ChildReference[] memory)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">canPurchase(uint256 templateId, uint256 amount, bool isPhysical, address market) external view returns (bool)</div><br/>Notes:<br/>-Payment splits are computed at purchase time. The Template supplier is paid the Template price. Every Supplier of a referenced child unit receives its own price multiplied by cumulative demand.<br/><br/>3. Parents (ERC721)<br/>Parents are finished garments. They bind a configured bill of materials into a manufacturable ERC721 design: the SKU, the production order, the digital twin, and the rights envelope.<br/><br/>Parents can reference either:<br/>- a Template (which itself references Children), or<br/>- a direct set of Child references.<br/><br/>Each Parent carries its own:<br/>- Cost: digital price and physical price<br/>- Edition limits: maxDigitalEditions, maxPhysicalEditions with live counters<br/>- Availability: DIGITAL_ONLY, PHYSICAL_ONLY, or BOTH<br/>- Permissions: market allowlists plus open-to-all flags per channel<br/>- Workflow: a FulfillmentWorkflow that encodes the production steps and fulfiller payouts<br/>- Metadata: immutable token URI per minted ERC721, versioned at the design level<br/><br/>Creation and lifecycle:<br/>- Parents are authored by Designers that are approved inside an Infrastructure to mint to Parent Contracts<br/>- Two phase flow protects referenced units and their suppliers:<br/> 1) reserveParent stores metadata and references with status RESERVED. Auto activation occurs only if every referenced unit already approves the Parent or has open reference flags set. Otherwise the contract issues approval requests across the graph, including nested Templates.<br/> 2) createParent finalizes activation once approvals are satisfied. Status flips to ACTIVE, and usage is incremented across all referenced Children and nested Templates.<br/>- Updates: price and market lists can be updated while there are no purchases, with hard guards that edition caps never fall below current counts and that price covers the declared workflow’s fulfiller costs.<br/>- Deletion: only when there are zero purchases and no active usage. Disable or enable can be toggled at any time.<br/>- Edition math: cumulative demand checks ensure the Parent’s requested editions never exceed the physical capacity of any referenced Child or Template at the required quantities.<br/><br/>Purchase and minting path:<br/>- A Market must be allowlisted by the Parent or the Parent must be open to all for the given channel.<br/>- canPurchase validates status, availability, edition math, market permissions, and child approvals recursively.<br/>- On purchase, the Market distributes payments: fulfillers are paid from the Parent price per workflow math, remainder to the Designer. Every referenced Child or Template receives its own price multiplied by cumulative demand for the order.<br/>- The Market mints the ERC721s to the buyer and also mints or reserves the nested ERC1155s required by the composition. For physical orders with a workflow, the Fulfillment contract is started and later finalizes physical token delivery.<br/><br/><pre><code>
+struct CreateParentParams {
+uint256 digitalPrice; // Price for digital editions
+uint256 physicalPrice; // Price for physical editions
+uint256 maxDigitalEditions; // Cap for digital ERC721 mints
+uint256 maxPhysicalEditions; // Cap for physical ERC721 mints
+uint8 printType; // Process hint for manufacturing
+Availability availability; // DIGITAL_ONLY, PHYSICAL_ONLY, BOTH
+bool digitalMarketsOpenToAll; // Open digital channel to any Market
+bool physicalMarketsOpenToAll; // Open physical channel to any Market
+string uri; // Base metadata for tokenURI
+ChildReference[] childReferences; // Template or direct Child set
+address[] authorizedMarkets; // Allowlisted markets
+FulfillmentWorkflow workflow; // Production steps and payouts
+}
+
+struct UpdateParentParams {
+uint256 designId;
+uint256 digitalPrice;
+uint256 physicalPrice;
+uint256 maxDigitalEditions;
+uint256 maxPhysicalEditions;
+address[] authorizedMarkets;
+}
+
+struct SubPerformer {
+uint256 splitBasisPoints; // share from the primary’s pot
+address performer; // subcontractor wallet
+}
+
+struct FulfillmentStep {
+address primaryPerformer; // must be an approved Fulfiller or zero for Designer
+string instructions; // freeform human or machine readable notes
+SubPerformer[] subPerformers;
+}
+
+struct FulfillmentWorkflow {
+FulfillmentStep[] digitalSteps;
+FulfillmentStep[] physicalSteps;
+}
+</code></pre><br/><br/>Core Contracts:<br/><div class="font-bold w-fit h-fit mb-1 bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">reserveParent(CreateParentParams params) external onlyDesigner returns (uint256)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">createParent(uint256 reservedParentId) external onlyDesigner</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">reserveParentBatch(CreateParentParams[] paramsArray) external onlyDesigner returns (uint256[] memory)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">createParentBatch(uint256[] reservedParentIds) external onlyDesigner</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">updateParent(UpdateParentParams params) external onlyDesignOwner(params.designId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">approveMarket(uint256 designId, address market) external onlyDesignOwner(designId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">revokeMarket(uint256 designId, address market) external onlyDesignOwner(designId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">requestMarketApproval(uint256 designId) external</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">approveMarketRequest(uint256 designId, address market) external onlyDesignOwner(designId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">rejectMarketRequest(uint256 designId, address market) external onlyDesignOwner(designId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">mint(uint256 parentId, uint256 amount, address to, bool isPhysical) external returns (uint256[] memory)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">canPurchase(uint256 designId, uint256 amount, bool isPhysical, address market) external view returns (bool)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">isParentActive(uint256 designId) external view returns (bool)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">disableParent(uint256 designId) external onlyDesignOwner(designId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">enableParent(uint256 designId) external onlyDesignOwner(designId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">deleteParent(uint256 designId) external onlyDesignOwner(designId)</div><br/><br/><table style="border-collapse: separate; border-spacing: 0 8px; width: 100%;">
+  <thead>
+    <tr style="text-align: left; background-color: #1f2937; color: #d1d5db;">
+      <th style="padding: 8px; border-radius: 6px 0 0 6px;">Layer</th>
+      <th style="padding: 8px;">Base Contract (Abstract)</th>
+      <th style="padding: 8px;">Concrete Contract (Deployable)</th>
+      <th style="padding: 8px;">Standard</th>
+      <th style="padding: 8px; border-radius: 0 6px 6px 0;">Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #111827; color: #d1d5db;">
+      <td style="padding: 10px; border-radius: 6px 0 0 6px;">Atomic</td>
+      <td style="padding: 10px;"><code>FGOBaseChild</code></td>
+      <td style="padding: 10px;"><code>FGOChild</code></td>
+      <td style="padding: 10px;">ERC1155</td>
+      <td style="padding: 10px; border-radius: 0 6px 6px 0;">Individual components (children): raw garment parts, materials, zones, effects</td>
+    </tr>
+    <tr style="background-color: #111827; color: #d1d5db;">
+      <td style="padding: 10px; border-radius: 6px 0 0 6px;">Composite</td>
+      <td style="padding: 10px;"><code>FGOTemplateBaseChild</code></td>
+      <td style="padding: 10px;"><code>FGOTemplateChild</code></td>
+      <td style="padding: 10px;">ERC1155</td>
+      <td style="padding: 10px; border-radius: 0 6px 6px 0;">Assembly recipes (templates): configured bills of materials with placement data</td>
+    </tr>
+    <tr style="background-color: #111827; color: #d1d5db;">
+      <td style="padding: 10px; border-radius: 6px 0 0 6px;">Final</td>
+      <td style="padding: 10px;"><code>FGOBaseParent</code></td>
+      <td style="padding: 10px;"><code>FGOParent</code></td>
+      <td style="padding: 10px;">ERC721</td>
+      <td style="padding: 10px; border-radius: 0 6px 6px 0;">Finished garments (parents): manufacturable, ownable, fulfillment-enabled SKUs</td>
+    </tr>
+  </tbody>
+</table>
+<br/><br/><div style="font-family: monospace; color: #d1d5db; background-color: #111827; padding: 16px; border-radius: 8px; width: fit-content;">
+  <ul style="list-style-type: none; padding-left: 20px; margin: 0;">
+    <li>
+      <span style="color:#93c5fd;">Parent (ERC721)</span>
+      <ul style="list-style-type: none; padding-left: 20px; margin: 4px 0;">
+        <li>↳ Child A (ERC1155)</li>
+        <li>↳ Child B (ERC1155)</li>
+        <li>
+          ↳ Template X (ERC1155)
+          <ul style="list-style-type: none; padding-left: 20px; margin: 4px 0;">
+            <li>↳ Child C (ERC1155)</li>
+            <li>
+              ↳ Template Y (ERC1155)
+              <ul style="list-style-type: none; padding-left: 20px; margin: 4px 0;">
+                <li>↳ Child D (ERC1155)</li>
+                <li>↳ Child E (ERC1155)</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+<br/><br/><h3 class='font-bold'>Metadata & On-Chain Standards</h3>
+
+Metadata in FGO V3 is both a descriptor and an executable blueprint.<br/>
+- **Descriptor layer**: communicates to humans — designers, suppliers, collectors.<br/>  
+- **Operational layer**: encodes instructions for factories, renderers, or front-ends to act on directly.<br/><br/>  
+
+All metadata URIs are hashed to IPFS. Fields are designed to be flexible yet rigorous enough to support generative workflows, manufacturing automation, and provenance tracking.<br/><br/>  
+
+<div class="font-bold mb-2">Child Metadata</div>
+Children define single atomic units. Their metadata describes what the unit is and how it should be understood in both digital and physical terms.  <br/><br/>
+
+<pre><code>
+export interface ChildMetadata {
+  title: string;          // Required: name of the unit
+  description: string;    // Required: text description
+  image: string;          // Required: IPFS link to preview/render
+  attachments: Attachment[]; // Optional: PDFs, DXF, texture packs
+  tags: string[];         // Optional: classification keywords
+  prompt: string;         // Optional: AI prompt if generated
+  aiModel: string;        // Optional: model reference (StableDiffusion, etc.)
+  loras: string[];        // Optional: LoRA IDs used in generation
+  workflow: string;       // Optional: ComfyUI / node graph reference
+  version: string;        // Required: version number
+}
+export interface Attachment {
+  uri: string;  // IPFS link
+  type: string; // MIME type or classifier
+}
+</code></pre>
+<br/><br/>
+<pre><code>{
+ "title":"Hoodie Print Base",
+ "description":"Standard unisex hoodie print base for direct-to-garment printing",
+ "image":"ipfs://QmRender", 
+ "attachments":[
+   {"uri":"ipfs://QmCutPlanDXF", "type":"application/dxf"},
+   {"uri":"ipfs://QmFabricSpecSheet", "type":"application/pdf"}
+ ],
+ "tags":["base","hoodie","cotton"],
+ "prompt":"",
+ "aiModel":"",
+ "loras":[],
+ "workflow":"",
+ "version":"1"
+}
+</code></pre><br/><br/>
+
+- <span style="font-variant: small-caps;">image</span>: preview render if physical, or the digital asset itself if digital-only.  <br/>
+- <span style="font-variant: small-caps;">attachments</span>: optional auxiliary files (cutting plan DXF, PDF spec sheet, OBJ mesh, additional images, videos, audio etc.).<br/>  
+
+<br/><br/>
+
+<div class="font-bold mb-2">Template Metadata</div>
+Templates describe assemblies of children. Their metadata documents the purpose of the assembly and how it should be understood in a DIY or factory context. <br/><br/> 
+
+<pre><code>
+export interface TemplateMetadata {
+  title: string;          // Required: name of the unit
+  description: string;    // Required: text description
+  image: string;          // Required: IPFS link to preview/render
+  attachments: Attachment[]; // Optional: PDFs, DXF, texture packs
+  tags: string[];         // Optional: classification keywords
+  prompt: string;         // Optional: AI prompt if generated
+  aiModel: string;        // Optional: model reference (StableDiffusion, etc.)
+  loras: string[];        // Optional: LoRA IDs used in generation
+  workflow: string;       // Optional: ComfyUI / node graph reference
+  version: string;        // Required: version number
+}
+export interface Attachment {
+  uri: string;  // IPFS link
+  type: string; // MIME type or classifier
+}
+</code></pre>
+<br/><br/>
+
+<pre><code>{
+ "title":"Hoodie Print Template A",
+ "description":"Composite hoodie assembly with front and sleeve zones mapped for graphics application",
+ "image":"ipfs://QmSampleTemplateRender",
+ "attachments":[
+   {"uri":"ipfs://QmMarkerFile", "type":"application/json"},
+   {"uri":"ipfs://QmPlacementVisual", "type":"image/png"}
+ ],
+ "tags":["template","print","hoodie"],
+ "prompt":"front design placement with high-contrast logo",
+ "aiModel":"StableDiffusion-v1.5",
+ "loras":["branding-2024"],
+ "workflow":"ipfs://QmComfyUIExportWorkflow",
+ "version":"3"
+}
+</code></pre>
+
+<br/>
+
+<div class="font-bold mb-2">Parent Metadata</div>
+Parents finalize production. Their metadata is locked at mint to ensure SKU-level stability.  
+<br/><br/>
+
+<pre><code>
+export interface ParentMetadata {
+  id: string;             // Unique parent ID
+  title: string;          // Required
+  description: string;    // Required
+  image: string;          // Required
+  tags: string[];         // Optional
+  prompt: string;         // Optional
+  attachments: Attachment[];
+  aiModel: string;        // Optional
+  loras: string[];        // Optional
+  workflow: string;       // Optional
+  version: string;        // Required
+}
+</code></pre>
+
+<br/><br/>
+
+<pre><code>{
+ "title":"Limited Edition Neon Hoodie",
+ "description":"Neon-print hoodie produced with zero-waste cut plan and reflective sleeve patch",
+ "image":"ipfs://QmFinalProductRender", 
+ "attachments":[
+   {"uri":"ipfs://QmWashInstructions", "type":"application/pdf"}
+ ],
+ "tags":["hoodie","limited","neon"],
+ "prompt":"",
+ "aiModel":"",
+ "loras":[],
+ "workflow":"",
+ "version":"1"
+}
+</code></pre>
+<br/><br/>
+Once minted, a Parent’s metadata URI cannot be changed — it becomes the canonical reference for that SKU.  
+
+<br/><br/><br/>
+
+<div class="font-bold mb-2">ChildReference Placement Metadata</div>
+Templates also specify how children are placed. This is done through <span style="font-variant: small-caps;">placementURI</span>.
+
+<br/><br/>
+
+<pre><code>
+export interface ChildPlacement {
+  instructions: string;   // Required
+  customFields: Record<string, string>;  // Optional
+}
+</code></pre>
+
+<br/><br/>
+
+<pre><code>{
+ "instructions":"Apply front panel graphic at 300 DPI, centered",
+ "customFields":{
+   "scale":"1",
+   "rotation":"0",
+   "x":"150",
+   "y":"420",
+   "seamAllowance":"0.5cm"
+ }
+}
+</code></pre>
+<br/><br/>
+- <span style="font-variant: small-caps;">instructions</span>: human-readable directive.<br/>  
+- <span style="font-variant: small-caps;">customFields</span>: extensible machine-parsable dictionary (for geometry, tolerances, AR anchors, IoT mappings).<br/><br/>  
+
+<br/>
+
+<div class="font-bold mb-2">Versioning & Immutability</div>
+- **Children/Templates**: mutable if <span style="font-variant: small-caps;">isImmutable</span> = false. Updates require incrementing <span style="font-variant: small-caps;">version</span>. Once locked, metadata becomes archival.<br/>  
+- **Parents**: immutable from mint. The record is frozen as a production artifact. <br/><br/> 
+
+This system provides **iterative transparency** during prototyping and remixing, then enables **content trust** when a design must be fixed for manufacturing, provenance, or contractual use.  
+
+<br/><br/>
+
+<div class="font-bold mb-2">Comparison Table</div>
+
+<table class="table-auto border border-gray-700 text-sm">
+  <thead class="bg-gray-800 text-gray-300">
+    <tr>
+      <th class="p-2 border">Entity</th>
+      <th class="p-2 border">Required Fields</th>
+      <th class="p-2 border">Optional Fields</th>
+      <th class="p-2 border">Mutability</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="p-2 border">Child</td>
+      <td class="p-2 border">title, description, image, version</td>
+      <td class="p-2 border">attachments, tags, prompt, aiModel, loras, workflow</td>
+      <td class="p-2 border">Mutable until <code>isImmutable</code> set true</td>
+    </tr>
+    <tr>
+      <td class="p-2 border">Template</td>
+      <td class="p-2 border">title, description, image, version</td>
+      <td class="p-2 border">attachments, tags, prompt, aiModel, loras, workflow</td>
+      <td class="p-2 border">Mutable until <code>isImmutable</code> set true</td>
+    </tr>
+    <tr>
+      <td class="p-2 border">Parent</td>
+      <td class="p-2 border">title, description, image, version</td>
+      <td class="p-2 border">attachments, tags, prompt, aiModel, loras, workflow</td>
+      <td class="p-2 border">Immutable after mint</td>
+    </tr>
+  </tbody>
+</table>
+<br/><br/>
+<h3 class='font-bold'>Contract Creation, Factory Setup, Roles & Permissions</h3><br/>
+
+The contract suite is engineered to be as composable and singular as possible, where every individual contract can operate independently while also layering relationships on top. The <span class="font-mono">Factory</span> contract simplifies deployment and coordination.<br/><br/>  
+
+- The Factory deploys entire **Infrastructure Suites**.<br/>
+- Each Infrastructure contains the contracts and role assignments needed to mint Children, Templates, and Parents, list them in Markets, and connect them into Fulfillment workflows.<br/>  
+- Every deployment emits events that are indexed into a dedicated Fractional Garment Ownership Subgraph, enabling real-time front-end references across all infrastructures. The global registry of infrastructures and their contracts can be browsed at <a href="https://fgo.themanufactory.xyz" class="font-mono">fgo.themanufactory.xyz</a>.  
+
+<br/><br/>  
+
+<div class="font-bold mb-2">Infrastructure</div>
+An Infrastructure is a self-contained environment that bundles contract deployments with scoped roles and permissions.<br/><br/>  
+
+- **Admin**: the owner of an Infrastructure.<br/>    
+  - Can deploy Child, Template, Parent, Market, and Fulfillment contracts within the Infrastructure.<br/>  
+  - Can add or remove roles (Suppliers, Designers, Fulfillers, other Admins).<br/>  
+  - Can deactivate or reactivate the Infrastructure, pausing or resuming minting, contract creation, and sales.<br/><br/>  
+- **Suppliers**: once added, can mint Children and Templates inside the Child and Template contracts deployed in that Infrastructure.<br/>  
+- **Designers**: once added, can create Parents inside Parent contracts deployed within that Infrastructure.<br/>  
+- **Fulfillers**: once added, can be embedded into Parent fulfillment workflows and receive payouts for production steps.<br/>  
+
+<br/>
+
+<div class="font-bold mb-2">Purpose</div>
+This structure allows fine-grained segmentation:<br/>  
+- Multiple Infrastructures can be created by a wallet address to isolate collaborations, collections, or markets.<br/>  
+- If a wallet is compromised, a new Infrastructure can be spun up and ownership transferred.<br/>  
+- Permissions can be assigned or revoked per Infrastructure without impacting others.<br/>  
+- Market and Fulfillment contracts deployed inside an Infrastructure provide scoped venues for listing and executing sales.<br/><br/>
+
+<div class="font-bold mb-2">Base Payment Token</div>
+- Each Infrastructure specifies a **base payment token**.<br/>  
+- All Children, Templates, and Parents created within that Infrastructure are priced and settled in this token.<br/>  
+- By default, this token is <a href="https://explorer.lens.xyz/address/0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd" class="font-mono">$MONA</a>, but any ERC20 compatible with Lens zkSync can be assigned.<br/>  
+
+<br/>
+
+This design ensures infrastructures act as modular yet interoperable clusters: capable of operating independently, segmenting roles and permissions, but still converging into a shared ecosystem where every contract is indexable, discoverable, and liquid.  <br/><br/>
+
+<br/><h3 class='font-bold'>Cross-Infrastructure Composability</h3>While each Infrastructure is self-contained, contracts are not isolated. Children, Templates, and Parents can interoperate across infrastructures to form a single composable manufacturing graph.  
+<br/><br/>
+
+<div class="font-bold mb-2">Referencing Across Infrastructures</div>
+- A Parent in one Infrastructure can reference Children or Templates minted in another Infrastructure.<br/>  
+- A Template can embed Children that originate from multiple Infrastructures.<br/>  
+- Market contracts can list Parents and Templates regardless of the Infrastructure where they were created, provided the necessary reference permissions are granted.<br/>  
+
+<br/>
+
+<div class="font-bold mb-2">Permissions and Provenance</div>
+- Reference rights remain scoped to the original Infrastructure.<br/>  
+- Even when a Child or Template is pulled into another Infrastructure, its **minting logic, supply caps, and permissions** are enforced by the originating contract.<br/>  
+- This ensures that Suppliers and Designers maintain sovereignty over the units they created, without blocking wider composability.<br/> 
+
+<br/>
+
+<div class="font-bold mb-2">Payment Token Alignment</div>
+- Each Infrastructure has its own base payment token for internal pricing.<br/>  
+- When cross-referencing occurs across multiple Infrastructures with different tokens: The transaction defaults to the payment token of the **Market contract** executing the purchase. $MONA is the de facto cross-Infrastructure token, as it is widely adopted by designers and offers the most seamless settlement path when assets span multiple Infrastructures.<br/>  
+- Designers are free to configure other ERC20 tokens within their own Infrastructure, but interoperability is most reliable when $MONA is used as the shared medium.
+
+<br/><br/>
+
+<div class="font-bold mb-2">Benefits</div>
+- Enables **total composability**: designers are not siloed to their own Infrastructure.<br/>  
+- Preserves **unit-level integrity**: suppliers and designers define rules once, and those rules propagate wherever their assets are referenced.<br/>  
+- Provides **market neutrality**: listings and purchases can occur in any compatible Market.<br/>  
+<br/>
+This architecture balances **sovereignty and interoperability**. Each Infrastructure retains its own permissions and payment context, yet the ecosystem as a whole functions as a fluid, modular manufacturing lattice.<br/><br/>
+<h3 class='font-bold'>Verification & Permissions</h3> The protocol enforces permissions at three edges: **Reference**, **Market**, **Template**. All checks are mode-aware (digital vs physical) and bubble through nesting (template-of-templates). No object can be minted or market sold without passing these gates.<br/><br/><ul>
+<li><b>Child References</b>: Children and Templates expose open-reference flags or explicit allowlists. A Parent or Template that attempts to consume them must either be pre-approved or request verification. Every Child approval must bubble upward through all referencing Templates and Parents, preventing malicious locking or siphoning of scarce units.</li>
+
+<li><b>Market Approvals</b>: Only authorized Markets can list or fulfill orders. Designers and Suppliers can whitelist markets at mint time or update them until the first sale. Physical and digital channels are validated separately. Every nested Child and Template must also approve the Market, ensuring no bypass of payouts or diversion to hostile sales venues.</li>
+
+<li><b>Template References</b>: Multi-level assemblies enforce recursive checks. A Template referencing another Template must inherit and respect all of its nested Children’s permissions, edition caps, and availability rules. Validation bubbles upward: for a Parent to be valid, every Template and Child in the composition graph must explicitly approve it.</li></ul><br/>
+<div style="font-family: monospace; color: #d1d5db; background-color: #111827; padding: 16px; border-radius: 8px; width: fit-content;">
+  <ul style="list-style-type: none; padding-left: 20px; margin: 0;">
+    <li>
+      <span style="color:#93c5fd;">Parent (ERC721)</span>  
+      <ul style="list-style-type: none; padding-left: 20px; margin: 4px 0;">
+        <li>↳ <span style="color:#fbbf24;">Template A (ERC1155)</span>  
+          <ul style="list-style-type: none; padding-left: 20px; margin: 4px 0;">
+            <li>↳ Child 1 (ERC1155)</li>
+            <li>↳ Child 2 (ERC1155)</li>
+          </ul>
+        </li>
+        <li>↳ <span style="color:#fbbf24;">Template B (ERC1155)</span>  
+          <ul style="list-style-type: none; padding-left: 20px; margin: 4px 0;">
+            <li>↳ Child 3 (ERC1155)</li>
+            <li>↳ <span style="color:#34d399;">Template C (ERC1155)</span>  
+              <ul style="list-style-type: none; padding-left: 20px; margin: 4px 0;">
+                <li>↳ Child 4 (ERC1155)</li>
+                <li>↳ Child 5 (ERC1155)</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+<p style="font-size: 14px; color: #9ca3af; margin-top: 8px;">
+Every Child and Template in the tree must explicitly approve upward references.<br/>A Template can only activate if <i>all nested Children and Templates</i> grant verification.<br/>
+A Parent can only activate if <i>all nested Children and Templates</i> grant verification.<br/>A Market can only process a purchase if the Parent and <i>all nested Children and Templates</i> grant verification.
+</p><br/><br/>
+<div class="font-bold mb-2">Lazy Minting</div>
+All entities in FGO V3 are lazily minted.<br/>
+- Until purchase, Children, Templates, and Parents exist only as code structs in contract storage.<br/>  
+- Minting occurs at the moment of payment, and only if all verification checks (Market, Child and Template) pass successfully.<br/>  
+- This guarantees that supply is always demand-driven: every minted unit is fully validated, permission-clean, and backed by settlement in the Infrastructure’s payment token.<br/><br/>  
+
+This model eliminates ghost supply and enforces scarcity only when required (e.g. physical editions), while allowing digital editions to scale infinitely without bloating chain state.<br/><br/><h3 class='font-bold'>Markets & Fulfillment</h3>When a Market contract is deployed within an Infrastructure Suite, a Fulfillment contract is automatically deployed and hard-linked to that Market.<br/><br/>Market = order intake, preflight checks, price computation, payments, and mint orchestration.<br/>
+
+Fulfillment = step-by-step production workflow, attestations, and physical token settlement at completion.<br/>
+
+Both settle in the Infrastructure’s PAYMENT_TOKEN (ERC-20) defined by its AccessControl; this is what the buyer pays and what recipients receive.<br/><br/><div class="font-bold mb-1">Fulfillment Workflow (on Parent)</div> A created Parent can optionally encode production logic as a workflow. Steps are availability-aware (digital vs physical). <pre><code>
+  struct SubPerformer {
+    uint256 splitBasisPoints; // share from the step's primary pot (0–10000) 
+    address performer; // may be any address (does not need the Fulfiller role) 
+  } 
+
+  struct FulfillmentStep { 
+    address primaryPerformer; // MUST be a Fulfiller in the Parent’s Infrastructure (or 0x0 = Designer) 
+    string instructions; // ipfs://... freeform step brief / machine file 
+    SubPerformer[] subPerformers; 
+  } 
+    
+  struct FulfillmentWorkflow { 
+    FulfillmentStep[] digitalSteps; 
+    FulfillmentStep[] physicalSteps; 
+  } </code></pre><br/><br/>- primaryPerformer: an approved Fulfiller role in the Parent’s Infrastructure.<br/>
+
+- subPerformers: arbitrary addresses, paid from the primary’s pot by basis-points split.<br/>
+
+- instructions: an IPFS pointer containing notes, schematics, or machine-readable configs.<br/>
+
+- Steps are optional. Parents can have none, some, or complex multi-stage workflows.<br/><br/><div class="font-bold mb-2">Payment logic</div>At purchase, the Market computes two layers of payouts:<br/><br/>
+
+Parent layer<br/>
+
+For each step:<br/>
+stepPot = basePrice + (parentPrice × vigBps / 10000)<br/>
+
+Sub-performers take their % splits; the remainder goes to the primary.<br/>
+
+Designer receives parentPrice − Σ(stepPots).<br/><br/>
+
+Composition layer<br/>
+
+Every referenced Child and Template (including nested) receives
+unitPrice × quantityDemanded<br/>
+
+This guarantees downstream suppliers are always compensated.<br/>
+
+All transfers execute atomically in the Infrastructure’s PAYMENT_TOKEN.<br/><br/>Example
+Parent = 500 $MONA. Two fulfillmnet steps:<br/>
+
+Step 1 → base 30 $MONA, vig 20% → 30 + 100 = 130<br/>
+
+Step 2 → base 10 $MONA, vig 5% → 10 + 25 = 35<br/>
+Total two step cost = 165 $MONA. Designer receives 335 $MONA.<br/>
+Children/Template costs are added on top and billed directly to the buyer.<br/><br/><div class="font-bold mb-2">Lazy minting & delivery rules</div>
+
+As previously mentioned, supply only exists when purchased. Until then, units live as structs in contract storage.<br/><br/>
+
+<h2 class="font-bold">Digital order</h2>
+
+Parent ERC721 → minted immediately.<br/>
+
+Children/Templates → minted immediately if DIGITAL_ONLY or BOTH.<br/>
+
+Physical-only units are skipped.<br/><br/>
+
+<h2 class="font-bold">Physical order, no fulfillment steps</h2>
+
+Parent ERC721 → minted immediately.<br/>
+
+Children/Templates → minted immediately if PHYSICAL_ONLY or BOTH.<br/>
+
+Digital-only units are skipped.<br/><br/>
+
+<h2 class="font-bold">Physical order, with fulfillment steps</h2>
+
+Parent ERC721 → minted immediately.<br/>
+
+Digital-only units are skipped.<br/><br/>
+
+Children/Templates → not minted at purchase. Rights are reserved.<br/>
+
+Only on completion of the final physical step does the Fulfillment contract mint them to the buyer.<br/><br/>
+
+This enforces the invariant: a physical child token is proof that the corresponding physical item has cleared production.<br/><br/><div class="font-bold mb-2">Digital infinity vs. physical scarcity</div>
+
+Digital assets: no edition caps. They remain abundant, remixable, and CC0-aligned.<br/>
+
+Physical assets: hard-capped via maxPhysicalEditions. The Market validates cumulative demand across the full graph (parents, templates, children) before approving a purchase.<br/><br/>
+
+Infinite digital child supply encourages open remix culture whilst scarce physical child supply enables bounds within attestable manufacturing limits.<br/><br/><div class="font-bold mb-2">Order flow</div>
+
+1. Buyer calls Market.buy with order details (quantity, mode).<br/>
+
+2. Market runs preflight: availability, permissions, edition math, market authorization.<br/>
+
+3. Payments are distributed across Designer + Fulfillers + Suppliers.<br/>
+
+4. Minting rules (above) decide what the buyer receives immediately vs. on workflow completion.<br/>
+
+5. Fulfillment contract manages step attestations.<br/>
+
+6. On final step: outstanding physical Children/Templates are minted to the buyer.<br/><br/><div style="font-family: monospace; background-color: #111827; color: #d1d5db; padding: 16px; border-radius: 8px; width: fit-content;">
+  <ul style="list-style-type: none; padding-left: 20px; margin: 0;">
+    <li>
+      <span style="color:#93c5fd;">Step 1: Purchase</span>
+      <ul style="list-style-type: none; padding-left: 20px; margin: 4px 0;">
+        <li>✔ Parent ERC721 minted immediately</li>
+        <li>✘ Children/Templates (physical) not minted yet</li>
+        <li>➝ Rights reserved for physical supply</li>
+      </ul>
+    </li>
+    <li>
+      <span style="color:#93c5fd;">Step 2: Fulfillment Workflow</span>
+      <ul style="list-style-type: none; padding-left: 20px; margin: 4px 0;">
+        <li>↳ FulfillmentStep A (e.g. cutting)</li>
+        <li>↳ FulfillmentStep B (e.g. printing)</li>
+        <li>↳ FulfillmentStep C (e.g. quality check + shipping)</li>
+        <li>✔ Each step attested by assigned Fulfiller(s)</li>
+      </ul>
+    </li>
+    <li>
+      <span style="color:#93c5fd;">Step 3: Completion</span>
+      <ul style="list-style-type: none; padding-left: 20px; margin: 4px 0;">
+        <li>✔ Final step triggers mint of physical Children/Templates</li>
+        <li>➝ Buyer now holds ERC1155s = proof of physical rights</li>
+        <li>➝ Parent ERC721 + Children/Templates fully settled</li>
+      </ul>
+    </li>
+  </ul>
+</div><br/><br/><h3 class='font-bold'>Postscript</h3> FGO V3 is not the final word. It is a working lattice, open to forking, mutating, and bug-baiting. Every contract here is both singular and composable: you can deploy one in isolation, or stack hundreds into a living factory. The logic is simple enough for one indie designer to operate, but flexible enough for entire federations to emerge.<br/><br/>
+
+What matters now is not version numbers, but whether the protocol keeps its promise: to make digital and physical fashion interoperable, verifiable, and sovereign at the smallest possible scale. Everything else — valuation, markets, collaborations — follows from that ground truth.<br/><br/>Straight lines will bend. Code will fork. Supply will flow. And somewhere, one person will mint a garment that did not exist before, and it will be theirs.`,
+  },
+  {
+    title:
+      "Estander 3.0 de Propiedad Fraccionaria de Prendas (FGO-0003_0) (Castellano)",
+    description:
+      `FGO ha vivido, de facto, fuera del registro en 2.0 durante casi dos años. Cuando Coin Op salió en 2023, los contratos base se reconstruyeron desde cero. ERC1155 siguió siendo la base para los children y ERC721 para los parents, pero la lógica se plegó en una arquitectura de templates más deliberada que permitió NFTs compuestos, modulares y bajo demanda de impresión. No es que me olvidara de documentarlo. Simplemente elegí no hacerlo.<br/><br/>En las últimas semanas, tras completar un refactor de varios meses de toda la pila a Lens Mainnet sobre ZKSync, volví a diseñar una aplicación local de Coin Op con lógica avanzada de patrones y configuración de residuo cero. Eso por fin abrió espacio para integrar el crate de empaquetado Rust Sparrow, algo que quería desde 2022 tras explorar SVGNest para nesting algorítmico. Sparrow entregó lo que había estado esperando: geometría visual, optimizada y manufacturable en Rust. Gracias, Jeroen Gardeyn. Pero a mitad de ese build quedó claro que FGO V2 no podía estirarse hasta los nuevos requisitos y el alcance ampliado de Coin Op. La arquitectura que había ido bocetando en fragmentos durante dos años tenía que cristalizar.<br/><br/>Me dije que podía entregar la suite de contratos en uno o dos días y volver a la app. Cuatro semanas después, tras jornadas de 17 horas apiladas una sobre otra, la suite está probada, endurecida y en forma de producción, con muchas revisiones por delante. Los smart contracts recompensan la paciencia y la precisión mientras castigan la fanfarronería. Intenté coautoría con Claude, pero no pudo resistir la tentación de fabular. Y por fabular me refiero a sistemas enteros imaginados, mundos enteros imaginados...<br/><br/>Así que aquí estamos. Directo a V3. Por fin. Y además, sin “licencia y distribución”. Ese encuadre ya no sirve. Lo que importa ahora es la composabilidad y la propiedad alineadas directamente con los derechos de fabricación. Y, aún más importante, volver al único principio que hace que esto valga la pena: ¿funciona para una diseñadora indie? Solo una. Todo el sistema tiene que sostenerse por sí mismo en la escala más pequeña posible, donde una sola creadora pueda activar una retícula de manufactura digifizzy totalmente autosuficiente, sostener y rotar las llaves de sus contratos desplegados, reconfigurar las compuertas conforme evoluciona su proceso y federarse selectivamente con otras diseñadoras, fulfllers y suppliers en sus propios términos. Si no puede habilitar ese nivel de autonomía, entonces es solo andamiaje sin edificio.<br/><br/><h3 class='font-bold'>Contexto</h3>La suite de contratos se publica como open source bajo CC0. Sin licencia, sin restricción. Fórkalo, reutilízalo, desmóntalo como prefieras.<br/><br/>Se asume que cada usuario opera desde una base compartida: reconocimiento de la integridad territorial de Ucrania y Crimea frente a la ocupación de la ‘Mafia’ de Moscú, reconocimiento de Taiwán como independiente de China, reconocimiento de los pueblos indígenas —como las naciones aborígenes y de las Islas del Estrecho de Torres— como primeras custodias de la tierra hoy llamada Australia, y reconocimiento de una solución de dos Estados entre Israel, libre del extremismo kahanista, y Palestina, libre de Hamas. Igualdad de derechos y capacidad de construir independencia económica con independencia de género, raza o amor.<br/><br/>Los contratos funcionan como una pila abierta de manufactura. La propiedad, los derechos y el cumplimiento se instrumentan y autentican programáticamente on-chain con la misma resolución que fábricas y diseñadores requieren off-chain. La diferencia es la procedencia frente a la opacidad, compuertas cuando son necesarias, privacidad cuando se exige e inmutabilidad cuando la confianza debe ser absoluta.<br/><br/><h3 class='font-bold'>Visión General de la Arquitectura</h3>FGO V3 está definido por tres entidades NFT núcleo: Children, Templates, Parents.<br/><br/>1. Children (ERC1155)<br/>Los Children son las unidades atómicas. Son los componentes básicos y la factura de partes componibles a partir de las cuales se construye cada ensamblaje y prenda.<br/><br/>Algunos ejemplos de Children incluyen:<br/>-Bases de impresión (camisetas, sudaderas, chaquetas, vestidos)<br/>-Zonas de impresión (panel frontal, manga, capucha, dobladillo)<br/>-Regiones de patrón (formas de corte para nesting sin residuos)<br/>-Materiales (algodón, seda, sintéticos, compuestos)<br/>-Efectos digitales (gráficos, shaders, sistemas de partículas)<br/>-Adornos (bordados, tiras, etiquetas, cremalleras, botones)<br/>-Elementos de diseño (logos, bloques de texto, arte modular)<br/>-Activaciones in-game o assets solo digitales<br/>-Accesorios acoplables (gorras, bolsos, joyería)<br/>-Inserciones estructurales (acolchado, forro, refuerzo)<br/><br/>Cada unidad Child contiene:<br/>-Coste: precio digital y físico<br/>-Límite de suministro: ediciones máximas para producción física.<br/>-Disponibilidad: DIGITAL_ONLY, PHYSICAL_ONLY o BOTH<br/>-Permisos: listas permitidas de mercado y flags de referencia abierta tanto digitales como físicas<br/>-Modo de venta: standaloneAllowed para permitir compra directa o forzar uso solo dentro de Parents<br/>-Mutabilidad: versionado de URI y precio con posibilidad de bloqueo de inmutabilidad<br/><br/>Proceso de minting y ciclo de vida:<br/>-Los Children son minteados por Suppliers.<br/>-Un Supplier está registrado dentro de un Infrastructure Suite y tiene permiso para mintear Children en contratos de Child desplegados en ese Infrastructure Suite.<br/>-La lógica programática de cada Child — límites de edición, disponibilidad, referencias — queda fijada en el momento del mint, con capacidad limitada para actualizar campos que no sean de precio después.<br/>-Un Child solo puede ser borrado si: no ha sido vendido y no ha sido referenciado por un Template o Parent ya minteado. Esto asegura la integridad de datos a lo largo de la cadena de suministro. Sin embargo, puede deshabilitarse en cualquier momento para evitar compras o referencias futuras.<br/><br/><pre><code>
+struct CreateChildParams {
+    uint256 digitalPrice;             // Precio para propiedad digital
+    uint256 physicalPrice;            // Precio para derechos de fabricación física
+    uint256 version;                  // Número de versión para actualizaciones
+    uint256 maxPhysicalEditions;      // Máx. ítems físicos que pueden producirse
+    Availability availability;        // DIGITAL_ONLY, PHYSICAL_ONLY, BOTH
+    bool isImmutable;                 // Si el child puede ser actualizado
+    bool digitalMarketsOpenToAll;     // Abrir trading digital a todos
+    bool physicalMarketsOpenToAll;    // Abrir trading físico a todos
+    bool digitalReferencesOpenToAll;  // Permitir referencias digitales por cualquier parent o template
+    bool physicalReferencesOpenToAll; // Permitir referencias físicas por cualquier parent o template
+    bool standaloneAllowed;           // Puede venderse independientemente de un parent o template
+    string childUri;                  // URI de metadatos en IPFS
+    address[] authorizedMarkets;      // Marketplaces autorizados
+}
+</code></pre><br/><br/>Contratos Principales:<br/><div class="font-bold w-fit h-fit mb-1 bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">createChild(CreateChildParams params) external onlySupplier returns (uint256)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">updateChild(UpdateChildParams params) external onlyChildOwner(params.childId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">createChildrenBatch(CreateChildParams[] params) external onlySupplier returns (uint256[] memory)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">updateChildrenBatch(UpdateChildParams[] params) external</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">deleteChild(uint256 childId) external onlyChildOwner(childId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">disableChild(uint256 childId) external onlyChildOwner(childId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">enableChild(uint256 childId) external onlyChildOwner(childId)</div><br/><br/>2. Templates (ERC1155)<br/>Los Templates son recetas DIY de ensamblaje. Referencian Children y también pueden referenciar otros Templates; luego añaden instrucciones de colocación, uso y cantidades para cada unidad referenciada. Un Template no es un producto terminado. Es una factura configurada de Children que puede venderse por sí mismo o ser utilizada por un Parent u otro Template.<br/><br/>Ejemplos de uso de Templates incluyen:<br/>-Un set de impresión para hoodie que combina una base hoodie child y varias zonas de impresión<br/>-Un plan de corte que anida regiones de patrón para producción sin residuos<br/>-Un stack de shaders que superpone efectos digitales para un skin on-chain<br/>-Un pack de materiales que une telas, adornos y etiquetas para una cápsula concreta<br/><br/>Cada Template contiene:<br/>-Coste: precio digital y físico<br/>-Límite de suministro: ediciones máximas para producción física<br/>-Disponibilidad: DIGITAL_ONLY, PHYSICAL_ONLY o BOTH<br/>-Permisos: allowlists de mercados y flags de referencia abierta para digital y físico<br/>-Modo de venta: standaloneAllowed para permitir compra directa o forzar uso solo dentro de Parents<br/>-Mutabilidad: versionado de URI y precio con opción de bloqueo de inmutabilidad<br/><br/>Creación y ciclo de vida:<br/>-Los Templates son creados por Suppliers aprobados dentro de una Infrastructure.<br/>-Un Template hereda toda la superficie de interfaz de Child, con isTemplate = true y mapeos extra de colocación.<br/>-Creación en dos pasos para proteger los Children referenciados:<br/> 1) <i>Reserve</i> guarda metadatos y placements con estado RESERVED. La autoaprobación ocurre solo si todas las unidades referenciadas ya permiten explícitamente el Template o tienen sus flags de referencia abiertos a todos. En caso contrario, el contrato emite solicitudes de aprobación a cada Child referenciado.<br/> 2) <i>Create</i> finaliza la activación y solo puede llamarse si todos los Children y Templates anidados han dado aprobación. El estado pasa a ACTIVE y el uso se incrementa en todos los placements, incluidos Templates anidados.<br/>-Borrado: solo si el Template no tiene suministro ni referencias activas. Puede deshabilitarse en cualquier momento para detener ventas o referencias.<br/>-Matemática de ediciones: chequeos de demanda acumulada impiden que un Template o un Parent exceda la capacidad física de cualquier Child referenciado.<br/><br/><pre><code>
+struct ChildReference {
+uint256 childId; // ID del child o template referenciado
+uint256 amount; // Unidades consumidas por 1 template o 1 parent
+address childContract; // Contrato donde está definido el childId
+string placementURI; // Esquema legible por máquina con instrucciones y campos personalizados
+}
+</code></pre><br/><br/>Contratos Principales:<br/><div class="font-bold w-fit h-fit mb-1 bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">reserveTemplate(CreateChildParams params, ChildReference[] placements) external onlySupplier returns (uint256)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">createTemplate(uint256 reservedTemplateId) external onlySupplier</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">reserveTemplateBatch(CreateChildParams[] paramsArray, ChildReference[][] placementsArray) external onlySupplier returns (uint256[] memory)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">createTemplateBatch(uint256[] reservedTemplateIds) external onlySupplier returns (uint256[] memory)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">deleteTemplate(uint256 templateId) external onlyChildOwner(templateId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">disableChild(uint256 templateId) external onlyChildOwner(templateId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">enableChild(uint256 templateId) external onlyChildOwner(templateId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">getTemplatePlacements(uint256 templateId) external view returns (ChildReference[] memory)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">canPurchase(uint256 templateId, uint256 amount, bool isPhysical, address market) external view returns (bool)</div><br/>Notas:<br/>-Los splits de pago se calculan al momento de la compra. El Supplier del Template cobra el precio del Template. Cada Supplier de un Child referenciado cobra su propio precio multiplicado por la demanda acumulada.<br/><br/>3. Parents (ERC721)<br/>Los Parents son prendas terminadas. Vinculan una factura configurada de materiales en un diseño ERC721 manufacturable: el SKU, la orden de producción, el gemelo digital y el sobre de derechos.<br/><br/>Los Parents pueden referenciar:<br/>- un Template (que a su vez referencia Children), o<br/>- un conjunto directo de referencias a Children.<br/><br/>Cada Parent contiene:<br/>- Coste: precio digital y físico<br/>- Límites de edición: maxDigitalEditions, maxPhysicalEditions con contadores en vivo<br/>- Disponibilidad: DIGITAL_ONLY, PHYSICAL_ONLY o BOTH<br/>- Permisos: allowlists de mercado y flags abiertos por canal<br/>- Workflow: un FulfillmentWorkflow que codifica los pasos de producción y los pagos a fulfillers<br/>- Metadatos: token URI inmutable por cada ERC721 minteado, versionado a nivel de diseño<br/><br/>Creación y ciclo de vida:<br/>-Los Parents son creados por Designers aprobados dentro de una Infrastructure para mintear en contratos de Parent.<br/>-Flujo en dos fases que protege unidades referenciadas y sus Suppliers:<br/> 1) <i>reserveParent</i> guarda metadatos y referencias con estado RESERVED. La autoactivación ocurre solo si cada unidad referenciada ya aprueba al Parent o tiene flags de referencia abiertos. En otro caso, el contrato emite solicitudes de aprobación a lo largo del grafo, incluidos Templates anidados.<br/> 2) <i>createParent</i> finaliza la activación una vez satisfechas todas las aprobaciones. El estado cambia a ACTIVE y el uso se incrementa a través de todos los Children y Templates anidados.<br/>-Actualizaciones: el precio y los mercados autorizados pueden actualizarse mientras no haya compras, con guardas estrictas para que los límites de edición no queden por debajo de los conteos actuales y que el precio cubra los costes del workflow.<br/>-Borrado: solo si no hay compras y no existe uso activo. Puede deshabilitarse o habilitarse en cualquier momento.<br/>-Matemática de ediciones: chequeos de demanda acumulada aseguran que el Parent no exceda la capacidad física de ningún Child o Template referenciado.<br/><br/>Ruta de compra y minting:<br/>-Un Market debe estar en la allowlist del Parent o el Parent debe estar abierto a todos para el canal correspondiente.<br/>-<span class="font-mono">canPurchase</span> valida estado, disponibilidad, matemática de ediciones, permisos de mercado y aprobaciones de Children recursivamente.<br/>-En la compra, el Market distribuye pagos: los fulfillers cobran desde el precio del Parent según el workflow; el resto va a la Designer. Cada Child o Template referenciado cobra su propio precio multiplicado por la demanda acumulada del pedido.<br/>-El Market mintea los ERC721 al comprador y también mintea o reserva los ERC1155 requeridos por la composición. Para pedidos físicos con workflow, el contrato de Fulfillment se inicia y más tarde finaliza la entrega del token físico.<br/><br/><pre><code>
+struct CreateParentParams {
+uint256 digitalPrice; // Precio para ediciones digitales
+uint256 physicalPrice; // Precio para ediciones físicas
+uint256 maxDigitalEditions; // Límite para mints ERC721 digitales
+uint256 maxPhysicalEditions; // Límite para mints ERC721 físicos
+uint8 printType; // Pista de proceso para fabricación
+Availability availability; // DIGITAL_ONLY, PHYSICAL_ONLY, BOTH
+bool digitalMarketsOpenToAll; // Abrir canal digital a cualquier Market
+bool physicalMarketsOpenToAll; // Abrir canal físico a cualquier Market
+string uri; // Metadatos base para tokenURI
+ChildReference[] childReferences; // Template o conjunto directo de Children
+address[] authorizedMarkets; // Markets permitidos
+FulfillmentWorkflow workflow; // Pasos de producción y pagos
+}
+
+struct UpdateParentParams {
+uint256 designId; // ID del diseño
+uint256 digitalPrice; // Nuevo precio digital
+uint256 physicalPrice; // Nuevo precio físico
+uint256 maxDigitalEditions; // Nuevo límite digital (>= actual)
+uint256 maxPhysicalEditions; // Nuevo límite físico (>= actual)
+address[] authorizedMarkets; // Actualización de allowlist de mercados
+}
+
+struct SubPerformer {
+uint256 splitBasisPoints; // Porcentaje del pool del primario (bps)
+address performer; // Wallet del subcontratista
+}
+
+struct FulfillmentStep {
+address primaryPerformer; // Debe ser Fulfiller aprobado o 0x0 = Designer
+string instructions; // Notas legibles / archivo máquina (ipfs://...)
+SubPerformer[] subPerformers; // Subcontratistas pagados desde el primario
+}
+
+struct FulfillmentWorkflow {
+FulfillmentStep[] digitalSteps; // Pasos para canal digital
+FulfillmentStep[] physicalSteps; // Pasos para canal físico
+}
+</code></pre><br/><br/>Contratos Principales:<br/><div class="font-bold w-fit h-fit mb-1 bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">reserveParent(CreateParentParams params) external onlyDesigner returns (uint256)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">createParent(uint256 reservedParentId) external onlyDesigner</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">reserveParentBatch(CreateParentParams[] paramsArray) external onlyDesigner returns (uint256[] memory)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">createParentBatch(uint256[] reservedParentIds) external onlyDesigner</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">updateParent(UpdateParentParams params) external onlyDesignOwner(params.designId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">approveMarket(uint256 designId, address market) external onlyDesignOwner(designId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">revokeMarket(uint256 designId, address market) external onlyDesignOwner(designId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">requestMarketApproval(uint256 designId) external</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">approveMarketRequest(uint256 designId, address market) external onlyDesignOwner(designId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">rejectMarketRequest(uint256 designId, address market) external onlyDesignOwner(designId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">mint(uint256 parentId, uint256 amount, address to, bool isPhysical) external returns (uint256[] memory)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">canPurchase(uint256 designId, uint256 amount, bool isPhysical, address market) external view returns (bool)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">isParentActive(uint256 designId) external view returns (bool)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">disableParent(uint256 designId) external onlyDesignOwner(designId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">enableParent(uint256 designId) external onlyDesignOwner(designId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">deleteParent(uint256 designId) external onlyDesignOwner(designId)</div><br/><br/><table style="border-collapse: separate; border-spacing: 0 8px; width: 100%;">
+
+<thead> <tr style="text-align: left; background-color: #1f2937; color: #d1d5db;"> <th style="padding: 8px; border-radius: 6px 0 0 6px;">Capa</th> <th style="padding: 8px;">Contrato Base (Abstracto)</th> <th style="padding: 8px;">Contrato Concreto (Desplegable)</th> <th style="padding: 8px;">Estándar</th> <th style="padding: 8px; border-radius: 0 6px 6px 0;">Propósito</th> </tr> </thead> <tbody> <tr style="background-color: #111827; color: #d1d5db;"> <td style="padding: 10px; border-radius: 6px 0 0 6px;">Atómica</td> <td style="padding: 10px;"><code>FGOBaseChild</code></td> <td style="padding: 10px;"><code>FGOChild</code></td> <td style="padding: 10px;">ERC1155</td> <td style="padding: 10px; border-radius: 0 6px 6px 0;">Componentes individuales (children): partes crudas, materiales, zonas, efectos</td> </tr> <tr style="background-color: #111827; color: #d1d5db;"> <td style="padding: 10px; border-radius: 6px 0 0 6px;">Compuesta</td> <td style="padding: 10px;"><code>FGOTemplateBaseChild</code></td> <td style="padding: 10px;"><code>FGOTemplateChild</code></td> <td style="padding: 10px;">ERC1155</td> <td style="padding: 10px; border-radius: 0 6px 6px 0;">Recetas de ensamblaje (templates): facturas configuradas con datos de colocación</td> </tr> <tr style="background-color: #111827; color: #d1d5db;"> <td style="padding: 10px; border-radius: 6px 0 0 6px;">Final</td> <td style="padding: 10px;"><code>FGOBaseParent</code></td> <td style="padding: 10px;"><code>FGOParent</code></td> <td style="padding: 10px;">ERC721</td> <td style="padding: 10px; border-radius: 0 6px 6px 0;">Prendas terminadas (parents): SKUs fabricables, con propiedad y fulfillment</td> </tr> </tbody> </table> <br/><br/><div style="font-family: monospace; color: #d1d5db; background-color: #111827; padding: 16px; border-radius: 8px; width: fit-content;"> <ul style="list-style-type: none; padding-left: 20px; margin: 0;"> <li> <span style="color:#93c5fd;">Parent (ERC721)</span> <ul style="list-style-type: none; padding-left: 20px; margin: 4px 0;"> <li>↳ Child A (ERC1155)</li> <li>↳ Child B (ERC1155)</li> <li> ↳ Template X (ERC1155) <ul style="list-style-type: none; padding-left: 20px; margin: 4px 0;"> <li>↳ Child C (ERC1155)</li> <li> ↳ Template Y (ERC1155) <ul style="list-style-type: none; padding-left: 20px; margin: 4px 0;"> <li>↳ Child D (ERC1155)</li> <li>↳ Child E (ERC1155)</li> </ul> </li> </ul> </li> </ul> </li> </ul> </div><br/><br/><h3 class='font-bold'>Metadatos y Estándares On-Chain</h3>
+
+Los metadatos en FGO V3 funcionan a la vez como descriptor y como plano ejecutable.<br/>
+
+Capa descriptiva: comunica a personas — diseñadores, proveedores, coleccionistas.<br/>
+
+Capa operativa: codifica instrucciones para que fábricas, renderizadores o front-ends actúen directamente.<br/><br/>
+
+Todos los URIs de metadatos se fijan (hash) en IPFS. Los campos están diseñados para ser flexibles pero lo bastante rigurosos como para soportar flujos generativos, automatización de fabricación y trazabilidad de procedencia.<br/><br/>
+
+<div class="font-bold mb-2">Metadatos de Child</div> Los Children definen unidades atómicas individuales. Sus metadatos describen qué es la unidad y cómo debe entenderse en términos digitales y físicos. <br/><br/> <pre><code> export interface ChildMetadata { title: string; // Requerido: nombre de la unidad description: string; // Requerido: descripción de texto image: string; // Requerido: enlace IPFS a previsualización/render attachments: Attachment[]; // Opcional: PDFs, DXF, paquetes de texturas tags: string[]; // Opcional: palabras clave de clasificación prompt: string; // Opcional: prompt de IA si fue generado aiModel: string; // Opcional: referencia del modelo (StableDiffusion, etc.) loras: string[]; // Opcional: IDs de LoRA usados en la generación workflow: string; // Opcional: referencia a grafo de nodos / ComfyUI version: string; // Requerido: número de versión } export interface Attachment { uri: string; // Enlace IPFS type: string; // Tipo MIME o clasificador } </code></pre>
+
+<br/><br/>
+
+<pre><code>{
+ "title":"Hoodie Print Base",
+ "description":"Standard unisex hoodie print base for direct-to-garment printing",
+ "image":"ipfs://QmRender", 
+ "attachments":[
+   {"uri":"ipfs://QmCutPlanDXF", "type":"application/dxf"},
+   {"uri":"ipfs://QmFabricSpecSheet", "type":"application/pdf"}
+ ],
+ "tags":["base","hoodie","cotton"],
+ "prompt":"",
+ "aiModel":"",
+ "loras":[],
+ "workflow":"",
+ "version":"1"
+}
+</code></pre><br/><br/>
+
+<span style="font-variant: small-caps;">image</span>: render de vista previa si es físico, o el asset digital en sí si es solo digital. <br/>
+
+<span style="font-variant: small-caps;">attachments</span>: archivos auxiliares opcionales (DXF de plan de corte, ficha técnica PDF, malla OBJ, imágenes adicionales, vídeos, audio, etc.).<br/>
+
+<br/><br/>
+
+<div class="font-bold mb-2">Metadatos de Template</div> Los Templates describen ensamblajes de Children. Sus metadatos documentan el propósito del ensamblaje y cómo debe entenderse en un contexto DIY o de fábrica. <br/><br/> <pre><code> export interface TemplateMetadata { title: string; // Requerido: nombre de la unidad description: string; // Requerido: descripción de texto image: string; // Requerido: enlace IPFS a previsualización/render attachments: Attachment[]; // Opcional: PDFs, DXF, paquetes de texturas tags: string[]; // Opcional: palabras clave de clasificación prompt: string; // Opcional: prompt de IA si fue generado aiModel: string; // Opcional: referencia del modelo (StableDiffusion, etc.) loras: string[]; // Opcional: IDs de LoRA usados en la generación workflow: string; // Opcional: referencia a grafo de nodos / ComfyUI version: string; // Requerido: número de versión } export interface Attachment { uri: string; // Enlace IPFS type: string; // Tipo MIME o clasificador } </code></pre>
+
+<br/><br/>
+
+<pre><code>{
+ "title":"Hoodie Print Template A",
+ "description":"Composite hoodie assembly with front and sleeve zones mapped for graphics application",
+ "image":"ipfs://QmSampleTemplateRender",
+ "attachments":[
+   {"uri":"ipfs://QmMarkerFile", "type":"application/json"},
+   {"uri":"ipfs://QmPlacementVisual", "type":"image/png"}
+ ],
+ "tags":["template","print","hoodie"],
+ "prompt":"front design placement with high-contrast logo",
+ "aiModel":"StableDiffusion-v1.5",
+ "loras":["branding-2024"],
+ "workflow":"ipfs://QmComfyUIExportWorkflow",
+ "version":"3"
+}
+</code></pre>
+
+<br/><br/>
+
+<pre><code>{
+ "title":"Limited Edition Neon Hoodie",
+ "description":"Neon-print hoodie produced with zero-waste cut plan and reflective sleeve patch",
+ "image":"ipfs://QmFinalProductRender", 
+ "attachments":[
+   {"uri":"ipfs://QmWashInstructions", "type":"application/pdf"}
+ ],
+ "tags":["hoodie","limited","neon"],
+ "prompt":"",
+ "aiModel":"",
+ "loras":[],
+ "workflow":"",
+ "version":"1"
+}
+</code></pre>
+
+<br/><br/>
+Una vez minteado, el URI de metadatos de un Parent no puede cambiarse — se convierte en la referencia canónica de ese SKU.
+
+<br/><br/><br/>
+
+<div class="font-bold mb-2">Metadatos de Colocación de ChildReference</div> Los Templates también especifican cómo se colocan los Children. Esto se hace mediante <span style="font-variant: small-caps;">placementURI</span>.
+
+<br/><br/>
+
+<pre><code> export interface ChildPlacement { instructions: string; // Requerido customFields: Record&lt;string, string&gt;; // Opcional } </code></pre>
+
+<br/><br/>
+
+<pre><code>{ "instructions":"Aplicar el gráfico del panel frontal a 300 DPI, centrado", "customFields":{ "scale":"1", "rotation":"0", "x":"150", "y":"420", "seamAllowance":"0.5cm" } } </code></pre>
+
+<br/><br/>
+
+<span style="font-variant: small-caps;">instructions</span>: directiva legible por humanos.<br/>
+
+<span style="font-variant: small-caps;">customFields</span>: diccionario extensible analizable por máquina (para geometría, tolerancias, anclajes AR, mapeos IoT).<br/><br/>
+
+<br/> <div class="font-bold mb-2">Versionado e Inmutabilidad</div> - **Children/Templates**: mutables si <span style="font-variant: small-caps;">isImmutable</span> = false. Las actualizaciones requieren incrementar <span style="font-variant: small-caps;">version</span>. Una vez bloqueados, los metadatos pasan a ser archivísticos.<br/> - **Parents**: inmutables desde el mint. El registro queda congelado como artefacto de producción. <br/><br/>
+
+Este sistema ofrece transparencia iterativa durante prototipado y remix, y habilita confianza en el contenido cuando un diseño debe fijarse para fabricación, procedencia o uso contractual.
+
+<br/><br/>
+
+<div class="font-bold mb-2">Tabla Comparativa</div> <table class="table-auto border border-gray-700 text-sm"> <thead class="bg-gray-800 text-gray-300"> <tr> <th class="p-2 border">Entidad</th> <th class="p-2 border">Campos Requeridos</th> <th class="p-2 border">Campos Opcionales</th> <th class="p-2 border">Mutabilidad</th> </tr> </thead> <tbody> <tr> <td class="p-2 border">Child</td> <td class="p-2 border">title, description, image, version</td> <td class="p-2 border">attachments, tags, prompt, aiModel, loras, workflow</td> <td class="p-2 border">Mutable hasta que <code>isImmutable</code> se establezca en true</td> </tr> <tr> <td class="p-2 border">Template</td> <td class="p-2 border">title, description, image, version</td> <td class="p-2 border">attachments, tags, prompt, aiModel, loras, workflow</td> <td class="p-2 border">Mutable hasta que <code>isImmutable</code> se establezca en true</td> </tr> <tr> <td class="p-2 border">Parent</td> <td class="p-2 border">title, description, image, version</td> <td class="p-2 border">attachments, tags, prompt, aiModel, loras, workflow</td> <td class="p-2 border">Inmutable después del mint</td> </tr> </tbody> </table> <br/><br/><h3 class='font-bold'>Creación de Contratos, Configuración de Factory, Roles y Permisos</h3><br/>
+
+La suite de contratos está diseñada para ser lo más **componible y singular** posible: cada contrato individual puede operar de forma autónoma, pero también admite la superposición de relaciones. El contrato <span class="font-mono">Factory</span> simplifica el despliegue y la coordinación.<br/><br/>  
+
+- La Factory despliega suites completas de **Infrastructure**.<br/>
+- Cada Infrastructure contiene los contratos y las asignaciones de roles necesarias para mintear Children, Templates y Parents, listarlos en Markets y conectarlos en flujos de Fulfillment.<br/>  
+- Cada despliegue emite eventos indexados en un Subgraph dedicado de Fractional Garment Ownership, lo que permite referencias en tiempo real para interfaces front-end en todas las infraestructuras. El registro global de Infrastructures y sus contratos puede explorarse en <a href="https://fgo.themanufactory.xyz" class="font-mono">fgo.themanufactory.xyz</a>.  
+
+<br/><br/>  
+
+<div class="font-bold mb-2">Infrastructure</div>
+Una Infrastructure es un entorno autocontenido que agrupa despliegues de contratos con roles y permisos acotados.<br/><br/>  
+
+- **Admin**: propietario/a de la Infrastructure.<br/>    
+  - Puede desplegar contratos de Child, Template, Parent, Market y Fulfillment dentro de la Infrastructure.<br/>  
+  - Puede añadir o remover roles (Suppliers, Designers, Fulfillers, otros Admins).<br/>  
+  - Puede desactivar o reactivar la Infrastructure, pausando o reanudando minteos, creación de contratos y ventas.<br/><br/>  
+- **Suppliers**: una vez añadidos, pueden mintear Children y Templates en los contratos de Child y Template desplegados en esa Infrastructure.<br/>  
+- **Designers**: una vez añadidos, pueden crear Parents en los contratos de Parent desplegados en esa Infrastructure.<br/>  
+- **Fulfillers**: una vez añadidos, pueden ser incrustados en los flujos de Fulfillment de Parents y recibir pagos por pasos de producción.<br/>  
+
+<br/>
+
+<div class="font-bold mb-2">Propósito</div>
+Esta estructura habilita una segmentación granular:<br/>  
+- Una misma dirección puede crear múltiples Infrastructures para aislar colaboraciones, colecciones o mercados.<br/>  
+- Si una wallet es comprometida, se puede levantar una nueva Infrastructure y transferir la propiedad.<br/>  
+- Los permisos pueden asignarse o revocarse por Infrastructure sin afectar a las demás.<br/>  
+- Los contratos de Market y Fulfillment desplegados dentro de una Infrastructure ofrecen entornos específicos para listar y ejecutar ventas.<br/><br/>
+
+<div class="font-bold mb-2">Token Base de Pago</div>
+- Cada Infrastructure define un **token base de pago**.<br/>  
+- Todos los Children, Templates y Parents creados dentro de esa Infrastructure se valoran y liquidan en ese token.<br/>  
+- Por defecto, el token es <a href="https://explorer.lens.xyz/address/0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd" class="font-mono">$MONA</a>, pero puede asignarse cualquier ERC20 compatible con Lens zkSync.<br/><br/>Este diseño garantiza que las infraestructuras funcionen como cúmulos modulares pero interoperables: capaces de operar de forma independiente, segmentar roles y permisos, y aun así converger en un ecosistema compartido donde cada contrato es indexable, descubrible y líquido. <br/><br/>
+
+<br/><h3 class='font-bold'>Composabilidad entre Infraestructuras</h3>Aunque cada Infrastructure es autocontenida, los contratos no están aislados. Children, Templates y Parents pueden interoperar entre infraestructuras para formar un único grafo de fabricación composable.
+<br/><br/>
+
+<div class="font-bold mb-2">Referencias entre Infraestructuras</div> - Un Parent en una Infrastructure puede referenciar Children o Templates minteados en otra Infrastructure.<br/> - Un Template puede incorporar Children que se originan en múltiples Infrastructures.<br/> - Los contratos de Market pueden listar Parents y Templates sin importar la Infrastructure donde se crearon, siempre que existan los permisos de referencia requeridos.<br/> <br/> <div class="font-bold mb-2">Permisos y Procedencia</div> - Los derechos de referencia permanecen acotados a la Infrastructure original.<br/> - Incluso cuando un Child o Template es arrastrado a otra Infrastructure, su **lógica de minting, límites de suministro y permisos** los hace cumplir el contrato de origen.<br/> - Esto asegura que Suppliers y Designers mantengan la soberanía sobre las unidades que crearon, sin bloquear una composabilidad más amplia.<br/> <br/> <div class="font-bold mb-2">Alineación del Token de Pago</div> - Cada Infrastructure tiene su propio token base de pago para precios internos.<br/> - Cuando hay referencias cruzadas entre múltiples Infrastructures con tokens distintos: la transacción usa el token de pago del **contrato de Market** que ejecuta la compra. $MONA opera como el token de facto entre Infrastructures, dado que está ampliamente adoptado por diseñadores y ofrece la vía de liquidación más fluida cuando los activos abarcan varias Infrastructures.<br/> - Los Designers pueden configurar otros ERC20 dentro de su propia Infrastructure, pero la interoperabilidad suele ser más fiable cuando $MONA se usa como medio compartido.
+
+<br/><br/>
+
+<div class="font-bold mb-2">Beneficios</div> - Habilita la **composabilidad total**: los diseñadores no quedan encajonados en su propia Infrastructure.<br/> - Preserva la **integridad a nivel de unidad**: suppliers y designers fijan reglas una vez, y esas reglas se propagan allí donde se referencien sus activos.<br/> - Aporta **neutralidad de mercado**: los listados y compras pueden ocurrir en cualquier Market compatible.<br/> <br/> Esta arquitectura equilibra **soberanía e interoperabilidad**. Cada Infrastructure conserva su propio contexto de permisos y pagos, y al mismo tiempo el ecosistema completo funciona como una malla de fabricación modular y fluida.<br/><br/> <h3 class='font-bold'>Verificación y Permisos</h3> El protocolo aplica permisos en tres bordes: **Referencia**, **Market**, **Template**. Todas las comprobaciones son sensibles al modo (digital vs físico) y se propagan por los anidados (template-de-templates). Ningún objeto puede mintearse o venderse en un market sin superar estas compuertas.<br/><br/><ul> <li><b>Referencias de Child</b>: Children y Templates exponen flags de referencia abierta o listas de permitidos explícitas. Un Parent o Template que intente consumirlos debe estar preaprobado o solicitar verificación. Cada aprobación de Child debe ascender por todos los Templates y Parents que lo referencien, evitando bloqueos maliciosos o el desvío de unidades escasas.</li> <li><b>Aprobaciones de Market</b>: Solo Markets autorizados pueden listar o ejecutar pedidos. Designers y Suppliers pueden incluir markets en listas blancas al mintear o actualizarlas hasta la primera venta. Los canales físico y digital se validan por separado. Todo Child y Template anidado también debe aprobar el Market, garantizando que no se eludan pagos ni se desvíen ventas a sedes hostiles.</li> <li><b>Referencias de Template</b>: Los ensamblajes multinivel aplican comprobaciones recursivas. Un Template que referencia a otro Template debe heredar y respetar todos los permisos de sus Children anidados, límites de edición y reglas de disponibilidad. La validación asciende: para que un Parent sea válido, cada Template y Child del grafo de composición debe aprobarlo explícitamente.</li></ul><br/> <div style="font-family: monospace; color: #d1d5db; background-color: #111827; padding: 16px; border-radius: 8px; width: fit-content;"> <ul style="list-style-type: none; padding-left: 20px; margin: 0;"> <li> <span style="color:#93c5fd;">Parent (ERC721)</span> <ul style="list-style-type: none; padding-left: 20px; margin: 4px 0;"> <li>↳ <span style="color:#fbbf24;">Template A (ERC1155)</span> <ul style="list-style-type: none; padding-left: 20px; margin: 4px 0;"> <li>↳ Child 1 (ERC1155)</li> <li>↳ Child 2 (ERC1155)</li> </ul> </li> <li>↳ <span style="color:#fbbf24;">Template B (ERC1155)</span> <ul style="list-style-type: none; padding-left: 20px; margin: 4px 0;"> <li>↳ Child 3 (ERC1155)</li> <li>↳ <span style="color:#34d399;">Template C (ERC1155)</span> <ul style="list-style-type: none; padding-left: 20px; margin: 4px 0;"> <li>↳ Child 4 (ERC1155)</li> <li>↳ Child 5 (ERC1155)</li> </ul> </li> </ul> </li> </ul> </li> </ul> </div> <p style="font-size: 14px; color: #9ca3af; margin-top: 8px;"> Cada Child y Template del árbol debe aprobar explícitamente las referencias ascendentes.<br/>Un Template solo puede activarse si <i>todos los Children y Templates anidados</i> conceden verificación.<br/> Un Parent solo puede activarse si <i>todos los Children y Templates anidados</i> conceden verificación.<br/>Un Market solo puede procesar una compra si el Parent y <i>todos los Children y Templates anidados</i> conceden verificación. </p><br/><br/> <div class="font-bold mb-2">Lazy Minting</div> Todas las entidades en FGO V3 se mintean de forma perezosa (lazy).<br/> - Hasta la compra, Children, Templates y Parents existen solo como structs de código en el storage del contrato.<br/> - El minting ocurre en el momento del pago, y solo si todas las comprobaciones de verificación (Market, Child y Template) se superan con éxito.<br/> - Esto garantiza que la oferta siempre esté impulsada por la demanda: cada unidad minteada está plenamente validada, limpia en permisos y respaldada por la liquidación en el token de pago de la Infrastructure.<br/><br/>
+
+Este modelo elimina el “ghost supply” y aplica escasez solo cuando procede (p. ej., ediciones físicas), a la vez que permite que las ediciones digitales escalen infinitamente sin inflar el estado on-chain.<br/><br/><h3 class='font-bold'>Markets y Fulfillment</h3>Cuando se despliega un contrato de Market dentro de una Infrastructure Suite, automáticamente se despliega un contrato de Fulfillment y queda enlazado rígidamente a ese Market.<br/><br/>Market = toma de pedidos, preflight checks, cálculo de precio, pagos y orquestación de mint.<br/>
+
+Fulfillment = flujo de producción paso a paso, atestaciones y liquidación de tokens físicos al completarse.<br/>
+
+Ambos liquidan en el PAYMENT_TOKEN (ERC-20) de la Infrastructure definido por su AccessControl; eso es lo que paga el comprador y lo que reciben los destinatarios.<br/><br/><div class="font-bold mb-1">Fulfillment Workflow (en Parent)</div> Un Parent creado puede codificar opcionalmente la lógica de producción como workflow. Los pasos son sensibles a la disponibilidad (digital vs físico). <pre><code>
+struct SubPerformer {
+uint256 splitBasisPoints; // participación tomada del bote primario del paso (0–10000)
+address performer; // puede ser cualquier address (no necesita el rol Fulfiller)
+}
+
+struct FulfillmentStep {
+address primaryPerformer; // DEBE ser un Fulfiller en la Infrastructure del Parent (o 0x0 = Designer)
+string instructions; // ipfs://... brief libre del paso / archivo de máquina
+SubPerformer[] subPerformers;
+}
+
+struct FulfillmentWorkflow {
+FulfillmentStep[] digitalSteps;
+FulfillmentStep[] physicalSteps;
+} </code></pre><br/><br/>- primaryPerformer: un rol Fulfiller aprobado en la Infrastructure del Parent.<br/>
+
+subPerformers: direcciones arbitrarias, pagadas desde el bote del primary por un split en basis points.<br/>
+
+instructions: un puntero IPFS con notas, esquemas o configuraciones legibles por máquina.<br/>
+
+Los pasos son opcionales. Un Parent puede no tener, tener algunos o tener workflows multietapa complejos.<br/><br/><div class="font-bold mb-2">Lógica de pagos</div>En la compra, el Market computa dos capas de pagos:<br/><br/>
+
+Capa Parent<br/>
+
+Para cada paso:<br/>
+stepPot = basePrice + (parentPrice × vigBps / 10000)<br/>
+
+Los sub-performers toman sus %; el remanente va al primary.<br/>
+
+El Designer recibe parentPrice − Σ(stepPots).<br/><br/>
+
+Capa de Composición<br/>
+
+Cada Child y Template referenciado (incluyendo anidados) recibe
+unitPrice × quantityDemanded<br/>
+
+Esto garantiza que los proveedores aguas abajo siempre estén compensados.<br/>
+
+Todas las transferencias se ejecutan atómicamente en el PAYMENT_TOKEN de la Infrastructure.<br/><br/>Ejemplo
+Parent = 500 $MONA. Dos pasos de fulfillment:<br/>
+
+Paso 1 → base 30 $MONA, vig 20% → 30 + 100 = 130<br/>
+
+Paso 2 → base 10 $MONA, vig 5% → 10 + 25 = 35<br/>
+Coste total de dos pasos = 165 $MONA. El Designer recibe 335 $MONA.<br/>
+Los costes de Children/Template se suman aparte y se cargan directamente al comprador.<br/><br/><div class="font-bold mb-2">Reglas de lazy minting y entrega</div>
+
+Como se indicó, la oferta solo existe cuando se compra. Hasta entonces, las unidades viven como structs en el storage del contrato.<br/><br/>
+
+<h2 class="font-bold">Pedido digital</h2>
+
+Parent ERC721 → minteado inmediatamente.<br/>
+
+Children/Templates → minteados inmediatamente si son DIGITAL_ONLY o BOTH.<br/>
+
+Las unidades solo físicas se omiten.<br/><br/>
+
+<h2 class="font-bold">Pedido físico, sin pasos de fulfillment</h2>
+
+Parent ERC721 → minteado inmediatamente.<br/>
+
+Children/Templates → minteados inmediatamente si son PHYSICAL_ONLY o BOTH.<br/>
+
+Las unidades solo digitales se omiten.<br/><br/>
+
+<h2 class="font-bold">Pedido físico, con pasos de fulfillment</h2>
+
+Parent ERC721 → minteado inmediatamente.<br/>
+
+Las unidades solo digitales se omiten.<br/><br/>
+
+Children/Templates → no se mintean en la compra. Se reservan derechos.<br/>
+
+Solo al completar el paso físico final el contrato de Fulfillment los mintea al comprador.<br/><br/>
+
+Esto hace cumplir el invariante: un token físico de child es prueba de que el ítem físico correspondiente ha superado producción.<br/><br/><div class="font-bold mb-2">Infinito digital vs. escasez física</div>
+
+Activos digitales: sin límites de edición. Se mantienen abundantes, remixables y alineados con CC0.<br/>
+
+Activos físicos: con límites estrictos vía maxPhysicalEditions. El Market valida la demanda acumulada a través de todo el grafo (parents, templates, children) antes de aprobar una compra.<br/><br/>
+
+Una oferta digital infinita de children impulsa la cultura del remix abierto, mientras que la oferta física escasa de children establece cotas dentro de límites de fabricación atestables.<br/><br/><div class="font-bold mb-2">Flujo de pedido</div>
+
+El comprador llama a Market.buy con los datos del pedido (cantidad, modo).<br/>
+
+El Market ejecuta el preflight: disponibilidad, permisos, aritmética de ediciones, autorización de market.<br/>
+
+Los pagos se distribuyen entre Designer + Fulfillers + Suppliers.<br/>
+
+Las reglas de mint (arriba) deciden qué recibe el comprador al instante y qué al completar el workflow.<br/>
+
+El contrato de Fulfillment gestiona las atestaciones de cada paso.<br/>
+
+En el paso final: se mintean al comprador los Children/Templates físicos pendientes.<br/><br/><div style="font-family: monospace; background-color: #111827; color: #d1d5db; padding: 16px; border-radius: 8px; width: fit-content;">
+
+<ul style="list-style-type: none; padding-left: 20px; margin: 0;"> <li> <span style="color:#93c5fd;">Paso 1: Compra</span> <ul style="list-style-type: none; padding-left: 20px; margin: 4px 0;"> <li>✔ Parent ERC721 minteado inmediatamente</li> <li>✘ Children/Templates (físicos) aún no minteados</li> <li>➝ Derechos reservados para el suministro físico</li> </ul> </li> <li> <span style="color:#93c5fd;">Paso 2: Fulfillment Workflow</span> <ul style="list-style-type: none; padding-left: 20px; margin: 4px 0;"> <li>↳ FulfillmentStep A (p. ej., corte)</li> <li>↳ FulfillmentStep B (p. ej., impresión)</li> <li>↳ FulfillmentStep C (p. ej., control de calidad + envío)</li> <li>✔ Cada paso atestado por el/los Fulfiller(s) asignado(s)</li> </ul> </li> <li> <span style="color:#93c5fd;">Paso 3: Finalización</span> <ul style="list-style-type: none; padding-left: 20px; margin: 4px 0;"> <li>✔ El paso final dispara el mint de Children/Templates físicos</li> <li>➝ El comprador ahora posee ERC1155 = prueba de derechos físicos</li> <li>➝ Parent ERC721 + Children/Templates totalmente liquidados</li> </ul> </li> </ul> </div><br/><br/><h3 class='font-bold'>Posfacio</h3> FGO V3 no es la última palabra. Es una malla viva, abierta a forks, mutaciones y caza de bugs. Cada contrato aquí es a la vez singular y componible: puedes desplegar uno en aislamiento o apilar cientos hasta formar una fábrica viva. La lógica es lo bastante simple para que opere un/a diseñador/a indie, y lo bastante flexible para que emerjan federaciones enteras.<br/><br/>
+
+Lo que importa ahora no son los números de versión, sino si el protocolo cumple su promesa: hacer que la moda digital y física sea interoperable, verificable y soberana a la escala más pequeña posible. Todo lo demás —valoración, markets, colaboraciones— deriva de esa verdad base.<br/><br/>Las líneas rectas se curvarán. El código hará fork. El suministro fluirá. Y en algún lugar, una persona minteará una prenda que antes no existía, y será suya. 
+
+`,
   },
 ];
 export const DASH: { title: string; description: string }[] = [

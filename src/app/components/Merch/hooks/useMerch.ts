@@ -11,6 +11,7 @@ const useMerch = () => {
     try {
       const data = await getCollections();
 
+
       contexto?.setDrops(data?.data?.drops);
     } catch (err: any) {
       console.error(err.message);
