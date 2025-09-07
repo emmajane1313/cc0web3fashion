@@ -1124,6 +1124,7 @@ export interface ParentMetadata {
   loras: string[];        // Optional
   workflow: string;       // Optional
   version: string;        // Required
+  customFields: Record<string, string>; // Optional
 }
 </code></pre>
 
@@ -1606,22 +1607,26 @@ export interface Attachment {
 }
 </code></pre>
 
+<br/>
+
+<div class="font-bold mb-2">Metadatos de Parent</div>
+Los Parents finalizan la producción. Sus metadatos quedan bloqueados en el momento de la acuñación para garantizar la estabilidad a nivel de SKU.
 <br/><br/>
 
-<pre><code>{
- "title":"Hoodie Print Template A",
- "description":"Composite hoodie assembly with front and sleeve zones mapped for graphics application",
- "image":"ipfs://QmSampleTemplateRender",
- "attachments":[
-   {"uri":"ipfs://QmMarkerFile", "type":"application/json"},
-   {"uri":"ipfs://QmPlacementVisual", "type":"image/png"}
- ],
- "tags":["template","print","hoodie"],
- "prompt":"front design placement with high-contrast logo",
- "aiModel":"StableDiffusion-v1.5",
- "loras":["branding-2024"],
- "workflow":"ipfs://QmComfyUIExportWorkflow",
- "version":"3"
+<pre><code>
+export interface ParentMetadata {
+  id: string;             // Unique parent ID
+  title: string;          // Required
+  description: string;    // Required
+  image: string;          // Required
+  tags: string[];         // Optional
+  prompt: string;         // Optional
+  attachments: Attachment[];
+  aiModel: string;        // Optional
+  loras: string[];        // Optional
+  workflow: string;       // Optional
+  version: string;        // Required
+  customFields: Record<string, string>; // Optional
 }
 </code></pre>
 
