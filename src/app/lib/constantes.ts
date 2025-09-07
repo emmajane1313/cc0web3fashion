@@ -1036,6 +1036,7 @@ export interface ChildMetadata {
   loras: string[];        // Optional: LoRA IDs used in generation
   workflow: string;       // Optional: ComfyUI / node graph reference
   version: string;        // Required: version number
+  customFields: Record<string, string>; // Optional
 }
 export interface Attachment {
   uri: string;  // IPFS link
@@ -1080,6 +1081,7 @@ export interface TemplateMetadata {
   loras: string[];        // Optional: LoRA IDs used in generation
   workflow: string;       // Optional: ComfyUI / node graph reference
   version: string;        // Required: version number
+  customFields: Record<string, string>; // Optional
 }
 export interface Attachment {
   uri: string;  // IPFS link
@@ -1556,6 +1558,7 @@ export interface ChildMetadata {
   loras: string[];        // Optional: LoRA IDs used in generation
   workflow: string;       // Optional: ComfyUI / node graph reference
   version: string;        // Required: version number
+  customFields: Record<string, string>; // Optional
 }
 export interface Attachment {
   uri: string;  // IPFS link
@@ -1600,6 +1603,7 @@ export interface TemplateMetadata {
   loras: string[];        // Optional: LoRA IDs used in generation
   workflow: string;       // Optional: ComfyUI / node graph reference
   version: string;        // Required: version number
+  customFields: Record<string, string>; // Optional
 }
 export interface Attachment {
   uri: string;  // IPFS link
