@@ -923,6 +923,7 @@ struct CreateChildParams {
     uint256 physicalPrice;            // Price for physical manufacturing rights
     uint256 version;                  // Version number for updates
     uint256 maxPhysicalEditions;      // Max physical items that can be produced
+    uint256 maxDigitalEditions;       // Max digital editions (templates referencing digital futures)
     Availability availability;        // DIGITAL_ONLY, PHYSICAL_ONLY, BOTH
     bool isImmutable;                 // Whether child can be updated
     bool digitalMarketsOpenToAll;     // Open digital trading
@@ -930,6 +931,7 @@ struct CreateChildParams {
     bool digitalReferencesOpenToAll;  // Allow digital references by any parent or template
     bool physicalReferencesOpenToAll; // Allow physical references by any parent or template
     bool standaloneAllowed;           // Can be used sold independently from a parent or template
+    Futures futures;                  // Futures prepaid credits configuration
     string childUri;                  // IPFS metadata URI
     address[] authorizedMarkets;      // Approved marketplace contracts
 }
@@ -937,6 +939,8 @@ struct CreateChildParams {
 struct ChildReference {
 uint256 childId; // ID of referenced child or template
 uint256 amount; // units consumed per 1 template or 1 parent
+uint256 prepaidAmount; // Prepaid supply reserved for this reference
+uint256 prepaidUsed; // Prepaid supply already consumed
 address childContract; // contract where childId is defined
 string placementURI; // machine-readable placement schema with instructions and custom key-value fields
 }
@@ -952,6 +956,7 @@ bool digitalMarketsOpenToAll; // Open digital channel to any Market
 bool physicalMarketsOpenToAll; // Open physical channel to any Market
 string uri; // Base metadata for tokenURI
 ChildReference[] childReferences; // Template or direct Child set
+ChildSupplyRequest[] supplyRequests; // Supply requests 
 address[] authorizedMarkets; // Allowlisted markets
 FulfillmentWorkflow workflow; // Production steps and payouts
 }
@@ -977,10 +982,11 @@ SubPerformer[] subPerformers;
 }
 
 struct FulfillmentWorkflow {
+uint256 estimatedDeliveryDuration; // Estimated delivery time in seconds
 FulfillmentStep[] digitalSteps;
 FulfillmentStep[] physicalSteps;
 }
-</code></pre><br/><br/>Core Contracts:<br/><div class="font-bold w-fit h-fit mb-1 bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">reserveParent(CreateParentParams params) external onlyDesigner returns (uint256)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">createParent(uint256 reservedParentId) external onlyDesigner</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">reserveParentBatch(CreateParentParams[] paramsArray) external onlyDesigner returns (uint256[] memory)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">createParentBatch(uint256[] reservedParentIds) external onlyDesigner</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">updateParent(UpdateParentParams params) external onlyDesignOwner(params.designId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">approveMarket(uint256 designId, address market) external onlyDesignOwner(designId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">revokeMarket(uint256 designId, address market) external onlyDesignOwner(designId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">requestMarketApproval(uint256 designId) external</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">approveMarketRequest(uint256 designId, address market) external onlyDesignOwner(designId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">rejectMarketRequest(uint256 designId, address market) external onlyDesignOwner(designId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">mint(uint256 parentId, uint256 amount, address to, bool isPhysical) external returns (uint256[] memory)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">canPurchase(uint256 designId, uint256 amount, bool isPhysical, address market) external view returns (bool)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">isParentActive(uint256 designId) external view returns (bool)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">disableParent(uint256 designId) external onlyDesignOwner(designId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">enableParent(uint256 designId) external onlyDesignOwner(designId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">deleteParent(uint256 designId) external onlyDesignOwner(designId)</div><br/><br/><table style="border-collapse: separate; border-spacing: 0 8px; width: 100%;">
+</code></pre><br/><br/>Core Contracts:<br/><div class="font-bold w-fit h-fit mb-1 bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">reserveParent(CreateParentParams params) external onlyDesigner returns (uint256)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">createParent(uint256 reservedParentId) external onlyDesigner</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">reserveParentBatch(CreateParentParams[] paramsArray) external onlyDesigner returns (uint256[] memory)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">createParentBatch(uint256[] reservedParentIds) external onlyDesigner</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">updateParent(UpdateParentParams params) external onlyDesignOwner(params.designId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">approveMarket(uint256 designId, address market) external onlyDesignOwner(designId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">revokeMarket(uint256 designId, address market) external onlyDesignOwner(designId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">requestMarketApproval(uint256 designId) external</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">approveMarketRequest(uint256 designId, address market) external onlyDesignOwner(designId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">rejectMarketRequest(uint256 designId, address market) external onlyDesignOwner(designId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">mint(uint256 parentId, uint256 amount, address to, bool isPhysical) external returns (uint256[] memory)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">canPurchase(uint256 designId, uint256 amount, bool isPhysical, address market) external view returns (bool)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">isParentActive(uint256 designId) external view returns (bool)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">disableParent(uint256 designId) external onlyDesignOwner(designId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">enableParent(uint256 designId) external onlyDesignOwner(designId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">deleteParent(uint256 designId, uint256 transferId) external onlyDesignOwner(designId)</div><br/><br/><table style="border-collapse: separate; border-spacing: 0 8px; width: 100%;">
   <thead>
     <tr style="text-align: left; background-color: #1f2937; color: #d1d5db;">
       <th style="padding: 8px; border-radius: 6px 0 0 6px;">Layer</th>
@@ -1458,7 +1464,60 @@ Infinite digital child supply encourages open remix culture whilst scarce physic
 
 5. Fulfillment contract manages step attestations.<br/>
 
-6. On final step: outstanding physical Children/Templates are minted to the buyer.<br/><br/><div style="font-family: monospace; background-color: #111827; color: #d1d5db; padding: 16px; border-radius: 8px; width: fit-content;">
+6. On final step: outstanding physical Children/Templates are minted to the buyer.<br/><br/><h3 class='font-bold'>Futures</h3>
+
+Futures allow suppliers to hedge manufacturing costs and designers to secure prepaid materials with guaranteed early delivery. A child that is configured as a future becomes a tradable credit instrument. Buyers purchase credits at a set price, then consume those credits later when creating templates or parents, bypassing payment at the point of use and receiving goods directly upon settlement.<br/><br/>
+
+Only raw children can be configured as futures. Templates cannot offer futures. The child must be DIGITAL_ONLY or PHYSICAL_ONLY. A futures child specifies a price per unit, a maximum supply of credits to sell, and an optional deadline. If no deadline is set, the future operates perpetually: credits settle immediately after purchase. If a deadline is set, all credits settle simultaneously at that time.<br/><br/>
+
+When a template or parent references a child with active futures, the creator can choose to consume prepaid credits instead of paying at creation time. Physical or digital credits are deducted from the creator's balance, and the referenced child's supply is reserved. Upon settlement, those units are delivered directly to the creator, completing the loop without marketplace friction.<br/><br/>
+
+This structure serves two roles:<br/>
+- **Suppliers hedge costs**: raw material producers sell futures to lock in revenue before committing to full production runs, reducing exposure to demand volatility.<br/>
+- **Designers secure supply**: by purchasing futures early, a designer guarantees access to scarce components, receives them ahead of market availability, and can later embed them into finished parents or templates without requiring end buyers to pay for those components again.<br/><br/>
+
+Templates that reference a child with digital futures lose their infinite digital supply. Instead, the template's maxDigitalEditions is capped at the quantity of future credits the template creator holds. This ensures that digital scarcity can be enforced when futures-backed components are involved, aligning supply limits across the composition graph.<br/><br/>
+
+<pre><code>
+struct Futures {
+uint256 deadline; // Futures campaign deadline (0 = perpetual)
+uint256 pricePerUnit; // Price per futures credit unit
+uint256 maxDigitalEditions; // Max digital futures credits to sell
+bool isFutures; // Whether this child offers futures credits
+}
+</code></pre><br/><br/>
+
+<h3 class='font-bold'>Supply Requests</h3>
+
+Supply requests allow designers to signal component demand and secure early delivery of children before listing a parent on the market. When reserving a parent, a designer can attach supply requests: specifications for children that do not yet exist or that the designer wants to prepay for and receive ahead of public sale.<br/><br/>
+
+This structure inverts the default flow. Normally, children and templates are delivered to the designer one by one only after end buyers purchase the parent and fulfillment completes. Supply requests allow the designer to pay upfront, receive the components immediately, and be reimbursed transparently when the parent is sold.<br/><br/>
+
+A supply request specifies quantity, preferred max price, deadline, and either a reference to an existing child or a custom specification. Suppliers browse active requests across the graph, identify demand, and either propose an existing child or create a new one tailored to the spec. Once a supplier links a child to a supply request and the designer approves, that child is automatically authorized for use in the parent, and prepaid supply is reserved.<br/><br/>
+
+When a buyer purchases the parent, the market detects prepaid supply. Instead of paying the supplier for those components, the buyer's payment for those units is redirected to the designer as reimbursement. The supplier has already been paid upfront. The buyer receives the same goods, the designer recovers prepaid costs, and the supplier locks in revenue early without waiting for market demand.<br/><br/>
+
+This mechanism serves multiple roles:<br/>
+- **Designers manage cash flow**: upfront payment for critical components enables production before capital comes through sales.<br/>
+- **Suppliers see real demand**: supply requests act as transparent purchase orders, surfacing what designers need and at what price.<br/>
+- **Custom fulfillment**: suppliers can create bespoke children to match exact specs, or propose existing inventory that fits the request.<br/>
+- **Automatic approval**: once linked, the child is pre-approved for the parent without requiring separate reference permission flows.<br/><br/>
+
+Supply requests are only available on parents, not templates. Templates are assembly recipes and do not carry the same production and capital constraints as finished garments.<br/><br/>
+
+<pre><code>
+struct ChildSupplyRequest {
+uint256 existingChildId; // ID of existing child if known, 0 otherwise
+uint256 quantity; // Quantity of units requested
+uint256 preferredMaxPrice; // Maximum price willing to pay
+uint256 deadline; // Deadline for fulfillment
+address existingChildContract; // Contract address if existingChildId > 0
+bool isPhysical; // Physical or digital request
+bool fulfilled; // Whether the request has been fulfilled
+string customSpec; // Custom specification for the requested child
+string placementURI; // Placement metadata for the requested child
+}
+</code></pre><br/><br/><div style="font-family: monospace; background-color: #111827; color: #d1d5db; padding: 16px; border-radius: 8px; width: fit-content;">
   <ul style="list-style-type: none; padding-left: 20px; margin: 0;">
     <li>
       <span style="color:#93c5fd;">Step 1: Purchase</span>
@@ -1501,6 +1560,7 @@ struct CreateChildParams {
     uint256 physicalPrice;            // Precio para derechos de fabricación física
     uint256 version;                  // Número de versión para actualizaciones
     uint256 maxPhysicalEditions;      // Máx. ítems físicos que pueden producirse
+    uint256 maxDigitalEditions;       // Máx. ediciones digitales (templates que referencian futures digitales)
     Availability availability;        // DIGITAL_ONLY, PHYSICAL_ONLY, BOTH
     bool isImmutable;                 // Si el child puede ser actualizado
     bool digitalMarketsOpenToAll;     // Abrir trading digital a todos
@@ -1508,6 +1568,7 @@ struct CreateChildParams {
     bool digitalReferencesOpenToAll;  // Permitir referencias digitales por cualquier parent o template
     bool physicalReferencesOpenToAll; // Permitir referencias físicas por cualquier parent o template
     bool standaloneAllowed;           // Puede venderse independientemente de un parent o template
+    Futures futures;                  // Configuración de créditos prepagados futures
     string childUri;                  // URI de metadatos en IPFS
     address[] authorizedMarkets;      // Marketplaces autorizados
 }
@@ -1515,6 +1576,8 @@ struct CreateChildParams {
 struct ChildReference {
 uint256 childId; // ID del child o template referenciado
 uint256 amount; // Unidades consumidas por 1 template o 1 parent
+uint256 prepaidAmount; // Suministro prepagado reservado para esta referencia
+uint256 prepaidUsed; // Suministro prepagado ya consumido
 address childContract; // Contrato donde está definido el childId
 string placementURI; // Esquema legible por máquina con instrucciones y campos personalizados
 }
@@ -1530,6 +1593,7 @@ bool digitalMarketsOpenToAll; // Abrir canal digital a cualquier Market
 bool physicalMarketsOpenToAll; // Abrir canal físico a cualquier Market
 string uri; // Metadatos base para tokenURI
 ChildReference[] childReferences; // Template o conjunto directo de Children
+ChildSupplyRequest[] supplyRequests; // Solicitudes de suministro
 address[] authorizedMarkets; // Markets permitidos
 FulfillmentWorkflow workflow; // Pasos de producción y pagos
 }
@@ -1558,7 +1622,7 @@ struct FulfillmentWorkflow {
 FulfillmentStep[] digitalSteps; // Pasos para canal digital
 FulfillmentStep[] physicalSteps; // Pasos para canal físico
 }
-</code></pre><br/><br/>Contratos Principales:<br/><div class="font-bold w-fit h-fit mb-1 bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">reserveParent(CreateParentParams params) external onlyDesigner returns (uint256)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">createParent(uint256 reservedParentId) external onlyDesigner</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">reserveParentBatch(CreateParentParams[] paramsArray) external onlyDesigner returns (uint256[] memory)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">createParentBatch(uint256[] reservedParentIds) external onlyDesigner</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">updateParent(UpdateParentParams params) external onlyDesignOwner(params.designId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">approveMarket(uint256 designId, address market) external onlyDesignOwner(designId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">revokeMarket(uint256 designId, address market) external onlyDesignOwner(designId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">requestMarketApproval(uint256 designId) external</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">approveMarketRequest(uint256 designId, address market) external onlyDesignOwner(designId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">rejectMarketRequest(uint256 designId, address market) external onlyDesignOwner(designId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">mint(uint256 parentId, uint256 amount, address to, bool isPhysical) external returns (uint256[] memory)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">canPurchase(uint256 designId, uint256 amount, bool isPhysical, address market) external view returns (bool)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">isParentActive(uint256 designId) external view returns (bool)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">disableParent(uint256 designId) external onlyDesignOwner(designId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">enableParent(uint256 designId) external onlyDesignOwner(designId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">deleteParent(uint256 designId) external onlyDesignOwner(designId)</div><br/><br/><table style="border-collapse: separate; border-spacing: 0 8px; width: 100%;">
+</code></pre><br/><br/>Contratos Principales:<br/><div class="font-bold w-fit h-fit mb-1 bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">reserveParent(CreateParentParams params) external onlyDesigner returns (uint256)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">createParent(uint256 reservedParentId) external onlyDesigner</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">reserveParentBatch(CreateParentParams[] paramsArray) external onlyDesigner returns (uint256[] memory)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">createParentBatch(uint256[] reservedParentIds) external onlyDesigner</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">updateParent(UpdateParentParams params) external onlyDesignOwner(params.designId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">approveMarket(uint256 designId, address market) external onlyDesignOwner(designId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">revokeMarket(uint256 designId, address market) external onlyDesignOwner(designId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">requestMarketApproval(uint256 designId) external</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">approveMarketRequest(uint256 designId, address market) external onlyDesignOwner(designId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">rejectMarketRequest(uint256 designId, address market) external onlyDesignOwner(designId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">mint(uint256 parentId, uint256 amount, address to, bool isPhysical) external returns (uint256[] memory)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">canPurchase(uint256 designId, uint256 amount, bool isPhysical, address market) external view returns (bool)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">isParentActive(uint256 designId) external view returns (bool)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">disableParent(uint256 designId) external onlyDesignOwner(designId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">enableParent(uint256 designId) external onlyDesignOwner(designId)</div><div class="mb-1 font-bold w-fit h-fit bg-gray-800 rounded-sm p-1 text-gray-400 text-xs">deleteParent(uint256 designId, uint256 transferId) external onlyDesignOwner(designId)</div><br/><br/><table style="border-collapse: separate; border-spacing: 0 8px; width: 100%;">
 
 <thead> <tr style="text-align: left; background-color: #1f2937; color: #d1d5db;"> <th style="padding: 8px; border-radius: 6px 0 0 6px;">Capa</th> <th style="padding: 8px;">Contrato Base (Abstracto)</th> <th style="padding: 8px;">Contrato Concreto (Desplegable)</th> <th style="padding: 8px;">Estándar</th> <th style="padding: 8px; border-radius: 0 6px 6px 0;">Propósito</th> </tr> </thead> <tbody> <tr style="background-color: #111827; color: #d1d5db;"> <td style="padding: 10px; border-radius: 6px 0 0 6px;">Atómica</td> <td style="padding: 10px;"><code>FGOBaseChild</code></td> <td style="padding: 10px;"><code>FGOChild</code></td> <td style="padding: 10px;">ERC1155</td> <td style="padding: 10px; border-radius: 0 6px 6px 0;">Componentes individuales (children): partes crudas, materiales, zonas, efectos</td> </tr> <tr style="background-color: #111827; color: #d1d5db;"> <td style="padding: 10px; border-radius: 6px 0 0 6px;">Compuesta</td> <td style="padding: 10px;"><code>FGOTemplateBaseChild</code></td> <td style="padding: 10px;"><code>FGOTemplateChild</code></td> <td style="padding: 10px;">ERC1155</td> <td style="padding: 10px; border-radius: 0 6px 6px 0;">Recetas de ensamblaje (templates): facturas configuradas con datos de colocación</td> </tr> <tr style="background-color: #111827; color: #d1d5db;"> <td style="padding: 10px; border-radius: 6px 0 0 6px;">Final</td> <td style="padding: 10px;"><code>FGOBaseParent</code></td> <td style="padding: 10px;"><code>FGOParent</code></td> <td style="padding: 10px;">ERC721</td> <td style="padding: 10px; border-radius: 0 6px 6px 0;">Prendas terminadas (parents): SKUs fabricables, con propiedad y fulfillment</td> </tr> </tbody> </table> <br/><br/><div style="font-family: monospace; color: #d1d5db; background-color: #111827; padding: 16px; border-radius: 8px; width: fit-content;"> <ul style="list-style-type: none; padding-left: 20px; margin: 0;"> <li> <span style="color:#93c5fd;">Parent (ERC721)</span> <ul style="list-style-type: none; padding-left: 20px; margin: 4px 0;"> <li>↳ Child A (ERC1155)</li> <li>↳ Child B (ERC1155)</li> <li> ↳ Template X (ERC1155) <ul style="list-style-type: none; padding-left: 20px; margin: 4px 0;"> <li>↳ Child C (ERC1155)</li> <li> ↳ Template Y (ERC1155) <ul style="list-style-type: none; padding-left: 20px; margin: 4px 0;"> <li>↳ Child D (ERC1155)</li> <li>↳ Child E (ERC1155)</li> </ul> </li> </ul> </li> </ul> </li> </ul> </div><br/><br/><h3 class='font-bold'>Metadatos y Estándares On-Chain</h3>
 
@@ -1779,6 +1843,7 @@ SubPerformer[] subPerformers;
 }
 
 struct FulfillmentWorkflow {
+uint256 estimatedDeliveryDuration; // Tiempo estimado de entrega en segundos
 FulfillmentStep[] digitalSteps;
 FulfillmentStep[] physicalSteps;
 } </code></pre><br/><br/>- primaryPerformer: un rol Fulfiller aprobado en la Infrastructure del Parent.<br/>
@@ -1862,7 +1927,60 @@ El contrato de Fulfillment gestiona las atestaciones de cada paso.<br/>
 
 En el paso final: se mintean al comprador los Children/Templates físicos pendientes.<br/><br/><div style="font-family: monospace; background-color: #111827; color: #d1d5db; padding: 16px; border-radius: 8px; width: fit-content;">
 
-<ul style="list-style-type: none; padding-left: 20px; margin: 0;"> <li> <span style="color:#93c5fd;">Paso 1: Compra</span> <ul style="list-style-type: none; padding-left: 20px; margin: 4px 0;"> <li>✔ Parent ERC721 minteado inmediatamente</li> <li>✘ Children/Templates (físicos) aún no minteados</li> <li>➝ Derechos reservados para el suministro físico</li> </ul> </li> <li> <span style="color:#93c5fd;">Paso 2: Fulfillment Workflow</span> <ul style="list-style-type: none; padding-left: 20px; margin: 4px 0;"> <li>↳ FulfillmentStep A (p. ej., corte)</li> <li>↳ FulfillmentStep B (p. ej., impresión)</li> <li>↳ FulfillmentStep C (p. ej., control de calidad + envío)</li> <li>✔ Cada paso atestado por el/los Fulfiller(s) asignado(s)</li> </ul> </li> <li> <span style="color:#93c5fd;">Paso 3: Finalización</span> <ul style="list-style-type: none; padding-left: 20px; margin: 4px 0;"> <li>✔ El paso final dispara el mint de Children/Templates físicos</li> <li>➝ El comprador ahora posee ERC1155 = prueba de derechos físicos</li> <li>➝ Parent ERC721 + Children/Templates totalmente liquidados</li> </ul> </li> </ul> </div><br/><br/><h3 class='font-bold'>Posfacio</h3> FGO V3 no es la última palabra. Es una malla viva, abierta a forks, mutaciones y caza de bugs. Cada contrato aquí es a la vez singular y componible: puedes desplegar uno en aislamiento o apilar cientos hasta formar una fábrica viva. La lógica es lo bastante simple para que opere un/a diseñador/a indie, y lo bastante flexible para que emerjan federaciones enteras.<br/><br/>
+<ul style="list-style-type: none; padding-left: 20px; margin: 0;"> <li> <span style="color:#93c5fd;">Paso 1: Compra</span> <ul style="list-style-type: none; padding-left: 20px; margin: 4px 0;"> <li>✔ Parent ERC721 minteado inmediatamente</li> <li>✘ Children/Templates (físicos) aún no minteados</li> <li>➝ Derechos reservados para el suministro físico</li> </ul> </li> <li> <span style="color:#93c5fd;">Paso 2: Fulfillment Workflow</span> <ul style="list-style-type: none; padding-left: 20px; margin: 4px 0;"> <li>↳ FulfillmentStep A (p. ej., corte)</li> <li>↳ FulfillmentStep B (p. ej., impresión)</li> <li>↳ FulfillmentStep C (p. ej., control de calidad + envío)</li> <li>✔ Cada paso atestado por el/los Fulfiller(s) asignado(s)</li> </ul> </li> <li> <span style="color:#93c5fd;">Paso 3: Finalización</span> <ul style="list-style-type: none; padding-left: 20px; margin: 4px 0;"> <li>✔ El paso final dispara el mint de Children/Templates físicos</li> <li>➝ El comprador ahora posee ERC1155 = prueba de derechos físicos</li> <li>➝ Parent ERC721 + Children/Templates totalmente liquidados</li> </ul> </li> </ul> </div><br/><br/><h3 class='font-bold'>Futures</h3>
+
+Los futures permiten a los proveedores cubrir costos de fabricación y a los diseñadores asegurar materiales prepagados con entrega anticipada garantizada. Un child configurado como future se convierte en un instrumento de crédito comerciable. Los compradores adquieren créditos a un precio establecido, luego consumen esos créditos más tarde al crear templates o parents, eludiendo el pago en el punto de uso y recibiendo los bienes directamente al liquidar.<br/><br/>
+
+Solo los children crudos pueden configurarse como futures. Los templates no pueden ofrecer futures. El child debe ser DIGITAL_ONLY o PHYSICAL_ONLY. Un child future especifica un precio por unidad, un suministro máximo de créditos a vender y una fecha límite opcional. Si no se establece fecha límite, el future opera perpetuamente: los créditos se liquidan inmediatamente después de la compra. Si se establece una fecha límite, todos los créditos se liquidan simultáneamente en ese momento.<br/><br/>
+
+Cuando un template o parent referencia un child con futures activos, el creador puede elegir consumir créditos prepagados en lugar de pagar al momento de creación. Los créditos físicos o digitales se deducen del balance del creador, y el suministro del child referenciado se reserva. Al liquidar, esas unidades se entregan directamente al creador, completando el ciclo sin fricción de marketplace.<br/><br/>
+
+Esta estructura cumple dos roles:<br/>
+- **Proveedores cubren costos**: los productores de materias primas venden futures para asegurar ingresos antes de comprometerse a producción completa, reduciendo la exposición a volatilidad de demanda.<br/>
+- **Diseñadores aseguran suministro**: al comprar futures anticipadamente, un diseñador garantiza acceso a componentes escasos, los recibe antes de disponibilidad en mercado y puede más tarde incorporarlos en parents o templates terminados sin requerir que los compradores finales paguen por esos componentes nuevamente.<br/><br/>
+
+Los templates que referencian un child con futures digitales pierden su suministro digital infinito. En cambio, el maxDigitalEditions del template se limita a la cantidad de créditos future que posee el creador del template. Esto asegura que la escasez digital pueda aplicarse cuando componentes respaldados por futures estén involucrados, alineando límites de suministro a través del grafo de composición.<br/><br/>
+
+<pre><code>
+struct Futures {
+uint256 deadline; // Fecha límite de campaña de futures (0 = perpetuo)
+uint256 pricePerUnit; // Precio por unidad de crédito future
+uint256 maxDigitalEditions; // Máx. créditos digitales futures a vender
+bool isFutures; // Si este child ofrece créditos futures
+}
+</code></pre><br/><br/>
+
+<h3 class='font-bold'>Solicitudes de Suministro</h3>
+
+Las solicitudes de suministro permiten a los diseñadores señalizar demanda de componentes y asegurar entrega anticipada de children antes de listar un parent en el mercado. Al reservar un parent, un diseñador puede adjuntar solicitudes de suministro: especificaciones para children que aún no existen o que el diseñador desea prepagar y recibir antes de venta pública.<br/><br/>
+
+Esta estructura invierte el flujo predeterminado. Normalmente, children y templates se entregan al diseñador uno por uno solo después de que los compradores finales adquieran el parent y se complete el fulfillment. Las solicitudes de suministro permiten al diseñador pagar por adelantado, recibir los componentes de inmediato y ser reembolsado transparentemente cuando se vende el parent.<br/><br/>
+
+Una solicitud de suministro especifica cantidad, precio máximo preferido, fecha límite y ya sea una referencia a un child existente o una especificación personalizada. Los proveedores navegan solicitudes activas a través del grafo, identifican demanda y proponen un child existente o crean uno nuevo adaptado a la especificación. Una vez que un proveedor vincula un child a una solicitud de suministro y el diseñador aprueba, ese child queda automáticamente autorizado para uso en el parent, y el suministro prepagado se reserva.<br/><br/>
+
+Cuando un comprador adquiere el parent, el market detecta suministro prepagado. En lugar de pagar al proveedor por esos componentes, el pago del comprador por esas unidades se redirige al diseñador como reembolso. El proveedor ya fue pagado por adelantado. El comprador recibe los mismos bienes, el diseñador recupera costos prepagados y el proveedor asegura ingresos temprano sin esperar demanda de mercado.<br/><br/>
+
+Este mecanismo cumple múltiples roles:<br/>
+- **Diseñadores gestionan flujo de caja**: pago por adelantado de componentes críticos habilita producción antes de que capital llegue a través de ventas.<br/>
+- **Proveedores ven demanda real**: las solicitudes de suministro actúan como órdenes de compra transparentes, revelando qué necesitan los diseñadores y a qué precio.<br/>
+- **Fulfillment personalizado**: los proveedores pueden crear children hechos a medida que coincidan con especificaciones exactas, o proponer inventario existente que encaje con la solicitud.<br/>
+- **Aprobación automática**: una vez vinculado, el child está preaprobado para el parent sin requerir flujos de permiso de referencia separados.<br/><br/>
+
+Las solicitudes de suministro solo están disponibles en parents, no en templates. Los templates son recetas de ensamblaje y no llevan las mismas restricciones de producción y capital que prendas terminadas.<br/><br/>
+
+<pre><code>
+struct ChildSupplyRequest {
+uint256 existingChildId; // ID de child existente si se conoce, 0 en caso contrario
+uint256 quantity; // Cantidad de unidades solicitadas
+uint256 preferredMaxPrice; // Precio máximo dispuesto a pagar
+uint256 deadline; // Fecha límite para cumplimiento
+address existingChildContract; // Dirección de contrato si existingChildId > 0
+bool isPhysical; // Solicitud física o digital
+bool fulfilled; // Si la solicitud ha sido cumplida
+string customSpec; // Especificación personalizada para el child solicitado
+string placementURI; // Metadatos de colocación para el child solicitado
+}
+</code></pre><br/><br/><h3 class='font-bold'>Posfacio</h3> FGO V3 no es la última palabra. Es una malla viva, abierta a forks, mutaciones y caza de bugs. Cada contrato aquí es a la vez singular y componible: puedes desplegar uno en aislamiento o apilar cientos hasta formar una fábrica viva. La lógica es lo bastante simple para que opere un/a diseñador/a indie, y lo bastante flexible para que emerjan federaciones enteras.<br/><br/>
 
 Lo que importa ahora no son los números de versión, sino si el protocolo cumple su promesa: hacer que la moda digital y física sea interoperable, verificable y soberana a la escala más pequeña posible. Todo lo demás —valoración, markets, colaboraciones— deriva de esa verdad base.<br/><br/>Las líneas rectas se curvarán. El código hará fork. El suministro fluirá. Y en algún lugar, una persona minteará una prenda que antes no existía, y será suya. <br/><br/>
 
