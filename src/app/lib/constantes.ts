@@ -1481,7 +1481,6 @@ Templates that reference a child with digital futures lose their infinite digita
 <pre><code>
 struct Futures {
 uint256 deadline; // Futures campaign deadline (0 = perpetual)
-uint256 pricePerUnit; // Price per futures credit unit
 uint256 maxDigitalEditions; // Max digital futures credits to sell
 bool isFutures; // Whether this child offers futures credits
 }
@@ -1944,7 +1943,6 @@ Los templates que referencian un child con futures digitales pierden su suminist
 <pre><code>
 struct Futures {
 uint256 deadline; // Fecha límite de campaña de futures (0 = perpetuo)
-uint256 pricePerUnit; // Precio por unidad de crédito future
 uint256 maxDigitalEditions; // Máx. créditos digitales futures a vender
 bool isFutures; // Si este child ofrece créditos futures
 }
