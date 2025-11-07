@@ -976,7 +976,7 @@ address performer; // subcontractor wallet
 }
 
 struct FulfillmentStep {
-address primaryPerformer; // must be an approved Fulfiller or zero for Designer
+uint256 primaryPerformer; // must be an approved Fulfiller or zero for Designer
 string instructions; // freeform human or machine readable notes
 SubPerformer[] subPerformers;
 }
@@ -1294,6 +1294,66 @@ This structure allows fine-grained segmentation:<br/>
 
 This design ensures infrastructures act as modular yet interoperable clusters: capable of operating independently, segmenting roles and permissions, but still converging into a shared ecosystem where every contract is indexable, discoverable, and liquid.  <br/><br/>
 
+<br/><h3 class='font-bold'>Role Identity & Wallet Transfer</h3>
+
+<div class="font-bold mb-2">ID-Based Role System</div>
+Designers, Suppliers, and Fulfillers are identified by **numeric IDs** within their Infrastructure, not by wallet addresses. This separation of identity from wallet creates a crucial security model:<br/><br/>
+
+- **Designer ID**: a uint256 assigned when a wallet is added as a Designer to an Infrastructure<br/>
+- **Supplier ID**: a uint256 assigned when a wallet is added as a Supplier to an Infrastructure<br/>
+- **Fulfiller ID**: a uint256 assigned when a wallet is added as a Fulfiller to an Infrastructure<br/><br/>
+
+Each role ID maintains a **linked wallet address**, which can be updated at any time without losing the role identity or any associated assets, sales, or credits.<br/><br/>
+
+<div class="font-bold mb-2">Wallet Transfer Mechanism</div>
+At any point, a role can transfer its wallet link to a new address:<br/><br/>
+
+<pre><code>
+designerWallet.transferWallet(designerId, newDesignerWallet)
+supplierWallet.transferWallet(supplierId, newSupplierWallet)
+fulfillerWallet.transferWallet(fulfillerId, newFulfillerWallet)
+</code></pre>
+
+On transfer:<br/>
+- The role ID remains unchanged and retains all associated Parents, Children, Templates, and credits<br/>
+- The new wallet becomes the active address for that role<br/>
+- All future payments (sales, fulfiller fees, supply requests) route to the new wallet<br/>
+- The old wallet loses control of the role but retains any cryptocurrency already received<br/><br/>
+
+<div class="font-bold mb-2">Payment Routing</div>
+When a sale occurs, payments are always routed to the **currently linked wallet address** of the role ID:<br/><br/>
+
+**Scenario:**<br/>
+1. Designer A (Wallet A) creates Parent X and sells 10 units → Wallet A receives payment<br/>
+2. Designer A transfers the role to Wallet B via transferWallet(designerId, walletB)<br/>
+3. Parent X sells 10 more units → Wallet B receives payment (not Wallet A)<br/>
+4. No further action needed. The transfer is atomic and immediate.<br/><br/>
+
+The same pattern applies for Suppliers receiving Child/Template sales and Fulfillers receiving fulfillment fees.<br/><br/>
+
+<div class="font-bold mb-2">Security & Risk Mitigation</div>
+This architecture protects against several attack vectors:<br/><br/>
+
+- **Private Key Compromise**: If a wallet's private key is exposed, the role can be transferred to a new, secure wallet without losing any permissions, credits, or sale history<br/>
+- **Hardware Wallet Upgrade**: A role can be migrated from an EOA to a multisig, hardware wallet, or smart contract wallet seamlessly<br/>
+- **Operational Security**: Keys can be rotated regularly without disrupting ongoing business operations<br/>
+- **Access Recovery**: If a wallet is lost or inaccessible, it can be recovered to a new address (with appropriate recovery mechanisms per Infrastructure)<br/><br/>
+
+The role ID remains the canonical source of truth. The wallet is merely the current signing authority for that role.<br/><br/>
+
+<div class="font-bold mb-2">Futures Credits & Wallet Transfer</div>
+Designers holding prepaid **Futures Credits** can transfer those credits to a new wallet along with the role transfer:<br/><br/>
+
+<pre><code>
+futuresCoordination.transferFuturesCredits(
+  childContracts,
+  childIds,
+  newWallet
+)
+</code></pre>
+
+This ensures that reserved digital edition capacity and other on-chain credits move with the wallet, keeping the designer's production pipeline intact across the transition.<br/><br/>
+
 <br/><h3 class='font-bold'>Cross-Infrastructure Composability</h3>While each Infrastructure is self-contained, contracts are not isolated. Children, Templates, and Parents can interoperate across infrastructures to form a single composable manufacturing graph.  
 <br/><br/>
 
@@ -1377,7 +1437,7 @@ Both settle in the Infrastructure’s PAYMENT_TOKEN (ERC-20) defined by its Acce
   } 
 
   struct FulfillmentStep { 
-    address primaryPerformer; // MUST be a Fulfiller in the Parent’s Infrastructure (or 0x0 = Designer) 
+    uint256 primaryPerformer; // MUST be a Fulfiller in the Parent’s Infrastructure (or 0 = Designer) 
     string instructions; // ipfs://... freeform step brief / machine file 
     SubPerformer[] subPerformers; 
   } 
@@ -1612,7 +1672,7 @@ address performer; // Wallet del subcontratista
 }
 
 struct FulfillmentStep {
-address primaryPerformer; // Debe ser Fulfiller aprobado o 0x0 = Designer
+uint256 primaryPerformer; // Debe ser Fulfiller aprobado o 0x0 = Designer
 string instructions; // Notas legibles / archivo máquina (ipfs://...)
 SubPerformer[] subPerformers; // Subcontratistas pagados desde el primario
 }
@@ -1816,6 +1876,27 @@ Esta estructura habilita una segmentación granular:<br/>
 - Todos los Children, Templates y Parents creados dentro de esa Infrastructure se valoran y liquidan en ese token.<br/>  
 - Por defecto, el token es <a href="https://explorer.lens.xyz/address/0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd" class="font-mono">$MONA</a>, pero puede asignarse cualquier ERC20 compatible con Lens zkSync.<br/><br/>Este diseño garantiza que las infraestructuras funcionen como cúmulos modulares pero interoperables: capaces de operar de forma independiente, segmentar roles y permisos, y aun así converger en un ecosistema compartido donde cada contrato es indexable, descubrible y líquido. <br/><br/>
 
+<br/><h3 class='font-bold'>Identidad de Rol & Transferencia de Billetera</h3> <div class="font-bold mb-2">Sistema de Rol Basado en ID</div> Los Diseñadores, Proveedores y Cumplimentadores se identifican por **IDs numéricos** dentro de su Infraestructura, no por direcciones de billetera. Esta separación de identidad y billetera crea un modelo de seguridad crucial:<br/><br/>
+ID de Diseñador: un uint256 asignado cuando una billetera se añade como Diseñador a una Infraestructura<br/>
+ID de Proveedor: un uint256 asignado cuando una billetera se añade como Proveedor a una Infraestructura<br/>
+ID de Cumplimentador: un uint256 asignado cuando una billetera se añade como Cumplimentador a una Infraestructura<br/><br/>
+Cada ID de rol mantiene una dirección de billetera vinculada, que se puede actualizar en cualquier momento sin perder la identidad del rol o ninguno de los activos, ventas o créditos asociados.<br/><br/> <div class="font-bold mb-2">Mecanismo de Transferencia de Billetera</div> En cualquier momento, un rol puede transferir su vínculo de billetera a una nueva dirección:<br/><br/> <pre><code> designerWallet.transferWallet(designerId, newDesignerWallet) supplierWallet.transferWallet(supplierId, newSupplierWallet) fulfillerWallet.transferWallet(fulfillerId, newFulfillerWallet) </code></pre> En la transferencia:<br/>
+El ID de rol permanece sin cambios y retiene todos los Padres, Hijos, Plantillas y créditos asociados<br/>
+La nueva billetera se convierte en la dirección activa para ese rol<br/>
+Todos los pagos futuros (ventas, honorarios de cumplimiento, solicitudes de suministro) se enrutan a la nueva billetera<br/>
+La billetera antigua pierde el control del rol pero retiene cualquier criptomoneda ya recibida<br/><br/>
+<div class="font-bold mb-2">Enrutamiento de Pagos</div> Cuando ocurre una venta, los pagos siempre se enrutan a la **dirección de billetera actualmente vinculada** del ID de rol:<br/><br/> Escenario:<br/>
+Diseñador A (Billetera A) crea Padre X y vende 10 unidades → Billetera A recibe el pago<br/>
+Diseñador A transfiere el rol a Billetera B vía transferWallet(designerId, walletB)<br/>
+Padre X vende 10 unidades más → Billetera B recibe el pago (no Billetera A)<br/>
+No se requiere acción adicional. La transferencia es atómica e inmediata.<br/><br/>
+El mismo patrón se aplica para Proveedores que reciben ventas de Hijos/Plantillas y Cumplimentadores que reciben honorarios de cumplimiento.<br/><br/> <div class="font-bold mb-2">Seguridad & Mitigación de Riesgos</div> Esta arquitectura protege contra varios vectores de ataque:<br/><br/>
+Compromiso de Clave Privada: Si la clave privada de una billetera se ve comprometida, el rol puede transferirse a una nueva billetera segura sin perder ningún permiso, crédito o historial de ventas<br/>
+Actualización de Billetera de Hardware: Un rol puede migrarse desde una EOA a una billetera multifirma, billetera de hardware o billetera de contrato inteligente sin problemas<br/>
+Seguridad Operativa: Las claves se pueden rotar regularmente sin interrumpir las operaciones comerciales en curso<br/>
+Recuperación de Acceso: Si una billetera se pierde o no es accesible, se puede recuperar a una nueva dirección (con mecanismos de recuperación apropiados por Infraestructura)<br/><br/>
+El ID de rol permanece como la fuente de verdad canónica. La billetera es meramente la autoridad firmante actual para ese rol.<br/><br/> <div class="font-bold mb-2">Créditos de Futuros & Transferencia de Billetera</div> Los Diseñadores que poseen **Créditos de Futuros** prepagados pueden transferir esos créditos a una nueva billetera junto con la transferencia de rol:<br/><br/> <pre><code> futuresCoordination.transferFuturesCredits( childContracts, childIds, newWallet ) </code></pre> Esto garantiza que la capacidad de edición digital reservada y otros créditos en cadena se muevan con la billetera, manteniendo la tubería de producción del diseñador intacta durante la transición.<br/><br/>
+
 <br/><h3 class='font-bold'>Composabilidad entre Infraestructuras</h3>Aunque cada Infrastructure es autocontenida, los contratos no están aislados. Children, Templates y Parents pueden interoperar entre infraestructuras para formar un único grafo de fabricación composable.
 <br/><br/>
 
@@ -1836,7 +1917,7 @@ address performer; // puede ser cualquier address (no necesita el rol Fulfiller)
 }
 
 struct FulfillmentStep {
-address primaryPerformer; // DEBE ser un Fulfiller en la Infrastructure del Parent (o 0x0 = Designer)
+uint256 primaryPerformer; // DEBE ser un Fulfiller en la Infrastructure del Parent (o 0 = Designer)
 string instructions; // ipfs://... brief libre del paso / archivo de máquina
 SubPerformer[] subPerformers;
 }
