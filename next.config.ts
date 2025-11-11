@@ -32,7 +32,7 @@ const nextConfig: NextConfig = {
         destination: "/code-here",
       },
       {
-        source: "/%D7%9E%D7%95%D7%A1%D7%93%D7%95%D7%AA",
+        source: "/%D7%A4%D7%A8%D7%95%D7%99%D7%A7%D7%98%D7%99%D7%9D",
         destination: "/orgs",
       },
       {
