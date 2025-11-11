@@ -29,7 +29,7 @@ const Wrapper: FunctionComponent<{
               "WÄŊA",
               "DHÄWU",
               "FORUM",
-              "מוסדות",
+              "פרויקטים",
               "الكود هنا",
               "МЕРЧ",
               "MU DHEIDHINN",

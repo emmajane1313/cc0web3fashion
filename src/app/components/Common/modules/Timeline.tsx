@@ -64,9 +64,9 @@ const Timeline: FunctionComponent = (): JSX.Element => {
               </div>
               <div
                 className="uppercase text-sm font-bold text-cyan-400 border-b border-yellow-500 pb-1 mb-2 cursor-pointer"
-                onClick={() => router.push("/מוסדות")}
+                onClick={() => router.push("/פרויקטים")}
               >
-                מוסדות
+                פרויקטים
               </div>
             </div>
           </div>

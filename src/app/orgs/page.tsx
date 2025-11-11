@@ -2,12 +2,12 @@ import { Metadata } from "next";
 import Entry from "../components/Orgs/modules/Entry";
 
 export const metadata: Metadata = {
-  title: "מוסדות",
+  title: "פרויקטים",
   twitter: {
-    title: "מוסדות",
+    title: "פרויקטים",
   },
   openGraph: {
-    title: "מוסדות",
+    title: "פרויקטים",
   },
 };
 

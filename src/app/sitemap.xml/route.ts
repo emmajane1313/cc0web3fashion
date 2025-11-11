@@ -74,7 +74,7 @@ export async function GET() {
       base: "/mu-dheidhinn/",
     },
     { images: [], base: "/timeline/" },
-    { images: [], base: "/מוסדות/" },
+    { images: [], base: "/פרויקטים/" },
     { images: [], base: "/الكود-هنا/" },
   ];
   const staticXml = generateStaticUrls(baseUrl, staticPaths);
