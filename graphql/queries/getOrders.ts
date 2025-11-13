@@ -1,4 +1,4 @@
-import { emancipaClient } from "@/app/lib/graph/client";
+import { graphClient } from "@/app/lib/graph/client";
 import { FetchResult, gql } from "@apollo/client";
 
 const ORDERS = gql`
@@ -29,7 +29,7 @@ const ORDERS = gql`
 
 export const getOrders = async (buyer: string): Promise<FetchResult | void> => {
   let timeoutId: NodeJS.Timeout | undefined;
-  const queryPromise = emancipaClient.query({
+  const queryPromise = graphClient.query({
     query: ORDERS,
     variables: {
       buyer,

@@ -1,4 +1,4 @@
-import { emancipaClient } from "@/app/lib/graph/client";
+import { graphClient } from "@/app/lib/graph/client";
 import { FetchResult, gql } from "@apollo/client";
 
 const COLLECTIONS = gql`
@@ -30,7 +30,7 @@ const COLLECTIONS = gql`
 
 export const getCollections = async (): Promise<FetchResult | void> => {
   let timeoutId: NodeJS.Timeout | undefined;
-  const queryPromise = emancipaClient.query({
+  const queryPromise = graphClient.query({
     query: COLLECTIONS,
 
     fetchPolicy: "no-cache",

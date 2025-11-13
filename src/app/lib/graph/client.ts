@@ -1,10 +1,10 @@
 import { ApolloClient, InMemoryCache, HttpLink } from "@apollo/client";
 
-const emancipaLink = new HttpLink({
-  uri: `https://gateway.thegraph.com/api/${process.env.NEXT_PUBLIC_GRAPH_KEY}/subgraphs/id/3qMktQSg3tXAQjCpNpY2VxGuADGQMWgC9cGbZdhRUw9z`,
-}); 
+const httpLink = new HttpLink({
+  uri: "/api/graphql/web3",
+});
 
-export const emancipaClient = new ApolloClient({
-  link: emancipaLink,
+export const graphClient = new ApolloClient({
+  link: httpLink,
   cache: new InMemoryCache(),
 });
