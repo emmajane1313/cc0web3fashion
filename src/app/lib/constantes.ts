@@ -878,7 +878,8 @@ export const EVENTS: TimelineEvent[] = [
   {
     title: "FG0 V3",
     date: "Septiembre 2025",
-    description: "Suite de contratos de Open Manufacturing Stack. La propiedad, los derechos y el cumplimiento se instrumentan y autentican programáticamente.",
+    description:
+      "Suite de contratos de Open Manufacturing Stack. La propiedad, los derechos y el cumplimiento se instrumentan y autentican programáticamente.",
   },
   {
     title: "App Local de Coin Op",
@@ -886,7 +887,7 @@ export const EVENTS: TimelineEvent[] = [
     description:
       "Canal de moda digital efervescente. Formato, plantilla, sintetizador, compuesto, patrón de cero residuos, Blender, cumplimiento, venta.",
   },
-   {
+  {
     title: "Futuros de FGO",
     date: "Septiembre 2025",
     description:
@@ -894,8 +895,43 @@ export const EVENTS: TimelineEvent[] = [
   },
   {
     title: "Synth Moda",
-    date: "Septiembre 2025",
+    date: "Octubre 2025",
     description: "Un plugin de Blender para ingeniería de patrones.",
+  },
+  {
+    title: "Genesis",
+    date: "Noviembre 2025",
+    description: "Mintear en Lens Mainnet.",
+  },
+  {
+    title: "Ionic",
+    date: "Noviembre 2025",
+    description:
+      "PODEV3, mintear en Lens Mainnet. Los poseedores de Ionic tasan NFTs enviados usando paquetes de reacciones (conjuntos curados creados y vendidos por diseñadores invitados).",
+  },
+  {
+    title: "Skyhunters",
+    date: "Noviembre 2025",
+    description:
+      "Un mercado de oráculos autónomos interno donde los participantes del ecosistema crean mercados de predicción sobre sus propias métricas.",
+  },
+  {
+    title: "Fountain Ink",
+    date: "Noviembre 2025",
+    description:
+      "Todas las publicaciones de DIGITALAX publicadas en cadena con Fountain Ink.",
+  },
+  {
+    title: "W3FW",
+    date: "Noviembre 2025",
+    description:
+      "¿Y si el Stasi obtuvo financiación VC? Semana de la moda web3, lanzado a tu pantalla con 1x RTX 4090 24gb RAM.",
+  },
+  {
+    title: "$W3F",
+    date: "Noviembre 2025",
+    description:
+      "Gobernanza y coordinación para la Global Designer Network en Lens Mainnet. Ganado a través de mintear colecciones y actividad de mercado en GDN.",
   },
 ];
 
