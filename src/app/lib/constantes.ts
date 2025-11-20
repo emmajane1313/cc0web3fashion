@@ -925,7 +925,7 @@ export const EVENTS: TimelineEvent[] = [
     title: "W3FW",
     date: "Noviembre 2025",
     description:
-      "¿Y si el Stasi obtuvo financiación VC? Semana de la moda web3, lanzado a tu pantalla con 1x RTX 4090 24gb RAM.",
+      "¿Y si el Stasi obtuvo financiación VC? Semana de la moda web3, lanzada a tu pantalla con 1x RTX 4090 24gb RAM.",
   },
   {
     title: "$W3F",
