@@ -15,6 +15,7 @@ import Silencio from "./components/Common/modules/Silencio";
 import Wrapper from "./components/Common/modules/Wrapper";
 import Native from "./components/Common/modules/Native";
 import FGO from "./components/Common/modules/FGO";
+import GdrPunk from "./components/Common/modules/GdrPunk";
 
 export default function Home() {
   return (
@@ -94,6 +95,7 @@ export default function Home() {
           />
           <Advertencia />
           <Coisas />
+          <GdrPunk />
           <FGO />
           <Native />
           <Cope />
