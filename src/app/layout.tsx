@@ -4,21 +4,36 @@ import Providers from "./providers";
 import Modals from "./components/Modals/modules/Modals";
 
 export const metadata: Metadata = {
-  title: "CC0 Web3 Fashion by Emma-Jane MacKinnon-Lee",
+  title: {
+    default: "CC0 Web3 Fashion by Emma-Jane MacKinnon-Lee",
+    template: "%s | CC0 Web3 Fashion",
+  },
   description:
     "Home to everything Web3 Fashion. Earn fashion assets, create your own open source style.",
   metadataBase: new URL("https://cc0web3fashion.com/"),
+  alternates: {
+    canonical: "/",
+  },
   twitter: {
     card: "summary_large_image",
     creator: "@emmajane1313",
     title: "CC0 Web3 Fashion by Emma-Jane MacKinnon-Lee",
     description:
       "Home to everything Web3 Fashion. Earn fashion assets, create your own open source style.",
+    images: ["/images/web3cc0fashion.png"],
   },
   openGraph: {
     title: "CC0 Web3 Fashion by Emma-Jane MacKinnon-Lee",
     description:
       "Home to everything Web3 Fashion. Earn fashion assets, create your own open source style.",
+    siteName: "CC0 Web3 Fashion",
+    url: "https://cc0web3fashion.com/",
+    type: "website",
+    images: [
+      {
+        url: "/images/web3cc0fashion.png",
+      },
+    ],
   },
   robots: {
     googleBot: {
@@ -63,38 +78,51 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Person",
-              name: "Emma-Jane MacKinnon-Lee",
-              url: "https://emmajanemackinnonlee.com/",
-              sameAs: [
-                 "https://emmajanemackinnonlee.com/",
-                "https://emmajanemackinnon.com/",
-                "https://janefuture.com/",
-                "https://emmajanemackinnonlee.xyz/",
-                "https://emmajanemackinnonlee.net/",
-                "https://emmajanemackinnonlee.ai/",
-                "https://emmajanemackinnonlee.org/",
-                "https://emmajanemackinnonlee.io/",
-                "https://emmajanemackinnonlee.live/",
-                "https://emmajanemackinnonlee-f3manifesto.com/",
-                "https://emmajanemackinnonlee-digitalax.com/",
-                "https://icoinedweb3fashion.com/",
-                "https://syntheticfutures.xyz/",
-                "https://web3fashion.xyz/",
-                "https://emancipa.xyz/",
-                "https://highlangu.com/",
-                "https://digitalax.xyz/",
-                "https://cc0web3fashion.com/",
-                "https://cc0web3.com/",
-                "https://cuntism.net/",
-                "https://dhawu.com/",
-                "https://casadeespejos.com/",
-                "https://emancipa.net/",
-                "https://dhawu.emancipa.xyz/",
-                "https://highlangu.emancipa.xyz/",
-                "https://twitter.com/emmajane1313",
-                "https://medium.com/@casadeespejos",
-                "https://www.flickr.com/photos/emmajanemackinnonlee/",
+              "@graph": [
+                {
+                  "@type": "Person",
+                  name: "Emma-Jane MacKinnon-Lee",
+                  url: "https://emmajanemackinnonlee.com/",
+                  sameAs: [
+                    "https://emmajanemackinnonlee.com/",
+                    "https://emmajanemackinnon.com/",
+                    "https://janefuture.com/",
+                    "https://emmajanemackinnonlee.xyz/",
+                    "https://emmajanemackinnonlee.net/",
+                    "https://emmajanemackinnonlee.ai/",
+                    "https://emmajanemackinnonlee.org/",
+                    "https://emmajanemackinnonlee.io/",
+                    "https://emmajanemackinnonlee.live/",
+                    "https://emmajanemackinnonlee-f3manifesto.com/",
+                    "https://emmajanemackinnonlee-digitalax.com/",
+                    "https://icoinedweb3fashion.com/",
+                    "https://syntheticfutures.xyz/",
+                    "https://web3fashion.xyz/",
+                    "https://emancipa.xyz/",
+                    "https://highlangu.com/",
+                    "https://digitalax.xyz/",
+                    "https://cc0web3fashion.com/",
+                    "https://cc0web3.com/",
+                    "https://cuntism.net/",
+                    "https://dhawu.com/",
+                    "https://casadeespejos.com/",
+                    "https://emancipa.net/",
+                    "https://dhawu.emancipa.xyz/",
+                    "https://highlangu.emancipa.xyz/",
+                    "https://twitter.com/emmajane1313",
+                    "https://medium.com/@casadeespejos",
+                    "https://www.flickr.com/photos/emmajanemackinnonlee/",
+                  ],
+                },
+                {
+                  "@type": "WebSite",
+                  name: "CC0 Web3 Fashion",
+                  url: "https://cc0web3fashion.com/",
+                  publisher: {
+                    "@type": "Person",
+                    name: "Emma-Jane MacKinnon-Lee",
+                  },
+                },
               ],
             }),
           }}

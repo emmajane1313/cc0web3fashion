@@ -3,11 +3,21 @@ import Entry from "../components/Forum/modules/Entry";
 
 export const metadata: Metadata = {
   title: "Forum",
+  description:
+    "Community forum for CC0 Web3 Fashion by Emma-Jane MacKinnon-Lee.",
+  alternates: {
+    canonical: "/forum/",
+  },
   twitter: {
-    title: "Forum",
+    title: "Forum | CC0 Web3 Fashion",
+    description:
+      "Community forum for CC0 Web3 Fashion by Emma-Jane MacKinnon-Lee.",
   },
   openGraph: {
-    title: "Forum",
+    title: "Forum | CC0 Web3 Fashion",
+    description:
+      "Community forum for CC0 Web3 Fashion by Emma-Jane MacKinnon-Lee.",
+    url: "/forum/",
   },
 };
 

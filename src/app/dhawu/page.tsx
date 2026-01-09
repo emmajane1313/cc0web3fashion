@@ -3,11 +3,18 @@ import Entry from "../components/Dhawu/modules/Entry";
 
 export const metadata: Metadata = {
   title: "Dhäwu",
+  description: "FGO and DASH documentation for CC0 Web3 Fashion.",
+  alternates: {
+    canonical: "/dhawu/",
+  },
   twitter: {
-    title: "Dhäwu",
+    title: "Dhäwu | CC0 Web3 Fashion",
+    description: "FGO and DASH documentation for CC0 Web3 Fashion.",
   },
   openGraph: {
-    title: "Dhäwu",
+    title: "Dhäwu | CC0 Web3 Fashion",
+    description: "FGO and DASH documentation for CC0 Web3 Fashion.",
+    url: "/dhawu/",
   },
 };
 
