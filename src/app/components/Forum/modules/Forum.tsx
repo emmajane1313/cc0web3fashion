@@ -18,7 +18,6 @@ import MakeComment from "./MakeComment";
 import Quote from "../../Modals/modules/Quote";
 import { ImCross } from "react-icons/im";
 import handlePasteImage from "@/app/lib/helpers/handlePasteImage";
-import { MediaImageMimeType } from "@lens-protocol/metadata";
 
 const Forum: FunctionComponent = () => {
   const { isConnected, address, chainId } = useAccount();

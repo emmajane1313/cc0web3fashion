@@ -18,27 +18,25 @@ import {
   MediaImageMimeType,
   MediaVideoMimeType,
 } from "@lens-protocol/metadata";
-import { ConnectKitProvider, getDefaultConfig } from "connectkit";
+import { ConnectKitProvider } from "connectkit";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { WagmiProvider, createConfig, http } from "wagmi";
+import { injected } from "wagmi/connectors";
 import { chains } from "@lens-chain/sdk/viem";
 import { Drop, Order } from "./components/Merch/types/merch.types";
 
-export const config = createConfig(
-  getDefaultConfig({
-    appName: "CC0 Web3 Fashion",
-    walletConnectProjectId: process.env
-      .NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID as string,
-    appUrl: "https://cc0web3fashion.com/",
-    appIcon: "https://cc0web3fashion.com/favicon.ico",
-    chains: [chains.mainnet],
-    connectors: [],
-    transports: {
-      [chains.mainnet.id]: http("https://rpc.lens.xyz"),
-    },
-    ssr: true,
-  })
-);
+export const config = createConfig({
+  chains: [chains.mainnet],
+  transports: {
+    [chains.mainnet.id]: http("https://rpc.lens.xyz"),
+  },
+  connectors: [
+    injected({
+      target: "metaMask",
+    }),
+  ],
+  ssr: true,
+});
 
 const queryClient = new QueryClient();
 
