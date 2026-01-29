@@ -74,7 +74,7 @@ export default function Silencio() {
 
             <div className="relative w-fit h-fit text-right text-xs text-[#92400e] mt-2">
               <div
-                onClick={() => window.open("https://emancipa.xyz/")}
+                onClick={() => window.open("http://globaldesignernetwork.com/market")}
                 className="underline cursor-pointer"
               >
                 Хай живе Україна, смерть Путіну

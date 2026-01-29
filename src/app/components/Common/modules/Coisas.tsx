@@ -15,8 +15,8 @@ export default function Coisas() {
             "https://coinop.themanufactory.xyz",
             "https://cypher.digitalax.xyz",
             "https://triplea.agentmeme.xyz",
-            "https://emancipa.xyz",
-            "https://emancipa.net",
+            "http://gms.globaldesignernetwork.com",
+            "https://runway.globaldesignernetwork.com",
           ].map((enlace, i) => {
             return (
               <li key={i}>
