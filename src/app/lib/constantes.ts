@@ -319,7 +319,7 @@ export const ARTICULOS: Articulo[] = [
   {
     titulo: "Sloppy Agents and the Risk of a Dead Internet",
     enlace:
-      "https://blog.digitalax.xyz/sloppy-agents-and-the-risk-of-a-dead-internet-f90618db4fa0",
+      "https://fountain.ink/p/digiink/sloppy-agents-and-the-risk-of-a-dead-internet-the",
     descripcion:
       "The real risk is sloppy agents, not Skynet. Not some threat of being overtaken by superintelligences",
   },
@@ -328,14 +328,14 @@ export const ARTICULOS: Articulo[] = [
     descripcion:
       "This same DNA forms the heartbeat of web3 microbrands in the urban scene.",
     enlace:
-      "https://blog.digitalax.xyz/sovereign-mints-of-culture-microbrands-in-web3-fb87e796c68c",
+      "https://fountain.ink/p/digiink/sovereign-mints-of-culture-microbrands-in-web3-in-a-world",
   },
   {
     titulo: "Generative Markets",
     descripcion:
       "These are not just machines. They provoke the human in us, stitch together the chance to create surplus value from upgraded networks",
     enlace:
-      "https://blog.digitalax.xyz/generative-markets-challenged-by-social-media-web3-commerce-ai-80a38a327467",
+      "https://fountain.ink/p/digiink/generative-markets-challenged-by-social-media-web3-commerce-ai",
   },
   {
     titulo: "Sold Out Soles: Terms of the Deal Not Disclosed",
@@ -359,7 +359,7 @@ export const ARTICULOS: Articulo[] = [
   {
     titulo: "Recession Nostalgia",
     descripcion: "It seemed easy. Decentralize all of it.",
-    enlace: "https://blog.digitalax.xyz/recession-nostalgia-c6ea3acb8e03",
+    enlace: "https://fountain.ink/p/digiink/recession-nostalgia",
   },
   {
     titulo: "Trash the Myths. It's a New Fashion Movement.",
