@@ -48,19 +48,20 @@ const VIDEO_ENTRIES = [
   },
 ];
 
-const STATIC_PATHS = [
-  "/",
-  "/dhawu/",
-  "/merch/",
-  "/мерч/",
-  "/forum/",
-  "/mu-dheidhinn/",
-  "/timeline/",
-  "/orgs/",
-  "/פרויקטים/",
-  "/code-here/",
-  "/الكود-هنا/",
-  "/gdn/",
+const STATIC_PATHS: Array<{
+  path: string;
+  changefreq: "daily" | "weekly" | "monthly";
+  priority: string;
+}> = [
+  { path: "/", changefreq: "weekly", priority: "1.0" },
+  { path: "/dhawu/", changefreq: "weekly", priority: "0.8" },
+  { path: "/merch/", changefreq: "daily", priority: "0.9" },
+  { path: "/forum/", changefreq: "daily", priority: "0.9" },
+  { path: "/mu-dheidhinn/", changefreq: "weekly", priority: "0.8" },
+  { path: "/timeline/", changefreq: "monthly", priority: "0.7" },
+  { path: "/orgs/", changefreq: "weekly", priority: "0.8" },
+  { path: "/code-here/", changefreq: "weekly", priority: "0.8" },
+  { path: "/gdn/", changefreq: "weekly", priority: "0.8" },
 ];
 
 const toTitle = (file: string) => {
@@ -126,6 +127,7 @@ const renderVideosXml = (baseUrl: string, videos: typeof VIDEO_ENTRIES) => {
 export async function GET() {
   const baseUrl =
     process.env.NEXT_PUBLIC_BASE_URL || "https://cc0web3fashion.com";
+  const lastmod = new Date().toISOString();
 
   const imageFiles = (await listPublicFiles(IMAGE_DIR)).filter((file) =>
     /\.(png|jpg|jpeg|gif|webp)$/i.test(file)
@@ -136,15 +138,19 @@ export async function GET() {
   const videos = VIDEO_ENTRIES.filter((video) => videoFiles.has(video.file));
 
   const staticXml = STATIC_PATHS.map((page) => {
-    const loc = new URL(page, baseUrl).toString();
-    const imagesXml = page === "/" ? renderImagesXml(baseUrl, imageFiles) : "";
-    const pageVideos = videos.filter((video) => video.page === page);
+    const loc = new URL(page.path, baseUrl).toString();
+    const imagesXml =
+      page.path === "/" ? renderImagesXml(baseUrl, imageFiles) : "";
+    const pageVideos = videos.filter((video) => video.page === page.path);
     const videosXml =
       pageVideos.length > 0 ? renderVideosXml(baseUrl, pageVideos) : "";
 
     return `
       <url>
-        <loc>${loc}</loc>${imagesXml}${videosXml}
+        <loc>${loc}</loc>
+        <lastmod>${lastmod}</lastmod>
+        <changefreq>${page.changefreq}</changefreq>
+        <priority>${page.priority}</priority>${imagesXml}${videosXml}
       </url>`;
   }).join("");
 

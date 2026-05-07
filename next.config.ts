@@ -1,7 +1,6 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  telemetry: false,
   reactStrictMode: false,
   experimental: {
     scrollRestoration: true,
@@ -26,19 +25,22 @@ const nextConfig: NextConfig = {
 
     unoptimized: true,
   },
-  async rewrites() {
+  async redirects() {
     return [
       {
         source: "/%D8%A7%D9%84%D9%83%D9%88%D8%AF-%D9%87%D9%86%D8%A7",
-        destination: "/code-here",
+        destination: "/code-here/",
+        permanent: true,
       },
       {
         source: "/%D7%A4%D7%A8%D7%95%D7%99%D7%A7%D7%98%D7%99%D7%9D",
-        destination: "/orgs",
+        destination: "/orgs/",
+        permanent: true,
       },
       {
         source: "/%D0%BC%D0%B5%D1%80%D1%87",
-        destination: "/merch",
+        destination: "/merch/",
+        permanent: true,
       },
     ];
   },
