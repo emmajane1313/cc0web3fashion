@@ -6,7 +6,7 @@ import {
   createAccountWithUsername,
   fetchAccount,
 } from "@lens-protocol/client/actions";
-import { immutable } from "@lens-chain/storage-client";
+import { walletOnly } from "@lens-chain/storage-client";
 import { ModalContext } from "@/app/providers";
 import { account as accountMeta } from "@lens-protocol/metadata";
 import { useAccount } from "wagmi";
@@ -38,16 +38,16 @@ const useCrearCuenta = () => {
       });
 
       let picture = undefined;
-      const acl = immutable(chains.mainnet.id);
+      const acl = walletOnly(evmAddress(address), chains.mainnet.id);
       if (account?.pfp) {
-        const res = await fetch("/api/ipfs", {
-          method: "POST",
-          body: account?.pfp,
-        });
+        const { uri } = await contexto?.clienteAlmacenamiento?.uploadFile(
+          new File([account?.pfp], "pfp.png", {
+            type: account?.pfp?.type || "image/png",
+          }),
+          { acl }
+        )!;
 
-        const json = await res.json();
-
-        picture = "ipfs://" + json?.cid;
+        picture = uri;
       }
 
       const { uri } = await contexto?.clienteAlmacenamiento!?.uploadAsJson(

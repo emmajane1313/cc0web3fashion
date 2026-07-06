@@ -9,6 +9,7 @@ import { ModalContext } from "@/app/providers";
 import { useAccount } from "wagmi";
 import { getOrders } from "../../../../../graphql/queries/getOrders";
 import { EncryptedDetails, Order } from "../types/merch.types";
+import { GROVE_GATEWAY, INFURA_GATEWAY } from "@/app/lib/constantes";
 
 const useOrders = () => {
   const { address } = useAccount();
@@ -29,6 +30,27 @@ const useOrders = () => {
     }
   };
 
+  const resolveFulfillment = async (
+    order: Order
+  ): Promise<EncryptedDetails | undefined> => {
+    const raw = order?.fulfillment;
+    if (raw && typeof raw === "object") return raw as EncryptedDetails;
+    if (typeof raw !== "string") return undefined;
+    if (raw.startsWith("lens://")) {
+      const res = await fetch(`${GROVE_GATEWAY}${raw.split("lens://")[1]}`);
+      return await res.json();
+    }
+    if (raw.startsWith("ipfs://")) {
+      const res = await fetch(`${INFURA_GATEWAY}${raw.split("ipfs://")[1]}`);
+      return await res.json();
+    }
+    try {
+      return JSON.parse(raw);
+    } catch {
+      return undefined;
+    }
+  };
+
   const handleDecryptFulfillment = async (order: Order): Promise<void> => {
     if (order?.decrypted || !address) {
       return;
@@ -37,15 +59,15 @@ const useOrders = () => {
       prev.map((val, idx) =>
         idx ===
         contexto?.orders?.findIndex(
-          (o) =>
-            (o.fulfillment as EncryptedDetails)?.ciphertext ===
-            (order.fulfillment as EncryptedDetails)?.ciphertext
+          (o) => o.transactionHash === order.transactionHash
         )
           ? true
           : val
       )
     );
     try {
+      const fulfillment = await resolveFulfillment(order);
+      if (!fulfillment) throw new Error("Fulfillment data not found");
       let nonce = await client.getLatestBlockhash();
       const authSig = await checkAndSignAuthMessage({
         chain: "polygon",
@@ -54,11 +76,9 @@ const useOrders = () => {
       await client.connect();
 
       const { decryptedData } = await client.decrypt({
-        accessControlConditions: (order?.fulfillment as EncryptedDetails)
-          ?.accessControlConditions,
-        ciphertext: (order?.fulfillment as EncryptedDetails)?.ciphertext,
-        dataToEncryptHash: (order?.fulfillment as EncryptedDetails)
-          ?.dataToEncryptHash,
+        accessControlConditions: fulfillment?.accessControlConditions,
+        ciphertext: fulfillment?.ciphertext,
+        dataToEncryptHash: fulfillment?.dataToEncryptHash,
         chain: "polygon",
         authSig,
       });
@@ -66,10 +86,7 @@ const useOrders = () => {
       const details = await JSON.parse(uint8arrayToString(decryptedData));
 
       const updatedOrders = contexto?.orders?.map((currentOrder) => {
-        if (
-          (currentOrder?.fulfillment as EncryptedDetails).ciphertext ===
-          (order?.fulfillment as EncryptedDetails).ciphertext
-        ) {
+        if (currentOrder?.transactionHash === order?.transactionHash) {
           return {
             ...currentOrder,
             details,
@@ -87,9 +104,7 @@ const useOrders = () => {
       prev.map((val, idx) =>
         idx ===
         contexto?.orders?.findIndex(
-          (o) =>
-            (o.fulfillment as EncryptedDetails)?.ciphertext ===
-            (order.fulfillment as EncryptedDetails)?.ciphertext
+          (o) => o.transactionHash === order.transactionHash
         )
           ? false
           : val

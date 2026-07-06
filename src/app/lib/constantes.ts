@@ -49,7 +49,7 @@ export const TOKENS: { symbol: string; contract: string; image: string }[] = [
   },
 ];
 
-export const INFURA_GATEWAY: string = "https://digitalax.xyz/api/infura/";
+export const INFURA_GATEWAY: string = "https://cdn.digitalax.xyz/ipfs/";
 export const GROVE_GATEWAY: string = "https://api.grove.storage/";
 export const FORUM_FEED: string = "0x5df7430a146019F1940CF494e8C3821f9303C422";
 export const BANNER: { alt: string; imagen: string; enlace: string }[] = [

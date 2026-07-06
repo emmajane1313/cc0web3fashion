@@ -3,7 +3,7 @@ import getCommentHTML from "@/app/lib/helpers/getCommentHTML";
 import pollResult from "@/app/lib/helpers/pollResult";
 import { ModalContext } from "@/app/providers";
 import { chains } from "@lens-chain/sdk/viem";
-import { immutable } from "@lens-chain/storage-client";
+import { lensAccountOnly } from "@lens-chain/storage-client";
 import { Account, evmAddress, PageSize } from "@lens-protocol/client";
 import { fetchAccounts, post } from "@lens-protocol/client/actions";
 import {
@@ -130,6 +130,10 @@ const usePost = () => {
     setPostLoading(true);
 
     try {
+      const acl = lensAccountOnly(
+        evmAddress(context?.lensConectado?.profile?.address!),
+        chains.mainnet.id
+      );
       let schema;
 
       if (
@@ -154,14 +158,15 @@ const usePost = () => {
         if (videos?.length > 0) {
           await Promise.all(
             videos?.map(async (vid) => {
-              const response = await fetch("/api/ipfs", {
-                method: "POST",
-                body: convertToFile(vid.item, vid.type),
-              });
-              const responseJSON = await response.json();
+              const { uri } = await context?.clienteAlmacenamiento?.uploadFile(
+                new File([convertToFile(vid.item, vid.type)], "video.mp4", {
+                  type: vid.type,
+                }),
+                { acl }
+              )!;
 
               newVideos.push({
-                item: "ipfs://" + responseJSON?.cid,
+                item: uri,
                 type: vid.type as MediaVideoMimeType,
               });
             })
@@ -176,14 +181,20 @@ const usePost = () => {
           await Promise.all(
             images?.map(async (img) => {
               if (img.type !== MediaImageMimeType.GIF) {
-                const response = await fetch("/api/ipfs", {
-                  method: "POST",
-                  body: convertToFile(img.item, img.type),
-                });
-                const responseJSON = await response.json();
+                const { uri } =
+                  await context?.clienteAlmacenamiento?.uploadFile(
+                    new File(
+                      [convertToFile(img.item, img.type)],
+                      "image.png",
+                      {
+                        type: img.type,
+                      }
+                    ),
+                    { acl }
+                  )!;
 
                 newImages.push({
-                  item: "ipfs://" + responseJSON?.cid,
+                  item: uri,
                   type: img.type as MediaImageMimeType,
                 });
               } else {
@@ -223,7 +234,6 @@ const usePost = () => {
         });
       }
 
-      const acl = immutable(chains.mainnet.id);
       const { uri } = await context?.clienteAlmacenamiento?.uploadAsJson(
         schema,
         {

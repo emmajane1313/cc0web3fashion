@@ -1,5 +1,7 @@
 import { ModalContext } from "@/app/providers";
 import { chains } from "@lens-chain/sdk/viem";
+import { walletOnly } from "@lens-chain/storage-client";
+import { evmAddress } from "@lens-protocol/client";
 import { useContext, useState } from "react";
 import { createPublicClient, createWalletClient, custom, http } from "viem";
 import Web3FashionMarketAbi from "./../../../../../abis/Web3FashionMarket.json";
@@ -104,21 +106,18 @@ const usePurchase = (address: `0x${string}` | undefined) => {
         ),
       });
 
-      const ipfsRes = await fetch("/api/ipfs", {
-        method: "POST",
-        headers: {
-          contentType: "application/json",
-        },
-        body: JSON.stringify({
+      const acl = walletOnly(evmAddress(address), chains.mainnet.id);
+      const { uri } = await context?.clienteAlmacenamiento?.uploadAsJson(
+        {
           ciphertext,
           dataToEncryptHash,
           accessControlConditions,
           chain: "polygon",
-        }),
-      });
-      const json = await ipfsRes.json();
+        },
+        { acl }
+      )!;
 
-      return "ipfs://" + json?.cid;
+      return uri;
     } catch (err: any) {
       console.error(err.message);
     }
