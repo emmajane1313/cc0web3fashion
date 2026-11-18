@@ -1,85 +1,48 @@
+import escapeHtml from "./escapeHtml";
+import safeExternalUrl from "./safeExternalUrl";
+
 const descriptionRegex = (description: string, messages?: boolean) => {
-  const replacedDescription = description?.replace(/\n\n/g, "\n \n"); 
-  const lines = replacedDescription?.split(/[\r\n]+/);
-  const styledLines = lines?.map((line: string) => {
+  const replacedDescription = String(description ?? "").replace(
+    /\n\n/g,
+    "\n \n"
+  );
+  const lines = replacedDescription.split(/[\r\n]+/);
+  const color = messages ? "#ff494a" : "#81A8F8";
+
+  const styledLines = lines.map((line: string) => {
     const words = line.split(" ");
     const styledWords = words.map((word: string) => {
+      const safeWord = escapeHtml(word);
       if (word[0] === "#") {
-        if (messages) {
-          return `<em id="hashtags" style="color: #ff494a; cursor: pointer; font-style: normal;">${word}</em>`;
-        } else {
-          return `<em id="hashtags" style="color: #81A8F8; cursor: pointer; font-style: normal;">${word}</em>`;
-        }
+        return `<em id="hashtags" style="color: ${color}; cursor: pointer; font-style: normal;">${safeWord}</em>`;
       } else if (word[0] === "@") {
-        if (messages) {
-          return `
-            <a href="${`https://www.chromadin.xyz/?option=history&profile=${word?.replace(
-              "@lens/",
-              ""
-            )?.replace(
-              "@",
-              ""
-            )}`}" rel="noreferrer" target="_blank" style="margin-right: 4px;">
-              <span style="color: #ff494a;">${word}</span>
-            </a>
-          `;
-        } else {
-          return `
-            <a href="${`https://www.chromadin.xyz/?option=history&profile=${word?.replace(
-              "@lens/",
-              ""
-            )?.replace(
-              "@",
-              ""
-            )}`}" target="_blank" rel="noreferrer" style="margin-right: 4px;">
-              <span style="color: #81A8F8;">${word}</span>
-            </a>
-          `;
-        }
+        const link = escapeHtml(
+          `https://www.chromadin.xyz/?option=history&profile=${encodeURIComponent(
+            word.replace("@lens/", "").replace("@", "")
+          )}`
+        );
+        return ` <a href="${link}" rel="noreferrer" target="_blank" style="margin-right: 4px;"> <span style="color: ${color};">${safeWord}</span> </a> `;
       } else if (
-        (word[0] === "h" &&
-          word[1] === "t" &&
-          word[2] === "t" &&
-          word[3] === "p") ||
-        (word[0] === "w" &&
-          word[1] === "w" &&
-          word[2] === "w" &&
-          word[3] === ".") ||
-        (word[word.length] === "z" &&
-          word[word.length - 1] === "y" &&
-          word[word.length - 2] === "x" &&
-          word[word.length - 3] === ".") ||
-        (word[word.length] === "m" &&
-          word[word.length - 1] === "o" &&
-          word[word.length - 2] === "c" &&
-          word[word.length - 3] === ".")
+        word.startsWith("http") ||
+        word.startsWith("www.") ||
+        word.endsWith(".xyz") ||
+        word.endsWith(".com")
       ) {
-        if (messages) {
-          return `
-            <a href=${
-              word?.includes("//") ? word : `//${word}`
-            } target="_blank" rel="noreferrer">
-              <span style="color: #ff494a;">${word}</span>
-            </a>
-          `;
-        } else {
-          return `
-            <a href=${
-              word?.includes("//") ? word : `//${word}`
-            } target="_blank" rel="noreferrer">
-              <span style="color: #81A8F8;">${word}</span>
-            </a>
-          `;
+        const url = safeExternalUrl(word);
+        if (!url) {
+          return safeWord;
         }
+        return ` <a href="${escapeHtml(
+          url
+        )}" target="_blank" rel="noreferrer"> <span style="color: ${color};">${safeWord}</span> </a> `;
       } else {
-        return word;
+        return safeWord;
       }
     });
-    const styledLine = `<span>${styledWords?.join(" ")}</span>`;
-    return styledLine;
+    return `<span>${styledWords.join(" ")}</span>`;
   });
-  const formattedDescription = styledLines?.join("<br />");
-  return `<div>${formattedDescription}</div>`;
+
+  return `<div>${styledLines.join("<br />")}</div>`;
 };
 
 export default descriptionRegex;

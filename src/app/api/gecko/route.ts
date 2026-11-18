@@ -1,7 +1,13 @@
-import {  NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+import guardRequest from "@/app/lib/helpers/guardRequest";
+import { RATE_LIMIT_GECKO } from "@/app/lib/constantes";
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
+    const blocked = guardRequest(request, "gecko", RATE_LIMIT_GECKO);
+    if (blocked) return blocked;
+
+
     const [coinRes, chartRes] = await Promise.all([
       fetch(`https://api.coingecko.com/api/v3/coins/monavale`, {
         headers: {

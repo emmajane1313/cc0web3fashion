@@ -13,6 +13,23 @@ export const MERCH_MARKET: `0x${string}` =
 export const GDN_ADDRESS: `0x${string}` =
   "0xc7e32D9D3f916a59898A3bf7125efDd24eaf69a0";
 
+export const GDN_PUBLIC_KEY: string =
+  "0x04226a8fd626e0e30ad64d5fb60836fef94a99eaecb9da1cac7702ddc2257fdfaab6ca712d9be93d832b5809cf2a07903286c64aa9d0b09c08767f091c63d58814";
+
+export const LENS_CHAIN_ID: number = 232;
+export const ENCRYPTION_MESSAGE: string =
+  "Sign this message to encrypt your fulfillment details";
+export const ORDER_DECRYPTOR_PATH: string = "/order-decryptor.html";
+export const ORDER_DECRYPTOR_SHA256: string =
+  "780a7f4a32f88f74aa8fc58de69684c3374714a91fd4fa15d873fe1cb2dcc9a9";
+export const STORAGE_KEY_REGEX: RegExp = /^[0-9a-zA-Z_-]{1,128}$/;
+export const MAX_UPLOAD_BYTES: number = 100 * 1024 * 1024;
+export const RATE_LIMIT_WINDOW_MS: number = 60 * 1000;
+export const RATE_LIMIT_IPFS: number = 30;
+export const RATE_LIMIT_GRAPHQL: number = 1200;
+export const RATE_LIMIT_GECKO: number = 60;
+export const MAX_GRAPH_QUERY_LENGTH: number = 10000;
+
 export const ACCEPTED_TOKENS: string[][] = [
   [
     "WGHO",

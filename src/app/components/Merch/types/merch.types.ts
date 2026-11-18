@@ -1,10 +1,21 @@
-import { AccessControlConditions } from "@lit-protocol/types";
+export interface EncryptedData {
+  [address: string]: {
+    ephemPublicKey: string;
+    iv: string;
+    ciphertext: string;
+  };
+}
 
-export interface EncryptedDetails {
-  ciphertext: string;
-  dataToEncryptHash: string;
-  accessControlConditions: AccessControlConditions | undefined;
-  chainId: string;
+export interface CartItem {
+  amount: number;
+  collectionId: string;
+  size: string;
+}
+
+export interface BuyDetails {
+  currency: string;
+  cartItems: CartItem[];
+  fulfillment: Details;
 }
 
 export interface Merch {
@@ -37,9 +48,7 @@ export interface Drop {
 
 export interface Order {
   buyer: string;
-  fulfillment: string | EncryptedDetails;
-  details?: Details;
-  decrypted?: boolean;
+  fulfillment: string | EncryptedData;
   collection: Merch;
   currency: string;
   amount: string;

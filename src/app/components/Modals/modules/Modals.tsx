@@ -5,7 +5,6 @@ import { useContext, useEffect } from "react";
 import { Indexar } from "../../Forum/types/forum.types";
 import ImageViewer from "./ImageViewer";
 import CollectOptions from "./CollectOptions";
-import Gifs from "./Gifs";
 import CrearCuenta from "./CrearCuenta";
 import Signless from "./Signless";
 import ModalOpen from "./ModalOpen";
@@ -28,7 +27,6 @@ export default function Modals() {
     <>
       {context?.verImagen && <ImageViewer />}
       {context?.who && <Who />}
-      {context?.gif?.open && <Gifs />}
       {context?.collectOptions?.open && <CollectOptions />}
       {context?.signless && <Signless />}
       {context?.crearCuenta && <CrearCuenta />}

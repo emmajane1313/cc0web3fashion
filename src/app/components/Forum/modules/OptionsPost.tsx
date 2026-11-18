@@ -20,24 +20,6 @@ const OptionsPost: FunctionComponent<OptionsPostProps> = ({
   });
   return (
     <div className="relative w-fit h-fit flex flex-row gap-2">
-      <div
-        className={`relative w-4 h-4 items-center flex cursor-pointer ${
-          context?.postInfo?.media?.[id]?.length === 4 && "opacity-20"
-        }`}
-        onClick={() =>
-          context?.setGif({
-            open: true,
-            id,
-          })
-        }
-      >
-        <Image
-          src={`${INFURA_GATEWAY}QmSmqvoqB88FsKruGmZHGg65MZfC4dxHH6KpMBrHrUDxQs`}
-          alt="opt"
-          fill
-          draggable={false}
-        />
-      </div>
       <label
         className={`relative w-4 h-4 items-center flex ${
           !commentLoading &&

@@ -92,16 +92,6 @@ export const ModalContext = createContext<
       ) => void;
       setCrearCuenta: (e: SetStateAction<boolean>) => void;
       crearCuenta: boolean;
-      gif: {
-        open: boolean;
-        id?: string;
-      };
-      setGif: (
-        e: SetStateAction<{
-          open: boolean;
-          id?: string;
-        }>
-      ) => void;
       collectOptions: {
         open: boolean;
         id?: string;
@@ -132,12 +122,6 @@ export default function Providers({ children }: { children: React.ReactNode }) {
   const [moneda, setMoneda] = useState<CoinData>();
   const [lensConectado, setLensConectado] = useState<LensConnected>();
   const [quote, setQuote] = useState<Post | undefined>();
-  const [gif, setGif] = useState<{
-    open: boolean;
-    id?: string;
-  }>({
-    open: false,
-  });
   const [collectOptions, setCollectOptions] = useState<{
     open: boolean;
     id?: string;
@@ -216,8 +200,6 @@ export default function Providers({ children }: { children: React.ReactNode }) {
               setIndexar,
               setCollectOptions,
               collectOptions,
-              gif,
-              setGif,
               crearCuenta,
               setCrearCuenta,
               postInfo,

@@ -7,6 +7,7 @@ import { handleImage } from "@/app/lib/helpers/handleImage";
 import moment from "moment";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { ModalContext } from "@/app/providers";
+import descriptionRegex from "@/app/lib/helpers/descriptionRegex";
 
 const Feed: FunctionComponent = () => {
   const { feed, feedCargando, getMoreFeed, cursor } = useFeed();
@@ -73,8 +74,9 @@ const Feed: FunctionComponent = () => {
                     <div
                       className="relative whitespace-preline w-full flex h-full overflow-y-scroll sm:break-words break-all"
                       dangerouslySetInnerHTML={{
-                        __html:
-                          (pub?.metadata as TextOnlyMetadata)?.content ?? "",
+                        __html: descriptionRegex(
+                          (pub?.metadata as TextOnlyMetadata)?.content ?? ""
+                        ),
                       }}
                     ></div>
                     <div className="relative w-fit h-fit flex whitespace-nowrap">

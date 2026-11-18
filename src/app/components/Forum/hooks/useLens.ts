@@ -4,14 +4,14 @@ import {
   revokeAuthentication,
 } from "@lens-protocol/client/actions";
 import { useContext, useEffect, useState } from "react";
-import { createWalletClient, custom } from "viem";
-import { chains } from "@lens-chain/sdk/viem";
+import { useSignMessage } from "wagmi";
 import { ModalContext } from "@/app/providers";
 import { usePathname } from "next/navigation";
 
 const useLens = (isConnected: boolean, address: `0x${string}` | undefined) => {
   const contexto = useContext(ModalContext);
   const path = usePathname();
+  const { signMessageAsync } = useSignMessage();
   const [lensCargando, setLensCargando] = useState<boolean>(false);
 
   const resumeLensSession = async () => {
@@ -49,11 +49,11 @@ const useLens = (isConnected: boolean, address: `0x${string}` | undefined) => {
     if (!address || !contexto?.clienteLens) return;
     setLensCargando(true);
     try {
-      const signer = createWalletClient({
-        chain: chains.mainnet,
-        transport: custom(window.ethereum!),
-        account: address,
-      });
+      const signer = {
+        account: { address },
+        signMessage: ({ message }: { message: string }) =>
+          signMessageAsync({ account: address, message }),
+      };
       const accounts = await fetchAccountsAvailable(contexto?.clienteLens, {
         managedBy: evmAddress(signer.account.address),
         includeOwned: true,

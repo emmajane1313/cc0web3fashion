@@ -1,25 +1,19 @@
 import { useContext, useEffect, useState } from "react";
-import {
-  LitNodeClient,
-  checkAndSignAuthMessage,
-  uint8arrayToString,
-} from "@lit-protocol/lit-node-client";
-import { LIT_NETWORK } from "@lit-protocol/constants";
 import { ModalContext } from "@/app/providers";
 import { useAccount } from "wagmi";
 import { getOrders } from "../../../../../graphql/queries/getOrders";
-import { EncryptedDetails, Order } from "../types/merch.types";
-import { GROVE_GATEWAY, INFURA_GATEWAY } from "@/app/lib/constantes";
+import { Order } from "../types/merch.types";
+import {
+  GROVE_GATEWAY,
+  INFURA_GATEWAY,
+  STORAGE_KEY_REGEX,
+} from "@/app/lib/constantes";
+import { isEncryptedData } from "@/app/lib/helpers/encryption";
 
 const useOrders = () => {
   const { address } = useAccount();
   const contexto = useContext(ModalContext);
   const [decryptLoading, setDecryptLoading] = useState<boolean[]>([]);
-  const [orderOpen, setOrderOpen] = useState<boolean[]>([]);
-  const client = new LitNodeClient({
-    litNetwork: LIT_NETWORK.Datil,
-    debug: false,
-  });
 
   const getBuyerOrders = async () => {
     try {
@@ -30,20 +24,26 @@ const useOrders = () => {
     }
   };
 
-  const resolveFulfillment = async (
-    order: Order
-  ): Promise<EncryptedDetails | undefined> => {
+  const resolveFulfillment = async (order: Order): Promise<unknown> => {
     const raw = order?.fulfillment;
-    if (raw && typeof raw === "object") return raw as EncryptedDetails;
+    if (raw && typeof raw === "object") return raw;
     if (typeof raw !== "string") return undefined;
-    if (raw.startsWith("lens://")) {
-      const res = await fetch(`${GROVE_GATEWAY}${raw.split("lens://")[1]}`);
+
+    const key = raw.startsWith("lens://")
+      ? raw.split("lens://")[1]
+      : raw.startsWith("ipfs://")
+      ? raw.split("ipfs://")[1]
+      : undefined;
+
+    if (key !== undefined) {
+      if (!STORAGE_KEY_REGEX.test(key)) return undefined;
+      const res = await fetch(
+        `${raw.startsWith("lens://") ? GROVE_GATEWAY : INFURA_GATEWAY}${key}`
+      );
+      if (!res.ok) return undefined;
       return await res.json();
     }
-    if (raw.startsWith("ipfs://")) {
-      const res = await fetch(`${INFURA_GATEWAY}${raw.split("ipfs://")[1]}`);
-      return await res.json();
-    }
+
     try {
       return JSON.parse(raw);
     } catch {
@@ -51,72 +51,53 @@ const useOrders = () => {
     }
   };
 
-  const handleDecryptFulfillment = async (order: Order): Promise<void> => {
-    if (order?.decrypted || !address) {
+  const setLoading = (order: Order, value: boolean) => {
+    const index = contexto?.orders?.findIndex(
+      (o) => o.transactionHash === order.transactionHash
+    );
+    setDecryptLoading((prev) =>
+      prev.map((val, idx) => (idx === index ? value : val))
+    );
+  };
+
+  const handleDownloadFulfillment = async (order: Order): Promise<void> => {
+    if (!address) {
       return;
     }
-    setDecryptLoading((prev) =>
-      prev.map((val, idx) =>
-        idx ===
-        contexto?.orders?.findIndex(
-          (o) => o.transactionHash === order.transactionHash
-        )
-          ? true
-          : val
-      )
-    );
+    setLoading(order, true);
     try {
       const fulfillment = await resolveFulfillment(order);
-      if (!fulfillment) throw new Error("Fulfillment data not found");
-      let nonce = await client.getLatestBlockhash();
-      const authSig = await checkAndSignAuthMessage({
-        chain: "polygon",
-        nonce,
-      });
-      await client.connect();
 
-      const { decryptedData } = await client.decrypt({
-        accessControlConditions: fulfillment?.accessControlConditions,
-        ciphertext: fulfillment?.ciphertext,
-        dataToEncryptHash: fulfillment?.dataToEncryptHash,
-        chain: "polygon",
-        authSig,
-      });
+      if (!isEncryptedData(fulfillment)) {
+        contexto?.setModalOpen(
+          "This order was encrypted with the retired Lit network and can no longer be decrypted here."
+        );
+        setLoading(order, false);
+        return;
+      }
 
-      const details = await JSON.parse(uint8arrayToString(decryptedData));
-
-      const updatedOrders = contexto?.orders?.map((currentOrder) => {
-        if (currentOrder?.transactionHash === order?.transactionHash) {
-          return {
-            ...currentOrder,
-            details,
-            decrypted: true,
-          };
-        }
-        return currentOrder;
-      });
-      
-      contexto?.setOrders(updatedOrders as Order[]);
+      const url = URL.createObjectURL(
+        new Blob([JSON.stringify(fulfillment)], { type: "application/json" })
+      );
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `order-${String(order.transactionHash ?? "").replace(
+        /[^0-9a-zA-Z_-]/g,
+        ""
+      )}.json`;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
     } catch (err: any) {
-      console.error(err);
+      console.error(err.message);
+      contexto?.setModalOpen("Order details could not be downloaded.");
     }
-    setDecryptLoading((prev) =>
-      prev.map((val, idx) =>
-        idx ===
-        contexto?.orders?.findIndex(
-          (o) => o.transactionHash === order.transactionHash
-        )
-          ? false
-          : val
-      )
-    );
+    setLoading(order, false);
   };
 
   useEffect(() => {
     setDecryptLoading(
-      Array.from({ length: Number(contexto?.orders?.length) }, () => false)
-    );
-    setOrderOpen(
       Array.from({ length: Number(contexto?.orders?.length) }, () => false)
     );
   }, [contexto?.orders?.length]);
@@ -128,10 +109,8 @@ const useOrders = () => {
   }, [address]);
 
   return {
-    handleDecryptFulfillment,
+    handleDownloadFulfillment,
     decryptLoading,
-    orderOpen,
-    setOrderOpen,
   };
 };
 

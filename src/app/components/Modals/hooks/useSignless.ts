@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { enableSignless } from "@lens-protocol/client/actions";
 import { ethers } from "ethers";
 import { ModalContext } from "@/app/providers";
+import isValidLensTx from "@/app/lib/helpers/isValidLensTx";
 
 const useSignless = () => {
   const contexto = useContext(ModalContext);
@@ -15,6 +16,8 @@ const useSignless = () => {
 
       if (res.isErr()) {
         console.error(res.error);
+      } else if (!isValidLensTx((res.value as any)?.raw)) {
+        console.error("Invalid transaction request");
       } else {
         const provider = new ethers.BrowserProvider((window as any).ethereum);
 

@@ -199,29 +199,17 @@ const useComment = (
         if (images?.length > 0) {
           await Promise.all(
             images?.map(async (img) => {
-              if (img.type !== MediaImageMimeType.GIF) {
-                const { uri } =
-                  await context?.clienteAlmacenamiento?.uploadFile(
-                    new File(
-                      [convertToFile(img.item, img.type)],
-                      "image.png",
-                      {
-                        type: img.type,
-                      }
-                    ),
-                    { acl }
-                  )!;
+              const { uri } = await context?.clienteAlmacenamiento?.uploadFile(
+                new File([convertToFile(img.item, img.type)], "image.png", {
+                  type: img.type,
+                }),
+                { acl }
+              )!;
 
-                newImages.push({
-                  item: uri,
-                  type: img.type as MediaImageMimeType,
-                });
-              } else {
-                newImages.push({
-                  item: img.item,
-                  type: img.type as MediaImageMimeType,
-                });
-              }
+              newImages.push({
+                item: uri,
+                type: img.type as MediaImageMimeType,
+              });
             })
           );
         }
